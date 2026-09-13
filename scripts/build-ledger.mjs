@@ -19,8 +19,8 @@ const FONTS =
   'https://fonts.googleapis.com/css2' +
   '?family=Lilita+One' +
   '&family=Press+Start+2P' +
-  '&family=Archivo:wght@400;500;600' +
-  '&family=IBM+Plex+Mono:wght@400;500' +
+  '&family=Roboto+Slab:wght@400;700' +
+  '&family=Space+Mono:wght@400;700' +
   '&display=swap';
 
 const [tokens, components, body, app, raw] = await Promise.all([

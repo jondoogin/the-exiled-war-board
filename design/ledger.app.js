@@ -167,7 +167,18 @@ window.startBoard = function (SEED) {
     return { action: "hold", why: "Steady at " + row.score + ".", sev: 0 };
   }
 
+  /* Two ramps off one scale: -ink reads as type on parchment, the bright
+     twin is a fill. Never use a fill colour for text on this ground. */
   function band(score) {
+    var m = state.model;
+    if (score === null) return "var(--ex-ink-3)";
+    if (score >= m.promote) return "var(--ex-win-ink)";
+    if (score >= m.hold) return "var(--ex-blue-ink)";
+    if (score >= m.warn) return "var(--ex-watch-ink)";
+    return "var(--ex-danger-ink)";
+  }
+
+  function bandFill(score) {
     var m = state.model;
     if (score === null) return "var(--ex-ink-3)";
     if (score >= m.promote) return "var(--ex-win)";
@@ -219,7 +230,7 @@ window.startBoard = function (SEED) {
 
   /* Sixteen blocks, one per deck. Count them the way the clan counts them. */
   function meter(h) {
-    var color = h.status === "excused" ? "var(--ex-watch)" : band(h.score);
+    var color = h.status === "excused" ? "var(--ex-ink)" : bandFill(h.score);
     var out = "";
     for (var i = 0; i < DECKS_PER_WAR; i++) {
       var on = i < h.decks;
@@ -251,7 +262,7 @@ window.startBoard = function (SEED) {
       '<p class="why"><b>' + VERDICT_NAME[r.action] + ".</b> " + esc(bits.join(" ")) + "</p>" +
       '<div class="strip-scroll"><div class="strip">' + r.history.map(weekCell).join("") + "</div></div>" +
       '<p class="legend">' +
-        "<span>one block = one deck</span>" +
+        "<span>one block = one deck, sixteen a week</span>" +
         '<span><i class="key" style="background:var(--ex-win)"></i>strong week</span>' +
         '<span><i class="key" style="background:var(--ex-danger)"></i>weak or missed</span>' +
         '<span><i class="key" style="background:var(--ex-watch)"></i>excused</span>' +
@@ -301,12 +312,12 @@ window.startBoard = function (SEED) {
             '<span class="sub">joined ' + shortDate(r.joined) + " · " + r.warsPlayed + "/" + r.warsTracked + " wars played</span></span>" +
           '<span class="metrics">' +
             '<span class="cell scorecell"><span class="scorenum" style="color:' + band(r.score) + '">' + (r.score === null ? "—" : r.score) + "</span>" +
-              '<span class="track"><i style="width:' + (r.score || 0) + "%;background:" + band(r.score) + '"></i></span></span>' +
+              '<span class="track"><i style="width:' + (r.score || 0) + "%;background:" + bandFill(r.score) + '"></i></span></span>' +
             '<span class="cell"><span class="lbl">trend</span>' + trend + "</span>" +
             '<span class="cell"><span class="lbl">decks</span><i>' + (r.deckRate === null ? "—" : r.deckRate + "%") + "</i></span>" +
             '<span class="cell"><span class="lbl">wars</span><b>' + r.warsPlayed + "/" + r.warsTracked + "</b>" +
               (r.warsExcused ? " · " + r.warsExcused + " excused" : "") +
-              (r.streak ? ' · <i style="color:var(--ex-danger)">' + r.streak + " missed</i>" : "") + "</span>" +
+              (r.streak ? ' · <i style="color:var(--ex-danger-ink)">' + r.streak + " missed</i>" : "") + "</span>" +
           "</span>" +
           '<span class="verdict v-' + r.action + '">' + VERDICT_NAME[r.action] + "</span>" +
         "</button>" +

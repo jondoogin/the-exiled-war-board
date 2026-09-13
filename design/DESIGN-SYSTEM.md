@@ -1,8 +1,17 @@
 # The Exiled — design system
 
-A coin-op cabinet in somebody's basement. Clash Royale's arena palette — royal
-blue, trophy gold, gem violet — burned into a 1983 CRT. Loud where it counts,
-readable everywhere, because the people using it are in their forties and are
+A printed war ledger pinned to a wooden arcade cabinet. Clash Royale is a
+daylit, physical place — painted boards, parchment banners, stamped gold — so
+the page is bright, saturated, and made of objects with outlines and hard
+shadows. Analog here means ink on paper: halftone, dither, misregistration,
+worn stock. Not neon on black, which is the modern-tech look and the thing this
+is deliberately not.
+
+The one dark surface is the cabinet's own CRT, inset in the board, and it is
+the only thing allowed to glow. That contrast is the whole idea: a bright
+printed sheet with a single live screen in it.
+
+Readable everywhere, because the people using it are in their forties and are
 checking it on a phone in bad light.
 
 Two files are the system. Everything else consumes them.
@@ -39,26 +48,27 @@ anything at the call site.
 
 ## Colour
 
-Single-theme by decision, not omission: a CRT has no light mode. Every surface
-is painted explicitly so the page never inherits its host's background.
+Single-theme by decision, not omission: a printed sheet has no dark mode. Every
+surface is painted explicitly so the page never inherits its host's background.
 
-**Ground** — `--ex-void #07060f` · `--ex-cabinet #100c22` · `--ex-panel #171132`
-· `--ex-panel-hi #1f1745` · `--ex-line #2c2259` · `--ex-line-soft #201844`
+**The cabinet and the paper** — `--ex-board #123a63` (painted cabinet) ·
+`--ex-paper #f6e7c2` (the ledger sheet) · `--ex-paper-2 #ecd8a8` (ruled rows,
+wells, drawers). Ink is `--ex-ink #241a10`: a warm brown-black, printed ink on
+stock, never `#000`.
 
-**Ink** — `--ex-ink #f0ecff` · `--ex-ink-2 #b6adde` · `--ex-ink-3 #7d74ab`.
-Violet-biased whites; a neutral grey reads as unconsidered against this much
-saturation.
+**The tube** — `--ex-tube #0e1a12` with `--ex-phosphor #7cf07a` and
+`--ex-phosphor-2 #ffd05e`. Used only inside `.hud`. Scanlines live there and
+nowhere else, so they read as a screen rather than a filter over the page.
 
-**Brand** — `--ex-blue #3fd2ff` (accent, interaction, focus) ·
-`--ex-gold #ffc23d` (fame, and the top three ranks) ·
-`--ex-violet #b85cff` (rank chips, the tube's own glow).
+**Arena** — `--ex-blue #2f7fd4` · `--ex-gold #f2b31c` · `--ex-purple #8a4fd0`.
 
-**Status** — `--ex-win #4ce08c` · `--ex-watch #ffb23d` · `--ex-danger #ff6767`.
-Each has a matching `-wash` at ~14% for fills behind its own foreground.
+**Status** — `--ex-win #46a63f` · `--ex-watch #e8951f` · `--ex-danger #cf3a2b`.
 
-**Glow** — `--ex-bloom-*` exists because a phosphor tube blooms. Use it on live
-numerals, focused controls and the top-rank badge. Never on body text: it
-smears at reading sizes.
+Every arena and status colour has an **ink-safe twin** (`--ex-blue-ink`,
+`--ex-danger-ink`, …). The bright value is a fill; the `-ink` value is type on
+parchment. Using a fill colour for text on this ground is the one colour
+mistake this system makes easy to avoid — `band()` returns ink, `bandFill()`
+returns fill, and they are never crossed.
 
 ## Type
 
@@ -67,10 +77,10 @@ the register shift between arcade and document.
 
 | Token | Face | Where |
 | --- | --- | --- |
-| `--ex-display` | Lilita One | h1, tile numerals, member names, score |
+| `--ex-display` | Lilita One | h1 (ink-outlined, hard-dropped, like a painted arena banner), tile numerals, member names, score |
 | `--ex-pixel` | Press Start 2P | labels of one to three words, 9–11px only |
-| `--ex-body` | Archivo | anything anyone actually reads |
-| `--ex-data` | IBM Plex Mono | figures that must line up in a column |
+| `--ex-body` | Roboto Slab | anything anyone actually reads |
+| `--ex-data` | Space Mono | figures that must line up in a column |
 
 Press Start 2P is texture. If a pixel-font string wraps to a second line, it is
 being used wrong — shorten the label or change the face. Nothing below 9px.
@@ -80,8 +90,14 @@ Scale: `--ex-t-xs 11` → `--ex-t-3xl clamp(34px, 8vw, 56px)`, a 1.25 ratio off 
 
 ## Layout and form
 
-Square corners throughout (`--ex-edge: 0`) — an 8-bit screen has no radii. 4px
-spacing base. Touch targets never below `--ex-tap: 44px`. The roster is a
+**Nothing is a hairline.** Every element is a printed object: a `--ex-stroke`
+(3px) or `--ex-rule` (2px) ink outline, a flat fill, and a hard shadow with no
+blur, because ink does not blur. Buttons sit on their shadow and drop onto it
+when pressed.
+
+Square corners throughout (`--ex-edge: 0`) — printed labels and 8-bit screens
+have no radii. The single exception is the CRT, which is rounded because tube
+glass is. 4px spacing base. Touch targets never below `--ex-tap: 44px`. The roster is a
 stacked card list below 880px and a six-column grid above it, from one DOM
 structure: `.metrics` switches to `display: contents` and its children become
 grid cells.
@@ -94,19 +110,23 @@ grid cells.
   `.sev2` warn, `.sev3` demote or kick) and paints the left rule. `.top` gilds
   the badge for the first three.
 - `.verdict` — the call, as a bordered pill. One class per outcome.
-- `.week` / `.meter` / `.seg` — the week cell. Sixteen segments, filled per deck
-  used, coloured by the week's score band; gold when excused.
+- `.week` / `.meter` / `.seg` — the week cell. Sixteen blocks in a 4x4, one per
+  deck, filled in the week's score-band colour; unfilled blocks are dithered the
+  way an 8-bit screen shaded an empty gauge. The card turns gold when excused.
+  The grid shape echoes four battle days of four, but the API reports only a
+  weekly total — so the blocks are never labelled by day.
 - `.banner` — one state message, amber rule, never more than one on screen.
 - `.btn`, `.switch`, `input[type=search]`, `select` — controls. All at least
   44px tall, all with a visible `:focus-visible` ring in blue.
 
 ## Motion
 
-`--ex-fast 120ms` for state, `--ex-mid 260ms` for entrances, `--ex-slow 620ms`
-for the score bars charging up. Easing is `cubic-bezier(0.2, 0.7, 0.3, 1)` —
-quick in, no bounce; arcade, not toy. Deck segments stagger 22ms apart so a
-meter fills like a power bar. Everything is disabled wholesale under
-`prefers-reduced-motion`.
+Mechanical, not smooth. `--ex-ease` is `steps(8, end)` — a counter ticking over,
+not a curve a physical object could not make. `--ex-fast 110ms` for state,
+`--ex-slow 560ms` for score bars filling. Deck blocks stagger 22ms apart so a
+meter loads block by block. `--ex-ease-soft` exists only for the button press,
+which is the one thing on the page with real mass. Everything is disabled
+wholesale under `prefers-reduced-motion`.
 
 ## Accessibility notes
 
@@ -114,5 +134,6 @@ meter fills like a power bar. Everything is disabled wholesale under
   supporting text at 11px and up, never for the only copy in a row.
 - Status is never colour alone — every verdict carries its word, every missed
   week shows `0/16`.
-- The scanline and bloom overlays are `pointer-events: none` and sit behind the
-  content's stacking context.
+- The scanline overlay is `pointer-events: none` and confined to the CRT.
+- Texture never carries meaning: halftone, grain and dither are surface only,
+  and every state they sit under is also stated in colour and in words.

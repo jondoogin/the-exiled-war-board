@@ -18,8 +18,9 @@
      Ink is a warm brown-black: printed ink on stock, never #000. */
   --ex-board:      #123a63;  /* painted cabinet behind everything */
   --ex-board-dark: #0c2847;  /* its shadowed edge */
-  --ex-paper:      #f6e7c2;  /* the ledger sheet */
-  --ex-paper-2:    #ecd8a8;  /* a second sheet, ruled rows, wells */
+  --ex-paper:      #f2ede1;  /* the ledger sheet — chalky bone, not mustard */
+  --ex-paper-2:    #e6ddc7;  /* a second sheet, ruled rows, wells */
+  --ex-well:       #faf7ee;  /* input fields, meter cells — lightest stock */
   --ex-ink:        #241a10;
   --ex-ink-2:      #5b4630;
   --ex-ink-3:      #8a7350;

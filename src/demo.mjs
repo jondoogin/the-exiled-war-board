@@ -125,7 +125,7 @@ async function main() {
           trophyChange: pick([180, 120, 60, -30]),
           clan: {
             tag: CLAN_TAG,
-            name: 'Lost Boys',
+            name: 'The Exiled',
             fame: clanFame,
             repairPoints: participants.reduce((s, p) => s + p.repairPoints, 0),
             participants
@@ -152,7 +152,7 @@ async function main() {
       sectionIndex: WEEKS,
       clan: {
         tag: CLAN_TAG,
-        name: 'Lost Boys',
+        name: 'The Exiled',
         fame: 0,
         repairPoints: 0,
         participants: [...roster, newcomer].map((m) => {
@@ -166,7 +166,7 @@ async function main() {
     start.toISOString()
   );
 
-  state.clan = { tag: CLAN_TAG, name: 'Lost Boys', members: roster.length + 1, clanWarTrophies: 4120, description: 'Demo clan' };
+  state.clan = { tag: CLAN_TAG, name: 'The Exiled', members: roster.length + 1, clanWarTrophies: 4120, description: 'Sample clan' };
   state.syncedAt = start.toISOString();
 
   // A couple of declared absences, so the exemption path is visible.

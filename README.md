@@ -1,4 +1,4 @@
-# Clash Royale Clan War Tracker
+# The Exiled — war board
 
 A self-contained war-participation tracker for a Clash Royale clan. Pulls the
 roster and river race results from the official API, keeps its own history,
@@ -84,13 +84,27 @@ in Clash Royale; this tool only tells you who to look at and why.
 ## Layout
 
 ```
-src/api.mjs       Clash API client
-src/sync.mjs      ingest + roster diffing (join / leave / promote / demote)
-src/store.mjs     flat JSON store, atomic writes
-src/scoring.mjs   the model — shared by server and browser
-src/demo.mjs      synthetic clan generator
-src/server.mjs    static host + JSON API + CSV export
-public/           the dashboard
+design/tokens.css        every colour, face, size, duration — see DESIGN-SYSTEM.md
+design/components.css    the component layer, built only from tokens
+design/ledger.body.html  page shell (markup only)
+design/ledger.app.js     the board — window.startBoard(seed)
+src/api.mjs              Clash API client
+src/sync.mjs             ingest + roster diffing (join / leave / promote / demote)
+src/store.mjs            flat JSON store, atomic writes
+src/scoring.mjs          the model — shared by server and browser
+src/compact.mjs          store -> board payload, shared by server and build
+src/demo.mjs             sample clan generator
+src/server.mjs           serves design/ directly and composes the shell
+scripts/build-ledger.mjs inlines the system into dist/ledger.html for hosting
+public/boot.js           local-app bootstrap (fetch seed, wire Sync/Export)
+```
+
+The design system is documented in [design/DESIGN-SYSTEM.md](design/DESIGN-SYSTEM.md).
+The local app and the hosted board are assembled from the same four design
+files, so they cannot drift. To rebuild the hosted page:
+
+```bash
+node scripts/build-ledger.mjs      # -> dist/ledger.html
 ```
 
 ## Next steps if this graduates past prototype

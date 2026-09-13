@@ -1,0 +1,92 @@
+<div class="wrap boot">
+  <header>
+    <p class="pixel">River Race · Week 9 · Sample data</p>
+    <h1>THE <span class="flare">EXILED</span><br>WAR BOARD</h1>
+    <p class="lede">Eight river races, twenty-eight grown men, sixteen decks a week each. One weighted score decides who gets bumped up and who gets shown the door. <b>Drag the weights</b> and the whole roster re-sorts — that argument is easier to have with names on the screen.</p>
+  </header>
+
+  <p class="banner" id="banner"><span>▲</span><span class="msg"><b>Sample roster.</b> These members, their fame and their missed decks are generated so the model has something to chew on. None of it is The Exiled's real record yet.</span></p>
+
+  <section class="hud" id="hud" aria-label="Clan summary"></section>
+
+  <section class="panel">
+    <div class="controls">
+      <input type="search" id="q" placeholder="Search a name" aria-label="Search members">
+      <select id="f-role" aria-label="Filter by rank">
+        <option value="">All ranks</option>
+        <option value="leader">Leader</option>
+        <option value="coLeader">Co-leader</option>
+        <option value="elder">Elder</option>
+        <option value="member">Member</option>
+      </select>
+      <select id="f-verdict" aria-label="Filter by verdict">
+        <option value="">All verdicts</option>
+        <option value="promote">Promote</option>
+        <option value="hold">Hold</option>
+        <option value="watch">Watch</option>
+        <option value="warn">Warn</option>
+        <option value="demote">Demote</option>
+        <option value="kick">Kick</option>
+      </select>
+      <label class="switch"><input type="checkbox" id="f-gone"> Departed</label>
+      <span class="tally" id="tally"></span>
+    </div>
+
+    <details class="model" id="model">
+      <summary>Scoring model</summary>
+      <div class="knobs">
+        <div class="knob">
+          <label for="k-part">Participation <output id="o-part"></output></label>
+          <input type="range" id="k-part" min="0" max="1" step="0.05">
+          <p>Decks used out of sixteen. Showing up at all.</p>
+        </div>
+        <div class="knob">
+          <label for="k-eff">Efficiency <output id="o-eff"></output></label>
+          <input type="range" id="k-eff" min="0" max="1" step="0.05">
+          <p>Fame per deck played. Winning, not just attacking.</p>
+        </div>
+        <div class="knob">
+          <label for="k-con">Contribution <output id="o-con"></output></label>
+          <input type="range" id="k-con" min="0" max="1" step="0.05">
+          <p>Output against the clan median that same week.</p>
+        </div>
+        <div class="knob">
+          <label for="k-half">Half-life <output id="o-half"></output></label>
+          <input type="range" id="k-half" min="1" max="8" step="1">
+          <p>How fast an old war stops counting against you.</p>
+        </div>
+        <div class="knob">
+          <label for="k-promote">Promote at <output id="o-promote"></output></label>
+          <input type="range" id="k-promote" min="55" max="100" step="1">
+          <p>Four tracked wars required as well.</p>
+        </div>
+        <div class="knob">
+          <label for="k-warn">Demote below <output id="o-warn"></output></label>
+          <input type="range" id="k-warn" min="10" max="80" step="1">
+          <p>At Member rank, a demotion is a kick.</p>
+        </div>
+        <div class="knob knob-actions">
+          <button type="button" class="btn" id="reset">Reset model</button>
+          <label class="switch"><input type="checkbox" id="k-live"> Count live week</label>
+        </div>
+      </div>
+    </details>
+
+    <div class="colhead" id="colhead">
+      <button type="button" data-key="name">Member</button>
+      <button type="button" data-key="score">Score</button>
+      <button type="button" data-key="trend">Trend</button>
+      <button type="button" data-key="deckRate">Decks</button>
+      <button type="button" data-key="warsPlayed">Wars</button>
+      <button type="button" data-key="action">Verdict</button>
+    </div>
+    <div class="roster" id="roster"></div>
+  </section>
+
+  <section class="panel">
+    <div style="padding: var(--ex-s3) var(--ex-s3) 0"><h2>Roster activity</h2></div>
+    <ul class="log" id="log"></ul>
+  </section>
+
+  <p class="foot">Tap a member for their eight-week record, then tap a week to log a <b>declared absence</b> — an excused week leaves the average entirely instead of scoring zero, and it breaks a miss streak. Excuses and slider settings live in this browser only; nobody else sees yours.</p>
+</div>

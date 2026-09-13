@@ -1,0 +1,450 @@
+/* ============================================================================
+   THE EXILED — component layer
+   Built only from the tokens in tokens.css. Load that file first.
+   ========================================================================= */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ex-void);
+  color: var(--ex-ink);
+  font-family: var(--ex-body);
+  font-size: var(--ex-t-md);
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+  position: relative;
+}
+
+/* --- The screen ------------------------------------------------------------
+   Two fixed overlays make the cabinet: scanlines, and a violet bloom leaking
+   from the top of the tube. Both are decoration and must never eat a click. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  background:
+    radial-gradient(80% 55% at 50% -8%, var(--ex-violet-wash), transparent 70%),
+    radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.55));
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-inline: var(--ex-s4);
+  padding-block: var(--ex-s5) var(--ex-s7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ex-s5);
+}
+
+/* --- Type ---------------------------------------------------------------- */
+.pixel {
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ex-ink-3);
+}
+h1 {
+  font-family: var(--ex-display);
+  font-size: var(--ex-t-3xl);
+  line-height: 0.95;
+  letter-spacing: 0.005em;
+  margin: var(--ex-s2) 0 0;
+  text-wrap: balance;
+  color: var(--ex-ink);
+  text-shadow: 0 0 24px rgba(63, 210, 255, 0.35), 0 3px 0 rgba(0, 0, 0, 0.6);
+}
+h1 .flare { color: var(--ex-blue); }
+h2 {
+  font-family: var(--ex-pixel);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ex-blue);
+  margin: 0;
+}
+.lede {
+  margin: var(--ex-s3) 0 0;
+  color: var(--ex-ink-2);
+  max-width: 60ch;
+  font-size: var(--ex-t-md);
+}
+.lede b { color: var(--ex-ink); font-weight: 600; }
+
+.banner {
+  display: flex;
+  gap: var(--ex-s3);
+  align-items: flex-start;
+  background: var(--ex-watch-wash);
+  border-left: var(--ex-rule) solid var(--ex-watch);
+  padding: var(--ex-s3) var(--ex-s4);
+  font-size: var(--ex-t-sm);
+  color: var(--ex-ink-2);
+}
+.banner b { color: var(--ex-ink); font-weight: 600; }
+
+/* --- HUD tiles -------------------------------------------------------------
+   The arcade status bar. Big numeral, 8-bit label, one line of context. */
+.hud {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--ex-hair);
+  background: var(--ex-line);
+  border: var(--ex-hair) solid var(--ex-line);
+}
+@media (min-width: 720px) { .hud { grid-template-columns: repeat(4, 1fr); } }
+.tile {
+  background: var(--ex-panel);
+  padding: var(--ex-s3) var(--ex-s4) var(--ex-s4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tile b {
+  font-family: var(--ex-display);
+  font-size: var(--ex-t-2xl);
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  color: var(--ex-blue);
+  text-shadow: var(--ex-bloom-blue);
+}
+.tile.is-gold b { color: var(--ex-gold); text-shadow: var(--ex-bloom-gold); }
+.tile.is-danger b { color: var(--ex-danger); text-shadow: var(--ex-bloom-danger); }
+.tile span { font-family: var(--ex-pixel); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ex-ink-3); }
+.tile em { font-style: normal; font-size: var(--ex-t-xs); color: var(--ex-ink-2); }
+
+/* --- Panels and controls -------------------------------------------------- */
+.panel {
+  background: var(--ex-cabinet);
+  border: var(--ex-hair) solid var(--ex-line);
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ex-s2);
+  align-items: center;
+  padding: var(--ex-s3);
+}
+input[type="search"], select {
+  font: inherit;
+  font-size: var(--ex-t-sm);
+  color: var(--ex-ink);
+  background: var(--ex-panel);
+  border: var(--ex-hair) solid var(--ex-line);
+  border-radius: var(--ex-edge);
+  padding: 0 var(--ex-s3);
+  min-height: var(--ex-tap);
+}
+input[type="search"] { flex: 1 1 180px; min-width: 0; }
+input[type="search"]::placeholder { color: var(--ex-ink-3); }
+:focus-visible {
+  outline: var(--ex-rule) solid var(--ex-blue);
+  outline-offset: 1px;
+}
+.tally { font-family: var(--ex-data); font-size: var(--ex-t-xs); color: var(--ex-ink-3); margin-left: auto; }
+.btn {
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ex-ink);
+  background: var(--ex-panel);
+  border: var(--ex-hair) solid var(--ex-line);
+  padding: 0 var(--ex-s3);
+  min-height: var(--ex-tap);
+  cursor: pointer;
+  transition: color var(--ex-fast) var(--ex-ease), border-color var(--ex-fast) var(--ex-ease), box-shadow var(--ex-fast) var(--ex-ease);
+}
+.btn:hover { color: var(--ex-blue); border-color: var(--ex-blue); box-shadow: var(--ex-bloom-blue); }
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ex-s2);
+  min-height: var(--ex-tap);
+  font-size: var(--ex-t-sm);
+  color: var(--ex-ink-2);
+  cursor: pointer;
+}
+.switch input { width: 18px; height: 18px; accent-color: var(--ex-blue); }
+
+/* --- Model drawer --------------------------------------------------------- */
+details.model { border-top: var(--ex-hair) solid var(--ex-line); }
+details.model > summary {
+  cursor: pointer;
+  padding: var(--ex-s3);
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ex-blue);
+  list-style: none;
+}
+details.model > summary::-webkit-details-marker { display: none; }
+details.model > summary::before { content: "> "; }
+details.model[open] > summary::before { content: "v "; }
+.knobs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--ex-s4);
+  padding: 0 var(--ex-s3) var(--ex-s4);
+}
+.knob label {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--ex-s2);
+  align-items: baseline;
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ex-ink-3);
+}
+.knob output { font-family: var(--ex-data); font-size: var(--ex-t-sm); color: var(--ex-gold); letter-spacing: 0; }
+.knob input[type="range"] {
+  width: 100%;
+  margin: var(--ex-s2) 0 0;
+  accent-color: var(--ex-blue);
+  min-height: 24px;
+}
+.knob p { margin: var(--ex-s1) 0 0; font-size: var(--ex-t-xs); color: var(--ex-ink-3); line-height: 1.4; }
+.knob-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ex-s3); }
+
+/* --- Roster --------------------------------------------------------------- */
+.colhead {
+  display: none;
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--ex-panel-hi);
+  border-bottom: var(--ex-hair) solid var(--ex-line);
+}
+.colhead button {
+  font: inherit;
+  background: none;
+  border: 0;
+  color: var(--ex-ink-3);
+  cursor: pointer;
+  padding: var(--ex-s3) var(--ex-s1);
+  text-align: left;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+.colhead button:hover, .colhead button[data-active="1"] { color: var(--ex-blue); }
+.roster { display: flex; flex-direction: column; background: var(--ex-cabinet); }
+.m { border-bottom: var(--ex-hair) solid var(--ex-line-soft); }
+.m:last-child { border-bottom: 0; }
+.m.gone { opacity: 0.5; }
+.m-main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--ex-s2) var(--ex-s3);
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-left: var(--ex-rule) solid transparent;
+  padding: var(--ex-s3);
+  cursor: pointer;
+  transition: background var(--ex-fast) var(--ex-ease);
+}
+.m-main:hover { background: var(--ex-panel); }
+.m.sev2 .m-main, .m.sev2 .detail { border-left-color: var(--ex-watch); }
+.m.sev3 .m-main, .m.sev3 .detail { border-left-color: var(--ex-danger); }
+.m.sev1 .m-main, .m.sev1 .detail { border-left-color: var(--ex-win); }
+
+.who { grid-area: 1 / 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.nm {
+  font-family: var(--ex-display);
+  font-size: var(--ex-t-lg);
+  line-height: 1.15;
+  display: flex;
+  align-items: center;
+  gap: var(--ex-s2);
+  flex-wrap: wrap;
+}
+.rk {
+  font-family: var(--ex-data);
+  font-size: var(--ex-t-xs);
+  color: var(--ex-ink-3);
+  background: var(--ex-panel-hi);
+  border: var(--ex-hair) solid var(--ex-line);
+  padding: 1px 5px;
+  min-width: 26px;
+  text-align: center;
+}
+.m.top .rk { color: var(--ex-gold); border-color: var(--ex-gold); box-shadow: var(--ex-bloom-gold); }
+.role {
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ex-violet);
+  border: var(--ex-hair) solid var(--ex-violet);
+  padding: 2px 5px;
+}
+.role.r-member { color: var(--ex-ink-3); border-color: var(--ex-line); }
+.sub { font-family: var(--ex-data); font-size: var(--ex-t-xs); color: var(--ex-ink-3); }
+
+.verdict {
+  grid-area: 1 / 2;
+  justify-self: end;
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: var(--ex-s2) var(--ex-s2);
+  white-space: nowrap;
+  border: var(--ex-hair) solid transparent;
+}
+.v-promote { background: var(--ex-win-wash); color: var(--ex-win); border-color: var(--ex-win); }
+.v-hold { background: var(--ex-panel-hi); color: var(--ex-ink-2); border-color: var(--ex-line); }
+.v-watch { background: var(--ex-panel-hi); color: var(--ex-ink-3); border-color: var(--ex-line); }
+.v-warn { background: var(--ex-watch-wash); color: var(--ex-watch); border-color: var(--ex-watch); }
+.v-demote, .v-kick { background: var(--ex-danger-wash); color: var(--ex-danger); border-color: var(--ex-danger); }
+.v-departed { background: transparent; color: var(--ex-ink-3); border-color: var(--ex-line); }
+
+.metrics {
+  grid-area: 2 / 1 / 3 / 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ex-s1) var(--ex-s4);
+}
+.cell { font-family: var(--ex-data); font-size: var(--ex-t-xs); color: var(--ex-ink-3); font-variant-numeric: tabular-nums; }
+.cell i { font-style: normal; color: var(--ex-ink); }
+.cell b { font-weight: 500; color: var(--ex-ink-2); }
+.lbl { font-family: var(--ex-pixel); font-size: 9px; color: var(--ex-ink-3); margin-right: var(--ex-s1); }
+.scorecell { display: flex; align-items: center; gap: var(--ex-s2); }
+.scorenum {
+  font-family: var(--ex-display);
+  font-size: var(--ex-t-xl);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  min-width: 2.6ch;
+}
+.track { width: 58px; height: 8px; background: var(--ex-panel-hi); border: var(--ex-hair) solid var(--ex-line); overflow: hidden; }
+.track i { display: block; height: 100%; transform-origin: left center; animation: chargeX var(--ex-slow) var(--ex-ease) both; }
+.up { color: var(--ex-win); } .down { color: var(--ex-danger); } .flat { color: var(--ex-ink-3); }
+
+/* --- The week strip --------------------------------------------------------
+   The clan's own unit of measure: sixteen decks, four battle days of four.
+   So the meter is sixteen literal blocks, not a smooth bar — you can count
+   what someone owes you. Block colour carries the quality of the week. */
+.detail { padding: 0 var(--ex-s3) var(--ex-s4); border-left: var(--ex-rule) solid transparent; }
+.why { margin: 0 0 var(--ex-s3); font-size: var(--ex-t-sm); color: var(--ex-ink-2); max-width: 66ch; }
+.why b { color: var(--ex-ink); font-weight: 600; }
+.strip-scroll { overflow-x: auto; padding-bottom: var(--ex-s1); }
+.strip { display: flex; gap: var(--ex-s1); min-width: min-content; }
+.week {
+  flex: 0 0 auto;
+  width: 78px;
+  background: var(--ex-panel);
+  border: var(--ex-hair) solid var(--ex-line);
+  padding: var(--ex-s2) var(--ex-s2) var(--ex-s2);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ex-s2);
+  transition: border-color var(--ex-fast) var(--ex-ease), box-shadow var(--ex-fast) var(--ex-ease);
+}
+.week:hover { border-color: var(--ex-blue); box-shadow: var(--ex-bloom-blue); }
+.week.st-none { opacity: 0.35; cursor: default; }
+.meter {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1px;
+  width: 100%;
+  height: 62px;
+}
+.seg { flex: 1 1 0; background: var(--ex-line-soft); }
+.seg.on { animation: charge var(--ex-fast) var(--ex-ease) both; }
+.week-decks { font-family: var(--ex-data); font-size: var(--ex-t-sm); font-variant-numeric: tabular-nums; color: var(--ex-ink); }
+.week-decks em { font-style: normal; color: var(--ex-ink-3); }
+.week-meta { font-family: var(--ex-pixel); font-size: 9px; color: var(--ex-ink-3); text-align: center; }
+.st-missed .week-decks { color: var(--ex-danger); }
+.st-excused .week-decks { color: var(--ex-watch); }
+.st-excused { border-color: var(--ex-watch); }
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ex-s2) var(--ex-s4);
+  margin: var(--ex-s3) 0 0;
+  font-family: var(--ex-data);
+  font-size: var(--ex-t-xs);
+  color: var(--ex-ink-3);
+}
+.legend span { display: inline-flex; align-items: center; gap: var(--ex-s1); }
+.key { width: 9px; height: 9px; display: inline-block; }
+.empty { padding: var(--ex-s6) var(--ex-s4); color: var(--ex-ink-3); }
+
+/* --- Log ------------------------------------------------------------------ */
+ul.log { list-style: none; margin: 0; padding: 0; }
+.log li {
+  display: flex;
+  gap: var(--ex-s3);
+  padding: var(--ex-s2) var(--ex-s3);
+  border-bottom: var(--ex-hair) solid var(--ex-line-soft);
+  font-size: var(--ex-t-sm);
+  color: var(--ex-ink-2);
+  align-items: baseline;
+}
+.log li:last-child { border-bottom: 0; }
+.log time { font-family: var(--ex-pixel); font-size: 9px; color: var(--ex-ink-3); flex: 0 0 68px; }
+.log b { color: var(--ex-ink); font-weight: 600; }
+.foot { font-size: var(--ex-t-sm); color: var(--ex-ink-3); max-width: 64ch; }
+.foot b { color: var(--ex-ink-2); font-weight: 600; }
+
+/* --- Motion ----------------------------------------------------------------
+   One charge-up on load, nothing that loops. The page is legible the instant
+   it paints; the animation is the arcade flourish on top of a finished frame. */
+@keyframes chargeX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes charge { from { opacity: 0; transform: scaleY(0.2); } to { opacity: 1; transform: scaleY(1); } }
+@keyframes boot { from { opacity: 0.25; filter: blur(2px); } to { opacity: 1; filter: blur(0); } }
+.boot { animation: boot var(--ex-mid) var(--ex-ease) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* --- Wide: the roster becomes a real table -------------------------------- */
+@media (min-width: 880px) {
+  .colhead { display: grid; }
+  .colhead, .m-main {
+    grid-template-columns: 2.2fr 132px 78px 90px 1.1fr 130px;
+    align-items: center;
+    gap: var(--ex-s3);
+  }
+  .colhead { padding-inline: var(--ex-s3) var(--ex-s3); padding-left: 14px; }
+  .who, .verdict, .metrics { grid-area: auto; }
+  .metrics { display: contents; }
+  .verdict { justify-self: start; }
+  .lbl { display: none; }
+}

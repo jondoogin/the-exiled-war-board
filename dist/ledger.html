@@ -1,0 +1,1081 @@
+<title>The Exiled War Board</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Press+Start+2P&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* ============================================================================
+   THE EXILED — design tokens
+   One source of truth. Consumed by the web app (public/index.html) and inlined
+   into the hosted board by scripts/build-ledger.mjs. Never hard-code a hex,
+   a font stack, or a duration anywhere else.
+
+   The world: a coin-op cabinet in a basement. Clash Royale's arena palette —
+   royal blue, trophy gold, gem violet — burned into a 1983 CRT. Deliberately
+   single-theme: a CRT has no light mode. Every surface is painted explicitly
+   so the page never borrows its host's background.
+   ========================================================================= */
+
+:root {
+  color-scheme: dark;
+
+  /* --- Ground: the cabinet, darkest to lightest ------------------------- */
+  --ex-void:       #07060f;  /* page ground, behind everything */
+  --ex-cabinet:    #100c22;  /* section ground */
+  --ex-panel:      #171132;  /* cards, rows, the screen itself */
+  --ex-panel-hi:   #1f1745;  /* hover, raised, active filter */
+  --ex-line:       #2c2259;  /* structural borders */
+  --ex-line-soft:  #201844;  /* dividers inside a panel */
+
+  /* --- Ink --------------------------------------------------------------
+     Violet-biased whites. A neutral grey would read as unconsidered against
+     this much saturation. */
+  --ex-ink:        #f0ecff;
+  --ex-ink-2:      #b6adde;
+  --ex-ink-3:      #7d74ab;
+
+  /* --- Brand ------------------------------------------------------------
+     Blue is the accent and carries interaction. Gold is reserved for fame —
+     the currency of a river race — and never used as decoration. Violet is
+     the third voice: rank, identity, the cabinet's own glow. */
+  --ex-blue:       #3fd2ff;
+  --ex-blue-deep:  #1b8fd6;
+  --ex-blue-wash:  rgba(63, 210, 255, 0.13);
+  --ex-gold:       #ffc23d;
+  --ex-gold-wash:  rgba(255, 194, 61, 0.14);
+  --ex-violet:     #b85cff;
+  --ex-violet-wash:rgba(184, 92, 255, 0.15);
+
+  /* --- Semantic ---------------------------------------------------------
+     Status, kept strictly apart from the brand accent so "blue" never has to
+     mean "good". Each pairs a foreground with its own wash. */
+  --ex-win:        #4ce08c;
+  --ex-win-wash:   rgba(76, 224, 140, 0.14);
+  --ex-watch:      #ffb23d;
+  --ex-watch-wash: rgba(255, 178, 61, 0.14);
+  --ex-danger:     #ff6767;
+  --ex-danger-wash:rgba(255, 103, 103, 0.15);
+
+  /* --- Phosphor glow ----------------------------------------------------
+     A CRT blooms. Used on live numbers and focused controls only; never on
+     body text, which would smear it. */
+  --ex-bloom-blue:   0 0 12px rgba(63, 210, 255, 0.45);
+  --ex-bloom-gold:   0 0 12px rgba(255, 194, 61, 0.4);
+  --ex-bloom-danger: 0 0 12px rgba(255, 103, 103, 0.4);
+  --ex-lift:         0 2px 0 rgba(0, 0, 0, 0.5), 0 0 0 1px var(--ex-line);
+
+  /* --- Type -------------------------------------------------------------
+     Four roles, each with a job:
+       display — Lilita One. Chunky arcade poster. Headings and big numerals.
+       pixel   — Press Start 2P. True 8-bit, rationed to labels of 1-3 words
+                 at 9-11px. It is texture, not a reading face.
+       body    — Archivo. Does the actual reading. These are 40-year-old eyes.
+       data    — IBM Plex Mono. Tabular figures that must line up. */
+  --ex-display: "Lilita One", "Archivo Black", system-ui, sans-serif;
+  --ex-pixel:   "Press Start 2P", "Courier New", monospace;
+  --ex-body:    "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ex-data:    "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  /* Type scale, 1.25 minor third off a 15px base */
+  --ex-t-xs:  11px;
+  --ex-t-sm:  13px;
+  --ex-t-md:  15px;
+  --ex-t-lg:  19px;
+  --ex-t-xl:  24px;
+  --ex-t-2xl: 31px;
+  --ex-t-3xl: clamp(34px, 8vw, 56px);
+
+  /* --- Space: 4px base --------------------------------------------------- */
+  --ex-s1: 4px;
+  --ex-s2: 8px;
+  --ex-s3: 12px;
+  --ex-s4: 16px;
+  --ex-s5: 24px;
+  --ex-s6: 32px;
+  --ex-s7: 48px;
+
+  /* --- Form -------------------------------------------------------------
+     Corners are square. An 8-bit screen has no radii, and the one place a
+     curve appears (the pill) is a deliberate exception. */
+  --ex-edge: 0px;
+  --ex-pill: 999px;
+  --ex-hair: 1px;
+  --ex-rule: 2px;
+  --ex-tap:  44px;   /* minimum touch target */
+
+  /* --- Motion -----------------------------------------------------------
+     Arcade timing: fast in, no bounce. Every duration here is disabled
+     wholesale under prefers-reduced-motion. */
+  --ex-fast: 120ms;
+  --ex-mid:  260ms;
+  --ex-slow: 620ms;
+  --ex-ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --ex-step: steps(16, end);  /* for anything quantized to a deck count */
+}
+
+/* ============================================================================
+   THE EXILED — component layer
+   Built only from the tokens in tokens.css. Load that file first.
+   ========================================================================= */
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ex-void);
+  color: var(--ex-ink);
+  font-family: var(--ex-body);
+  font-size: var(--ex-t-md);
+  line-height: 1.55;
+  -webkit-text-size-adjust: 100%;
+  position: relative;
+}
+
+/* --- The screen ------------------------------------------------------------
+   Two fixed overlays make the cabinet: scanlines, and a violet bloom leaking
+   from the top of the tube. Both are decoration and must never eat a click. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.035) 0px,
+    rgba(255, 255, 255, 0.035) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  background:
+    radial-gradient(80% 55% at 50% -8%, var(--ex-violet-wash), transparent 70%),
+    radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(0, 0, 0, 0.55));
+}
+
+.wrap {
+  position: relative;
+  z-index: 1;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding-inline: var(--ex-s4);
+  padding-block: var(--ex-s5) var(--ex-s7);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ex-s5);
+}
+
+/* --- Type ---------------------------------------------------------------- */
+.pixel {
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ex-ink-3);
+}
+h1 {
+  font-family: var(--ex-display);
+  font-size: var(--ex-t-3xl);
+  line-height: 0.95;
+  letter-spacing: 0.005em;
+  margin: var(--ex-s2) 0 0;
+  text-wrap: balance;
+  color: var(--ex-ink);
+  text-shadow: 0 0 24px rgba(63, 210, 255, 0.35), 0 3px 0 rgba(0, 0, 0, 0.6);
+}
+h1 .flare { color: var(--ex-blue); }
+h2 {
+  font-family: var(--ex-pixel);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ex-blue);
+  margin: 0;
+}
+.lede {
+  margin: var(--ex-s3) 0 0;
+  color: var(--ex-ink-2);
+  max-width: 60ch;
+  font-size: var(--ex-t-md);
+}
+.lede b { color: var(--ex-ink); font-weight: 600; }
+
+.banner {
+  display: flex;
+  gap: var(--ex-s3);
+  align-items: flex-start;
+  background: var(--ex-watch-wash);
+  border-left: var(--ex-rule) solid var(--ex-watch);
+  padding: var(--ex-s3) var(--ex-s4);
+  font-size: var(--ex-t-sm);
+  color: var(--ex-ink-2);
+}
+.banner b { color: var(--ex-ink); font-weight: 600; }
+
+/* --- HUD tiles -------------------------------------------------------------
+   The arcade status bar. Big numeral, 8-bit label, one line of context. */
+.hud {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--ex-hair);
+  background: var(--ex-line);
+  border: var(--ex-hair) solid var(--ex-line);
+}
+@media (min-width: 720px) { .hud { grid-template-columns: repeat(4, 1fr); } }
+.tile {
+  background: var(--ex-panel);
+  padding: var(--ex-s3) var(--ex-s4) var(--ex-s4);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.tile b {
+  font-family: var(--ex-display);
+  font-size: var(--ex-t-2xl);
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+  color: var(--ex-blue);
+  text-shadow: var(--ex-bloom-blue);
+}
+.tile.is-gold b { color: var(--ex-gold); text-shadow: var(--ex-bloom-gold); }
+.tile.is-danger b { color: var(--ex-danger); text-shadow: var(--ex-bloom-danger); }
+.tile span { font-family: var(--ex-pixel); font-size: 9px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ex-ink-3); }
+.tile em { font-style: normal; font-size: var(--ex-t-xs); color: var(--ex-ink-2); }
+
+/* --- Panels and controls -------------------------------------------------- */
+.panel {
+  background: var(--ex-cabinet);
+  border: var(--ex-hair) solid var(--ex-line);
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ex-s2);
+  align-items: center;
+  padding: var(--ex-s3);
+}
+input[type="search"], select {
+  font: inherit;
+  font-size: var(--ex-t-sm);
+  color: var(--ex-ink);
+  background: var(--ex-panel);
+  border: var(--ex-hair) solid var(--ex-line);
+  border-radius: var(--ex-edge);
+  padding: 0 var(--ex-s3);
+  min-height: var(--ex-tap);
+}
+input[type="search"] { flex: 1 1 180px; min-width: 0; }
+input[type="search"]::placeholder { color: var(--ex-ink-3); }
+:focus-visible {
+  outline: var(--ex-rule) solid var(--ex-blue);
+  outline-offset: 1px;
+}
+.tally { font-family: var(--ex-data); font-size: var(--ex-t-xs); color: var(--ex-ink-3); margin-left: auto; }
+.btn {
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ex-ink);
+  background: var(--ex-panel);
+  border: var(--ex-hair) solid var(--ex-line);
+  padding: 0 var(--ex-s3);
+  min-height: var(--ex-tap);
+  cursor: pointer;
+  transition: color var(--ex-fast) var(--ex-ease), border-color var(--ex-fast) var(--ex-ease), box-shadow var(--ex-fast) var(--ex-ease);
+}
+.btn:hover { color: var(--ex-blue); border-color: var(--ex-blue); box-shadow: var(--ex-bloom-blue); }
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ex-s2);
+  min-height: var(--ex-tap);
+  font-size: var(--ex-t-sm);
+  color: var(--ex-ink-2);
+  cursor: pointer;
+}
+.switch input { width: 18px; height: 18px; accent-color: var(--ex-blue); }
+
+/* --- Model drawer --------------------------------------------------------- */
+details.model { border-top: var(--ex-hair) solid var(--ex-line); }
+details.model > summary {
+  cursor: pointer;
+  padding: var(--ex-s3);
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ex-blue);
+  list-style: none;
+}
+details.model > summary::-webkit-details-marker { display: none; }
+details.model > summary::before { content: "> "; }
+details.model[open] > summary::before { content: "v "; }
+.knobs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: var(--ex-s4);
+  padding: 0 var(--ex-s3) var(--ex-s4);
+}
+.knob label {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--ex-s2);
+  align-items: baseline;
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ex-ink-3);
+}
+.knob output { font-family: var(--ex-data); font-size: var(--ex-t-sm); color: var(--ex-gold); letter-spacing: 0; }
+.knob input[type="range"] {
+  width: 100%;
+  margin: var(--ex-s2) 0 0;
+  accent-color: var(--ex-blue);
+  min-height: 24px;
+}
+.knob p { margin: var(--ex-s1) 0 0; font-size: var(--ex-t-xs); color: var(--ex-ink-3); line-height: 1.4; }
+.knob-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--ex-s3); }
+
+/* --- Roster --------------------------------------------------------------- */
+.colhead {
+  display: none;
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--ex-panel-hi);
+  border-bottom: var(--ex-hair) solid var(--ex-line);
+}
+.colhead button {
+  font: inherit;
+  background: none;
+  border: 0;
+  color: var(--ex-ink-3);
+  cursor: pointer;
+  padding: var(--ex-s3) var(--ex-s1);
+  text-align: left;
+  letter-spacing: inherit;
+  text-transform: inherit;
+}
+.colhead button:hover, .colhead button[data-active="1"] { color: var(--ex-blue); }
+.roster { display: flex; flex-direction: column; background: var(--ex-cabinet); }
+.m { border-bottom: var(--ex-hair) solid var(--ex-line-soft); }
+.m:last-child { border-bottom: 0; }
+.m.gone { opacity: 0.5; }
+.m-main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--ex-s2) var(--ex-s3);
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-left: var(--ex-rule) solid transparent;
+  padding: var(--ex-s3);
+  cursor: pointer;
+  transition: background var(--ex-fast) var(--ex-ease);
+}
+.m-main:hover { background: var(--ex-panel); }
+.m.sev2 .m-main, .m.sev2 .detail { border-left-color: var(--ex-watch); }
+.m.sev3 .m-main, .m.sev3 .detail { border-left-color: var(--ex-danger); }
+.m.sev1 .m-main, .m.sev1 .detail { border-left-color: var(--ex-win); }
+
+.who { grid-area: 1 / 1; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.nm {
+  font-family: var(--ex-display);
+  font-size: var(--ex-t-lg);
+  line-height: 1.15;
+  display: flex;
+  align-items: center;
+  gap: var(--ex-s2);
+  flex-wrap: wrap;
+}
+.rk {
+  font-family: var(--ex-data);
+  font-size: var(--ex-t-xs);
+  color: var(--ex-ink-3);
+  background: var(--ex-panel-hi);
+  border: var(--ex-hair) solid var(--ex-line);
+  padding: 1px 5px;
+  min-width: 26px;
+  text-align: center;
+}
+.m.top .rk { color: var(--ex-gold); border-color: var(--ex-gold); box-shadow: var(--ex-bloom-gold); }
+.role {
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ex-violet);
+  border: var(--ex-hair) solid var(--ex-violet);
+  padding: 2px 5px;
+}
+.role.r-member { color: var(--ex-ink-3); border-color: var(--ex-line); }
+.sub { font-family: var(--ex-data); font-size: var(--ex-t-xs); color: var(--ex-ink-3); }
+
+.verdict {
+  grid-area: 1 / 2;
+  justify-self: end;
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: var(--ex-s2) var(--ex-s2);
+  white-space: nowrap;
+  border: var(--ex-hair) solid transparent;
+}
+.v-promote { background: var(--ex-win-wash); color: var(--ex-win); border-color: var(--ex-win); }
+.v-hold { background: var(--ex-panel-hi); color: var(--ex-ink-2); border-color: var(--ex-line); }
+.v-watch { background: var(--ex-panel-hi); color: var(--ex-ink-3); border-color: var(--ex-line); }
+.v-warn { background: var(--ex-watch-wash); color: var(--ex-watch); border-color: var(--ex-watch); }
+.v-demote, .v-kick { background: var(--ex-danger-wash); color: var(--ex-danger); border-color: var(--ex-danger); }
+.v-departed { background: transparent; color: var(--ex-ink-3); border-color: var(--ex-line); }
+
+.metrics {
+  grid-area: 2 / 1 / 3 / 3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ex-s1) var(--ex-s4);
+}
+.cell { font-family: var(--ex-data); font-size: var(--ex-t-xs); color: var(--ex-ink-3); font-variant-numeric: tabular-nums; }
+.cell i { font-style: normal; color: var(--ex-ink); }
+.cell b { font-weight: 500; color: var(--ex-ink-2); }
+.lbl { font-family: var(--ex-pixel); font-size: 9px; color: var(--ex-ink-3); margin-right: var(--ex-s1); }
+.scorecell { display: flex; align-items: center; gap: var(--ex-s2); }
+.scorenum {
+  font-family: var(--ex-display);
+  font-size: var(--ex-t-xl);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  min-width: 2.6ch;
+}
+.track { width: 58px; height: 8px; background: var(--ex-panel-hi); border: var(--ex-hair) solid var(--ex-line); overflow: hidden; }
+.track i { display: block; height: 100%; transform-origin: left center; animation: chargeX var(--ex-slow) var(--ex-ease) both; }
+.up { color: var(--ex-win); } .down { color: var(--ex-danger); } .flat { color: var(--ex-ink-3); }
+
+/* --- The week strip --------------------------------------------------------
+   The clan's own unit of measure: sixteen decks, four battle days of four.
+   So the meter is sixteen literal blocks, not a smooth bar — you can count
+   what someone owes you. Block colour carries the quality of the week. */
+.detail { padding: 0 var(--ex-s3) var(--ex-s4); border-left: var(--ex-rule) solid transparent; }
+.why { margin: 0 0 var(--ex-s3); font-size: var(--ex-t-sm); color: var(--ex-ink-2); max-width: 66ch; }
+.why b { color: var(--ex-ink); font-weight: 600; }
+.strip-scroll { overflow-x: auto; padding-bottom: var(--ex-s1); }
+.strip { display: flex; gap: var(--ex-s1); min-width: min-content; }
+.week {
+  flex: 0 0 auto;
+  width: 78px;
+  background: var(--ex-panel);
+  border: var(--ex-hair) solid var(--ex-line);
+  padding: var(--ex-s2) var(--ex-s2) var(--ex-s2);
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ex-s2);
+  transition: border-color var(--ex-fast) var(--ex-ease), box-shadow var(--ex-fast) var(--ex-ease);
+}
+.week:hover { border-color: var(--ex-blue); box-shadow: var(--ex-bloom-blue); }
+.week.st-none { opacity: 0.35; cursor: default; }
+.meter {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 1px;
+  width: 100%;
+  height: 62px;
+}
+.seg { flex: 1 1 0; background: var(--ex-line-soft); }
+.seg.on { animation: charge var(--ex-fast) var(--ex-ease) both; }
+.week-decks { font-family: var(--ex-data); font-size: var(--ex-t-sm); font-variant-numeric: tabular-nums; color: var(--ex-ink); }
+.week-decks em { font-style: normal; color: var(--ex-ink-3); }
+.week-meta { font-family: var(--ex-pixel); font-size: 9px; color: var(--ex-ink-3); text-align: center; }
+.st-missed .week-decks { color: var(--ex-danger); }
+.st-excused .week-decks { color: var(--ex-watch); }
+.st-excused { border-color: var(--ex-watch); }
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ex-s2) var(--ex-s4);
+  margin: var(--ex-s3) 0 0;
+  font-family: var(--ex-data);
+  font-size: var(--ex-t-xs);
+  color: var(--ex-ink-3);
+}
+.legend span { display: inline-flex; align-items: center; gap: var(--ex-s1); }
+.key { width: 9px; height: 9px; display: inline-block; }
+.empty { padding: var(--ex-s6) var(--ex-s4); color: var(--ex-ink-3); }
+
+/* --- Log ------------------------------------------------------------------ */
+ul.log { list-style: none; margin: 0; padding: 0; }
+.log li {
+  display: flex;
+  gap: var(--ex-s3);
+  padding: var(--ex-s2) var(--ex-s3);
+  border-bottom: var(--ex-hair) solid var(--ex-line-soft);
+  font-size: var(--ex-t-sm);
+  color: var(--ex-ink-2);
+  align-items: baseline;
+}
+.log li:last-child { border-bottom: 0; }
+.log time { font-family: var(--ex-pixel); font-size: 9px; color: var(--ex-ink-3); flex: 0 0 68px; }
+.log b { color: var(--ex-ink); font-weight: 600; }
+.foot { font-size: var(--ex-t-sm); color: var(--ex-ink-3); max-width: 64ch; }
+.foot b { color: var(--ex-ink-2); font-weight: 600; }
+
+/* --- Motion ----------------------------------------------------------------
+   One charge-up on load, nothing that loops. The page is legible the instant
+   it paints; the animation is the arcade flourish on top of a finished frame. */
+@keyframes chargeX { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes charge { from { opacity: 0; transform: scaleY(0.2); } to { opacity: 1; transform: scaleY(1); } }
+@keyframes boot { from { opacity: 0.25; filter: blur(2px); } to { opacity: 1; filter: blur(0); } }
+.boot { animation: boot var(--ex-mid) var(--ex-ease) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* --- Wide: the roster becomes a real table -------------------------------- */
+@media (min-width: 880px) {
+  .colhead { display: grid; }
+  .colhead, .m-main {
+    grid-template-columns: 2.2fr 132px 78px 90px 1.1fr 130px;
+    align-items: center;
+    gap: var(--ex-s3);
+  }
+  .colhead { padding-inline: var(--ex-s3) var(--ex-s3); padding-left: 14px; }
+  .who, .verdict, .metrics { grid-area: auto; }
+  .metrics { display: contents; }
+  .verdict { justify-self: start; }
+  .lbl { display: none; }
+}
+
+</style>
+
+<div class="wrap boot">
+  <header>
+    <p class="pixel">River Race · Week 9 · Sample data</p>
+    <h1>THE <span class="flare">EXILED</span><br>WAR BOARD</h1>
+    <p class="lede">Eight river races, twenty-eight grown men, sixteen decks a week each. One weighted score decides who gets bumped up and who gets shown the door. <b>Drag the weights</b> and the whole roster re-sorts — that argument is easier to have with names on the screen.</p>
+  </header>
+
+  <p class="banner" id="banner"><span>▲</span><span class="msg"><b>Sample roster.</b> These members, their fame and their missed decks are generated so the model has something to chew on. None of it is The Exiled's real record yet.</span></p>
+
+  <section class="hud" id="hud" aria-label="Clan summary"></section>
+
+  <section class="panel">
+    <div class="controls">
+      <input type="search" id="q" placeholder="Search a name" aria-label="Search members">
+      <select id="f-role" aria-label="Filter by rank">
+        <option value="">All ranks</option>
+        <option value="leader">Leader</option>
+        <option value="coLeader">Co-leader</option>
+        <option value="elder">Elder</option>
+        <option value="member">Member</option>
+      </select>
+      <select id="f-verdict" aria-label="Filter by verdict">
+        <option value="">All verdicts</option>
+        <option value="promote">Promote</option>
+        <option value="hold">Hold</option>
+        <option value="watch">Watch</option>
+        <option value="warn">Warn</option>
+        <option value="demote">Demote</option>
+        <option value="kick">Kick</option>
+      </select>
+      <label class="switch"><input type="checkbox" id="f-gone"> Departed</label>
+      <span class="tally" id="tally"></span>
+    </div>
+
+    <details class="model" id="model">
+      <summary>Scoring model</summary>
+      <div class="knobs">
+        <div class="knob">
+          <label for="k-part">Participation <output id="o-part"></output></label>
+          <input type="range" id="k-part" min="0" max="1" step="0.05">
+          <p>Decks used out of sixteen. Showing up at all.</p>
+        </div>
+        <div class="knob">
+          <label for="k-eff">Efficiency <output id="o-eff"></output></label>
+          <input type="range" id="k-eff" min="0" max="1" step="0.05">
+          <p>Fame per deck played. Winning, not just attacking.</p>
+        </div>
+        <div class="knob">
+          <label for="k-con">Contribution <output id="o-con"></output></label>
+          <input type="range" id="k-con" min="0" max="1" step="0.05">
+          <p>Output against the clan median that same week.</p>
+        </div>
+        <div class="knob">
+          <label for="k-half">Half-life <output id="o-half"></output></label>
+          <input type="range" id="k-half" min="1" max="8" step="1">
+          <p>How fast an old war stops counting against you.</p>
+        </div>
+        <div class="knob">
+          <label for="k-promote">Promote at <output id="o-promote"></output></label>
+          <input type="range" id="k-promote" min="55" max="100" step="1">
+          <p>Four tracked wars required as well.</p>
+        </div>
+        <div class="knob">
+          <label for="k-warn">Demote below <output id="o-warn"></output></label>
+          <input type="range" id="k-warn" min="10" max="80" step="1">
+          <p>At Member rank, a demotion is a kick.</p>
+        </div>
+        <div class="knob knob-actions">
+          <button type="button" class="btn" id="reset">Reset model</button>
+          <label class="switch"><input type="checkbox" id="k-live"> Count live week</label>
+        </div>
+      </div>
+    </details>
+
+    <div class="colhead" id="colhead">
+      <button type="button" data-key="name">Member</button>
+      <button type="button" data-key="score">Score</button>
+      <button type="button" data-key="trend">Trend</button>
+      <button type="button" data-key="deckRate">Decks</button>
+      <button type="button" data-key="warsPlayed">Wars</button>
+      <button type="button" data-key="action">Verdict</button>
+    </div>
+    <div class="roster" id="roster"></div>
+  </section>
+
+  <section class="panel">
+    <div style="padding: var(--ex-s3) var(--ex-s3) 0"><h2>Roster activity</h2></div>
+    <ul class="log" id="log"></ul>
+  </section>
+
+  <p class="foot">Tap a member for their eight-week record, then tap a week to log a <b>declared absence</b> — an excused week leaves the average entirely instead of scoring zero, and it breaks a miss streak. Excuses and slider settings live in this browser only; nobody else sees yours.</p>
+</div>
+
+<script type="application/json" id="seed">{"clan":{"name":"The Exiled","tag":"#2PP0YQRV"},"members":[["#DEMO0000","RoyalGiantJon","leader","2026-07-19","active"],["#DEMO0001","HogRiderHank","coLeader","2026-07-19","active"],["#DEMO0002","MegaKnightMia","coLeader","2026-07-19","active"],["#DEMO0003","LogBaitLuis","coLeader","2026-07-19","active"],["#DEMO0004","XbowXander","elder","2026-07-19","active"],["#DEMO0005","GoblinGail","elder","2026-07-19","active"],["#DEMO0006","MinerMarcus","elder","2026-07-19","active"],["#DEMO0007","LavaLoonLena","elder","2026-07-19","active"],["#DEMO0008","SparkySam","elder","2026-07-19","active"],["#DEMO0009","BalloonBex","elder","2026-07-19","active"],["#DEMO0010","PekkaPete","elder","2026-07-19","active"],["#DEMO0011","ValkyrieVi","elder","2026-07-19","active"],["#DEMO0012","WallBreakerWes","member","2026-07-19","active"],["#DEMO0013","ArcherQueenAri","member","2026-07-19","active"],["#DEMO0014","GraveyardGus","member","2026-07-19","active"],["#DEMO0015","ElixirEddie","member","2026-07-19","active"],["#DEMO0016","RamRiderRae","member","2026-07-19","active"],["#DEMO0017","IceWizardIvy","member","2026-07-19","active"],["#DEMO0018","FireballFinn","member","2026-07-19","active"],["#DEMO0019","SkeletonSkye","member","2026-07-19","active"],["#DEMO0020","ZapZoe","member","2026-07-19","active"],["#DEMO0021","GolemGreta","member","2026-07-19","active"],["#DEMO0022","BanditBruno","member","2026-07-19","active"],["#DEMO0023","TeslaTova","member","2026-07-19","active"],["#DEMO0024","CannonCarl","member","2026-07-19","active"],["#DEMO0025","MortarMo","member","2026-07-19","active"],["#DEMO0026","PrincessPia","member","2026-07-19","active"],["#DEMO0090","DriftedDave","member","2026-07-19","departed"],["#DEMO0091","FreshFinley","member","2026-08-23","active"]],"wars":[{"i":"104-0","d":"2026-07-19","r":1,"c":true,"p":{"#DEMO0000":[14,3276,0],"#DEMO0001":[16,3296,0],"#DEMO0002":[15,2610,508],"#DEMO0003":[16,2960,0],"#DEMO0004":[16,3088,0],"#DEMO0005":[16,2400,0],"#DEMO0006":[10,1430,0],"#DEMO0007":[16,3296,0],"#DEMO0008":[9,1107,0],"#DEMO0009":[15,2700,213],"#DEMO0010":[12,2208,0],"#DEMO0011":[0,0,91],"#DEMO0012":[16,2944,0],"#DEMO0013":[11,2024,0],"#DEMO0014":[6,804,555],"#DEMO0015":[14,2422,0],"#DEMO0016":[9,1242,0],"#DEMO0017":[15,2400,0],"#DEMO0018":[1,67,0],"#DEMO0019":[6,900,0],"#DEMO0020":[16,2432,0],"#DEMO0021":[9,1800,25],"#DEMO0022":[16,3408,610],"#DEMO0023":[0,0,0],"#DEMO0024":[0,0,560],"#DEMO0025":[14,2380,0],"#DEMO0026":[11,1705,0],"#DEMO0090":[0,0,0]}},{"i":"104-1","d":"2026-07-26","r":2,"c":true,"p":{"#DEMO0000":[16,2816,0],"#DEMO0001":[16,2784,457],"#DEMO0002":[16,2416,467],"#DEMO0003":[15,2355,0],"#DEMO0004":[15,2655,0],"#DEMO0005":[13,2392,602],"#DEMO0006":[12,2244,0],"#DEMO0007":[14,2744,691],"#DEMO0008":[6,948,425],"#DEMO0009":[16,2768,74],"#DEMO0010":[9,1539,0],"#DEMO0011":[2,380,0],"#DEMO0012":[14,2072,0],"#DEMO0013":[12,2268,568],"#DEMO0014":[7,924,0],"#DEMO0015":[13,2405,552],"#DEMO0016":[13,2132,0],"#DEMO0017":[15,2535,0],"#DEMO0018":[3,309,0],"#DEMO0019":[6,954,0],"#DEMO0020":[14,2072,0],"#DEMO0021":[13,2379,0],"#DEMO0022":[14,2086,0],"#DEMO0023":[2,386,0],"#DEMO0024":[3,294,0],"#DEMO0025":[16,3200,694],"#DEMO0026":[13,2509,118],"#DEMO0090":[1,88,0]}},{"i":"104-2","d":"2026-08-02","r":4,"c":true,"p":{"#DEMO0000":[16,3072,0],"#DEMO0001":[16,3360,0],"#DEMO0002":[15,3075,0],"#DEMO0003":[16,2800,0],"#DEMO0004":[16,2816,730],"#DEMO0005":[16,2608,575],"#DEMO0006":[13,2314,0],"#DEMO0007":[16,2448,0],"#DEMO0008":[4,688,614],"#DEMO0009":[16,2896,0],"#DEMO0010":[9,1692,368],"#DEMO0011":[2,388,448],"#DEMO0012":[14,2898,466],"#DEMO0013":[13,2418,0],"#DEMO0014":[6,864,565],"#DEMO0015":[13,2639,405],"#DEMO0016":[11,1551,0],"#DEMO0017":[14,2632,232],"#DEMO0018":[3,354,487],"#DEMO0019":[3,372,0],"#DEMO0020":[16,3104,0],"#DEMO0021":[9,1476,0],"#DEMO0022":[16,2928,0],"#DEMO0023":[4,852,506],"#DEMO0024":[3,375,0],"#DEMO0025":[16,3168,0],"#DEMO0026":[10,1840,0],"#DEMO0090":[2,208,383]}},{"i":"104-3","d":"2026-08-09","r":3,"c":true,"p":{"#DEMO0000":[16,3600,0],"#DEMO0001":[16,3424,0],"#DEMO0002":[16,2672,488],"#DEMO0003":[15,3075,0],"#DEMO0004":[16,3584,0],"#DEMO0005":[16,2656,680],"#DEMO0006":[13,1768,0],"#DEMO0007":[15,2640,0],"#DEMO0008":[4,504,16],"#DEMO0009":[16,3040,0],"#DEMO0010":[12,2364,0],"#DEMO0011":[6,1170,116],"#DEMO0012":[14,2422,0],"#DEMO0013":[12,1992,0],"#DEMO0014":[2,276,0],"#DEMO0015":[15,2235,498],"#DEMO0016":[10,1600,0],"#DEMO0017":[16,2544,0],"#DEMO0018":[2,198,0],"#DEMO0019":[4,428,0],"#DEMO0020":[16,2560,0],"#DEMO0021":[11,1529,0],"#DEMO0022":[13,2769,302],"#DEMO0023":[5,1120,0],"#DEMO0024":[2,172,0],"#DEMO0025":[16,2672,0],"#DEMO0026":[13,1898,0],"#DEMO0090":[0,0,470]}},{"i":"104-4","d":"2026-08-16","r":3,"c":true,"p":{"#DEMO0000":[16,3312,0],"#DEMO0001":[16,3552,0],"#DEMO0002":[15,2985,0],"#DEMO0003":[16,3216,0],"#DEMO0004":[14,3234,0],"#DEMO0005":[14,2184,102],"#DEMO0006":[10,1980,0],"#DEMO0007":[13,2223,0],"#DEMO0008":[2,252,0],"#DEMO0009":[15,2385,0],"#DEMO0010":[11,1628,0],"#DEMO0011":[7,1421,0],"#DEMO0012":[16,2672,0],"#DEMO0013":[10,1320,0],"#DEMO0014":[2,322,0],"#DEMO0015":[13,2236,0],"#DEMO0016":[13,2535,33],"#DEMO0017":[14,2044,0],"#DEMO0018":[0,0,506],"#DEMO0019":[1,110,0],"#DEMO0020":[13,2561,0],"#DEMO0021":[11,1584,0],"#DEMO0022":[16,2816,741],"#DEMO0023":[8,1648,0],"#DEMO0024":[2,128,0],"#DEMO0025":[14,2520,0],"#DEMO0026":[9,1323,417],"#DEMO0090":[2,210,698]}},{"i":"104-5","d":"2026-08-23","r":2,"c":true,"p":{"#DEMO0000":[16,3008,0],"#DEMO0001":[16,3840,0],"#DEMO0002":[14,2100,0],"#DEMO0003":[16,3072,0],"#DEMO0004":[16,2736,0],"#DEMO0005":[16,2720,0],"#DEMO0006":[9,1269,0],"#DEMO0007":[13,2015,0],"#DEMO0008":[1,133,0],"#DEMO0009":[14,2436,0],"#DEMO0010":[10,1770,0],"#DEMO0011":[9,1584,0],"#DEMO0012":[16,2656,0],"#DEMO0013":[10,1540,353],"#DEMO0014":[2,280,0],"#DEMO0015":[15,2340,0],"#DEMO0016":[10,1390,0],"#DEMO0017":[15,2520,0],"#DEMO0018":[0,0,277],"#DEMO0019":[1,107,0],"#DEMO0020":[13,2665,787],"#DEMO0021":[12,1596,135],"#DEMO0022":[16,3200,0],"#DEMO0023":[10,2140,281],"#DEMO0024":[0,0,477],"#DEMO0025":[16,2336,0],"#DEMO0026":[13,2249,0],"#DEMO0090":[3,255,0],"#DEMO0091":[9,1656,0]}},{"i":"104-6","d":"2026-08-30","r":2,"c":true,"p":{"#DEMO0000":[15,3030,0],"#DEMO0001":[16,3696,0],"#DEMO0002":[16,2672,0],"#DEMO0003":[13,2405,681],"#DEMO0004":[16,3008,0],"#DEMO0005":[14,2142,0],"#DEMO0006":[10,1890,0],"#DEMO0007":[15,3180,776],"#DEMO0008":[0,0,0],"#DEMO0009":[13,1950,0],"#DEMO0010":[11,1727,233],"#DEMO0011":[12,2664,676],"#DEMO0012":[16,3184,0],"#DEMO0013":[13,1937,0],"#DEMO0014":[2,302,0],"#DEMO0015":[13,2509,0],"#DEMO0016":[9,1602,617],"#DEMO0017":[16,3344,0],"#DEMO0018":[0,0,0],"#DEMO0019":[2,238,245],"#DEMO0020":[16,2416,601],"#DEMO0021":[13,2444,351],"#DEMO0022":[14,2562,0],"#DEMO0023":[11,2068,493],"#DEMO0024":[0,0,0],"#DEMO0025":[16,2496,0],"#DEMO0026":[9,1566,0],"#DEMO0091":[12,2496,0]}},{"i":"104-7","d":"2026-09-06","r":5,"c":true,"p":{"#DEMO0000":[16,3344,0],"#DEMO0001":[16,3728,0],"#DEMO0002":[13,2314,300],"#DEMO0003":[15,3045,0],"#DEMO0004":[16,3232,692],"#DEMO0005":[14,2100,0],"#DEMO0006":[10,1730,0],"#DEMO0007":[15,2475,0],"#DEMO0008":[0,0,69],"#DEMO0009":[15,2670,0],"#DEMO0010":[11,1639,0],"#DEMO0011":[13,2769,0],"#DEMO0012":[16,3248,0],"#DEMO0013":[12,1908,54],"#DEMO0014":[0,0,136],"#DEMO0015":[13,2769,738],"#DEMO0016":[13,2418,0],"#DEMO0017":[16,2640,379],"#DEMO0018":[0,0,481],"#DEMO0019":[1,135,0],"#DEMO0020":[16,2560,0],"#DEMO0021":[12,1788,679],"#DEMO0022":[16,2752,0],"#DEMO0023":[14,2968,0],"#DEMO0024":[0,0,778],"#DEMO0025":[13,2236,0],"#DEMO0026":[10,1660,367],"#DEMO0091":[14,2534,0]}},{"i":"#2PP0YQRV-current-8","d":"2026-09-13","r":null,"c":false,"p":{"#DEMO0000":[8,1204,609],"#DEMO0001":[8,1616,0],"#DEMO0002":[8,1178,0],"#DEMO0003":[8,1449,0],"#DEMO0004":[8,1505,387],"#DEMO0005":[8,1496,0],"#DEMO0006":[8,1056,9],"#DEMO0007":[8,1192,695],"#DEMO0008":[0,0,0],"#DEMO0009":[8,1229,743],"#DEMO0010":[8,1209,0],"#DEMO0011":[8,1099,0],"#DEMO0012":[8,1598,0],"#DEMO0013":[8,1152,0],"#DEMO0014":[0,0,0],"#DEMO0015":[8,1066,0],"#DEMO0016":[8,955,375],"#DEMO0017":[8,1440,0],"#DEMO0018":[0,0,0],"#DEMO0019":[0,0,286],"#DEMO0020":[8,1040,0],"#DEMO0021":[8,1092,0],"#DEMO0022":[8,1372,0],"#DEMO0023":[8,1295,503],"#DEMO0024":[0,0,0],"#DEMO0025":[8,1576,0],"#DEMO0026":[8,1086,0],"#DEMO0091":[8,1086,0]}}],"ex":[["#DEMO0008","104-7","Declared ahead of time — work travel"],["#DEMO0014","104-6","Declared ahead of time — hospital"]]}</script>
+<script>
+/* The war board. Same code drives the hosted page and the local app; only the
+   seed differs, so callers hand it in. */
+window.startBoard = function (SEED) {
+  "use strict";
+
+  var DECKS_PER_WAR = 16;
+  var FAME_PER_DECK = 180;
+  var STORE_KEY = "exiled-war-board-v1";
+
+  var DEFAULTS = {
+    participation: 0.55, efficiency: 0.30, contribution: 0.15,
+    halfLife: 4, promote: 82, hold: 65, warn: 50, live: false
+  };
+
+  var ROLE_NAME = { leader: "Leader", coLeader: "Co-leader", elder: "Elder", member: "Member" };
+  var ROLE_RANK = { member: 0, elder: 1, coLeader: 2, leader: 3 };
+  var VERDICT_NAME = {
+    promote: "Promote", hold: "Hold", watch: "Watch",
+    warn: "Warn", demote: "Demote", kick: "Kick", departed: "Gone"
+  };
+
+  var members = SEED.members.map(function (m) {
+    return { tag: m[0], name: m[1], role: m[2], joined: m[3], status: m[4] };
+  });
+  var wars = SEED.wars.map(function (w) {
+    var parts = {};
+    Object.keys(w.p).forEach(function (t) {
+      parts[t] = { decks: w.p[t][0], fame: w.p[t][1], repair: w.p[t][2] };
+    });
+    var outputs = Object.keys(parts).map(function (t) { return parts[t].fame + parts[t].repair * 0.5; });
+    return { id: w.i, date: w.d, rank: w.r, complete: w.c, parts: parts, median: median(outputs) };
+  });
+
+  var state = { model: Object.assign({}, DEFAULTS), excuses: {}, open: {}, sort: { key: "score", dir: -1 } };
+  restore();
+  SEED.ex.forEach(function (e) {
+    var k = e[0] + "|" + e[1];
+    if (!(k in state.excuses)) state.excuses[k] = true;
+  });
+
+  function median(list) {
+    var s = list.slice().sort(function (a, b) { return a - b; });
+    if (!s.length) return 0;
+    var mid = s.length >> 1;
+    return s.length % 2 ? s[mid] : (s[mid - 1] + s[mid]) / 2;
+  }
+  function clamp01(n) { return n < 0 ? 0 : n > 1 ? 1 : n; }
+  function round1(n) { return Math.round(n * 10) / 10; }
+
+  function restore() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
+      if (saved && saved.model) state.model = Object.assign({}, DEFAULTS, saved.model);
+      if (saved && saved.excuses) state.excuses = saved.excuses;
+    } catch (err) { /* blocked storage — defaults are fine */ }
+  }
+  function persist() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify({ model: state.model, excuses: state.excuses }));
+    } catch (err) { /* the page works without it */ }
+  }
+
+  function scoredWars() {
+    return wars.filter(function (w) { return state.model.live || w.complete; });
+  }
+
+  function warScore(entry, war) {
+    var m = state.model;
+    var decks = entry ? entry.decks : 0;
+    var fame = entry ? entry.fame : 0;
+    var repair = entry ? entry.repair : 0;
+    var participation = clamp01(decks / DECKS_PER_WAR);
+    var efficiency = decks ? clamp01(fame / (decks * FAME_PER_DECK)) : 0;
+    var contribution = clamp01((fame + repair * 0.5) / ((war.median || 1) * 1.25));
+    var sum = m.participation + m.efficiency + m.contribution || 1;
+    var score = 100 * (m.participation * participation + m.efficiency * efficiency + m.contribution * contribution) / sum;
+    return { score: round1(score), decks: decks, fame: fame, repair: repair };
+  }
+
+  function build() {
+    var m = state.model;
+    var list = scoredWars();
+    var rows = members.map(function (member) {
+      var history = list.map(function (war, i) {
+        var entry = war.parts[member.tag];
+        if (!entry && member.joined > war.date) {
+          return { warId: war.id, date: war.date, status: "none", score: 0, decks: 0, fame: 0 };
+        }
+        var detail = warScore(entry, war);
+        detail.warId = war.id;
+        detail.date = war.date;
+        detail.live = !war.complete;
+        detail.status = state.excuses[member.tag + "|" + war.id] === true
+          ? "excused" : detail.decks === 0 ? "missed" : "played";
+        detail.age = list.length - 1 - i;
+        return detail;
+      });
+
+      var counted = history.filter(function (h) { return h.status === "played" || h.status === "missed"; });
+      var num = 0, den = 0;
+      counted.forEach(function (h) {
+        var w = Math.pow(0.5, h.age / m.halfLife);
+        num += h.score * w;
+        den += w;
+      });
+      var score = den ? round1(num / den) : null;
+
+      var played = counted.filter(function (h) { return h.status === "played"; });
+      var excused = history.filter(function (h) { return h.status === "excused"; });
+
+      var streak = 0;
+      for (var i = history.length - 1; i >= 0; i--) {
+        var h = history[i];
+        if (h.status === "excused" || h.status === "none") continue;
+        if (h.status === "missed") streak++; else break;
+      }
+
+      var recent = avg(counted.slice(-3));
+      var prior = avg(counted.slice(-6, -3));
+      var decksUsed = played.reduce(function (s, x) { return s + x.decks; }, 0);
+      var decksPossible = counted.length * DECKS_PER_WAR;
+      var totalFame = counted.reduce(function (s, x) { return s + x.fame; }, 0);
+
+      var row = {
+        tag: member.tag, name: member.name, role: member.role, status: member.status,
+        joined: member.joined, history: history,
+        warsTracked: counted.length, warsPlayed: played.length,
+        warsExcused: excused.length, streak: streak, score: score,
+        trend: recent !== null && prior !== null ? round1(recent - prior) : null,
+        decksUsed: decksUsed, decksPossible: decksPossible,
+        deckRate: decksPossible ? round1(decksUsed / decksPossible * 100) : null,
+        avgFame: played.length ? Math.round(totalFame / played.length) : 0
+      };
+      Object.assign(row, verdict(row));
+      return row;
+    });
+
+    rows.sort(function (a, b) { return (b.score === null ? -1 : b.score) - (a.score === null ? -1 : a.score); });
+    var place = 0;
+    rows.forEach(function (r) { r.rank = r.status === "departed" ? null : ++place; });
+    return rows;
+  }
+
+  function avg(list) {
+    if (!list.length) return null;
+    return list.reduce(function (s, h) { return s + h.score; }, 0) / list.length;
+  }
+
+  function verdict(row) {
+    var m = state.model;
+    if (row.status === "departed") return { action: "departed", why: "No longer in the clan.", sev: 0 };
+    if (row.score === null || row.warsTracked < 3) {
+      return { action: "watch", why: "Only " + row.warsTracked + " tracked war" + (row.warsTracked === 1 ? "" : "s") + " — too new to judge.", sev: 0 };
+    }
+    if (row.streak >= 2) {
+      return { action: row.role === "member" ? "kick" : "demote", why: row.streak + " un-excused wars in a row with zero decks used.", sev: 3 };
+    }
+    if (row.score < m.warn) {
+      return { action: row.role === "member" ? "kick" : "demote", why: "Rolling score " + row.score + " sits below the " + m.warn + " floor.", sev: 3 };
+    }
+    if (row.score < m.hold) {
+      return { action: "warn", why: "Rolling score " + row.score + " is under the " + m.hold + " hold line.", sev: 2 };
+    }
+    if (row.score >= m.promote && row.warsTracked >= 4 && ROLE_RANK[row.role] < 2) {
+      return { action: "promote", why: "Rolling score " + row.score + " over " + row.warsTracked + " wars clears the " + m.promote + " promote line.", sev: 1 };
+    }
+    return { action: "hold", why: "Steady at " + row.score + ".", sev: 0 };
+  }
+
+  function band(score) {
+    var m = state.model;
+    if (score === null) return "var(--ex-ink-3)";
+    if (score >= m.promote) return "var(--ex-win)";
+    if (score >= m.hold) return "var(--ex-blue)";
+    if (score >= m.warn) return "var(--ex-watch)";
+    return "var(--ex-danger)";
+  }
+
+  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function shortDate(iso) {
+    var p = String(iso).split("-");
+    return MONTHS[Number(p[1]) - 1] + " " + Number(p[2]);
+  }
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  var el = {
+    hud: document.getElementById("hud"),
+    roster: document.getElementById("roster"),
+    tally: document.getElementById("tally"),
+    log: document.getElementById("log"),
+    q: document.getElementById("q"),
+    role: document.getElementById("f-role"),
+    verdict: document.getElementById("f-verdict"),
+    gone: document.getElementById("f-gone")
+  };
+
+  function renderHud(rows) {
+    var active = rows.filter(function (r) { return r.status !== "departed"; });
+    var scored = active.filter(function (r) { return r.score !== null; });
+    var avgScore = scored.length ? (scored.reduce(function (s, r) { return s + r.score; }, 0) / scored.length).toFixed(1) : "—";
+    var used = active.reduce(function (s, r) { return s + r.decksUsed; }, 0);
+    var poss = active.reduce(function (s, r) { return s + r.decksPossible; }, 0);
+    var risk = active.filter(function (r) { return r.sev === 3; }).length;
+    var up = active.filter(function (r) { return r.action === "promote"; }).length;
+    var tiles = [
+      ["", active.length, "Roster", scoredWars().length + " war weeks scored"],
+      ["", avgScore, "Clan score", "average of every active member"],
+      ["is-gold", poss ? Math.round(used / poss * 100) + "%" : "—", "Decks used", used.toLocaleString() + " of " + poss.toLocaleString()],
+      [risk ? "is-danger" : "", risk, "On the block", up + " clear the promote line"]
+    ];
+    el.hud.innerHTML = tiles.map(function (t) {
+      return '<div class="tile ' + t[0] + '"><b>' + t[1] + "</b><span>" + t[2] + "</span><em>" + t[3] + "</em></div>";
+    }).join("");
+  }
+
+  /* Sixteen blocks, one per deck. Count them the way the clan counts them. */
+  function meter(h) {
+    var color = h.status === "excused" ? "var(--ex-watch)" : band(h.score);
+    var out = "";
+    for (var i = 0; i < DECKS_PER_WAR; i++) {
+      var on = i < h.decks;
+      out += '<span class="seg' + (on ? " on" : "") + '"' +
+        (on ? ' style="background:' + color + ";animation-delay:" + (i * 22) + 'ms"' : "") + "></span>";
+    }
+    return '<span class="meter" aria-hidden="true">' + out + "</span>";
+  }
+
+  function weekCell(h) {
+    if (h.status === "none") {
+      return '<div class="week st-none">' + meter({ decks: 0, score: 0, status: "none" }) +
+        '<span class="week-decks">—</span><span class="week-meta">' + shortDate(h.date) + "</span></div>";
+    }
+    var label = h.status === "excused" ? "excused" : h.live ? "live" : shortDate(h.date);
+    return '<button type="button" class="week st-' + h.status + '" data-war="' + h.warId + '" ' +
+      'aria-label="' + shortDate(h.date) + ", " + h.decks + " of 16 decks" + (h.status === "excused" ? ", excused" : "") + '">' +
+      meter(h) +
+      '<span class="week-decks">' + h.decks + '<em>/16</em></span>' +
+      '<span class="week-meta">' + label + "</span></button>";
+  }
+
+  function detailFor(r) {
+    var bits = [r.why];
+    if (r.trend !== null) bits.push("Last three wars against the three before: " + (r.trend > 0 ? "+" : "") + r.trend + ".");
+    if (r.warsExcused) bits.push(r.warsExcused + " week" + (r.warsExcused === 1 ? "" : "s") + " excused and left out of the average.");
+    bits.push(r.avgFame.toLocaleString() + " fame a war on the weeks played.");
+    return '<div class="detail" data-detail="' + r.tag + '">' +
+      '<p class="why"><b>' + VERDICT_NAME[r.action] + ".</b> " + esc(bits.join(" ")) + "</p>" +
+      '<div class="strip-scroll"><div class="strip">' + r.history.map(weekCell).join("") + "</div></div>" +
+      '<p class="legend">' +
+        "<span>one block = one deck</span>" +
+        '<span><i class="key" style="background:var(--ex-win)"></i>strong week</span>' +
+        '<span><i class="key" style="background:var(--ex-danger)"></i>weak or missed</span>' +
+        '<span><i class="key" style="background:var(--ex-watch)"></i>excused</span>' +
+        "<span>tap a week to excuse it</span>" +
+      "</p></div>";
+  }
+
+  function visible(rows) {
+    var q = el.q.value.trim().toLowerCase();
+    var role = el.role.value;
+    var v = el.verdict.value;
+    var gone = el.gone.checked;
+    return rows.filter(function (r) {
+      if (!gone && r.status === "departed") return false;
+      if (role && r.role !== role) return false;
+      if (v && r.action !== v) return false;
+      if (q && r.name.toLowerCase().indexOf(q) === -1) return false;
+      return true;
+    });
+  }
+
+  function sorted(rows) {
+    var key = state.sort.key, dir = state.sort.dir;
+    return rows.slice().sort(function (a, b) {
+      var av = a[key], bv = b[key];
+      if (av === bv) return (a.rank || 99) - (b.rank || 99);
+      if (av === null || av === undefined) return 1;
+      if (bv === null || bv === undefined) return -1;
+      return (typeof av === "string" ? av.localeCompare(bv) : av - bv) * dir;
+    });
+  }
+
+  function render() {
+    var rows = build();
+    renderHud(rows);
+    var shown = sorted(visible(rows));
+    el.tally.textContent = shown.length + " of " + rows.length;
+
+    el.roster.innerHTML = shown.length ? shown.map(function (r) {
+      var trend = r.trend === null
+        ? '<span class="flat">—</span>'
+        : '<span class="' + (r.trend > 1 ? "up" : r.trend < -1 ? "down" : "flat") + '">' + (r.trend > 0 ? "+" : "") + r.trend + "</span>";
+      return '<div class="m sev' + r.sev + (r.status === "departed" ? " gone" : "") + (r.rank !== null && r.rank <= 3 ? " top" : "") + '">' +
+        '<button type="button" class="m-main" data-tag="' + r.tag + '" aria-expanded="' + (state.open[r.tag] ? "true" : "false") + '">' +
+          '<span class="who"><span class="nm"><span class="rk">' + (r.rank === null ? "—" : r.rank) + "</span>" + esc(r.name) +
+            '<span class="role r-' + r.role + '">' + (ROLE_NAME[r.role] || r.role) + "</span></span>" +
+            '<span class="sub">joined ' + shortDate(r.joined) + " · " + r.warsPlayed + "/" + r.warsTracked + " wars played</span></span>" +
+          '<span class="metrics">' +
+            '<span class="cell scorecell"><span class="scorenum" style="color:' + band(r.score) + '">' + (r.score === null ? "—" : r.score) + "</span>" +
+              '<span class="track"><i style="width:' + (r.score || 0) + "%;background:" + band(r.score) + '"></i></span></span>' +
+            '<span class="cell"><span class="lbl">trend</span>' + trend + "</span>" +
+            '<span class="cell"><span class="lbl">decks</span><i>' + (r.deckRate === null ? "—" : r.deckRate + "%") + "</i></span>" +
+            '<span class="cell"><span class="lbl">wars</span><b>' + r.warsPlayed + "/" + r.warsTracked + "</b>" +
+              (r.warsExcused ? " · " + r.warsExcused + " excused" : "") +
+              (r.streak ? ' · <i style="color:var(--ex-danger)">' + r.streak + " missed</i>" : "") + "</span>" +
+          "</span>" +
+          '<span class="verdict v-' + r.action + '">' + VERDICT_NAME[r.action] + "</span>" +
+        "</button>" +
+        (state.open[r.tag] ? detailFor(r) : "") +
+      "</div>";
+    }).join("") : '<p class="empty">Nobody matches that filter.</p>';
+
+    Array.prototype.forEach.call(document.querySelectorAll("#colhead button"), function (b) {
+      b.setAttribute("data-active", b.dataset.key === state.sort.key ? "1" : "0");
+    });
+  }
+
+  function renderLog() {
+    var firstWar = wars[0].date;
+    var entries = [];
+    wars.forEach(function (w) {
+      if (w.complete) entries.push({ date: w.date, text: "War week closed at <b>rank " + w.rank + "</b> of 5." });
+    });
+    members.forEach(function (m) {
+      if (m.status === "departed") {
+        entries.push({ date: wars[wars.length - 3].date, text: "<b>" + esc(m.name) + "</b> left or was removed." });
+      } else if (m.joined > firstWar) {
+        entries.push({ date: m.joined, text: "<b>" + esc(m.name) + "</b> joined as " + ROLE_NAME[m.role] + "." });
+      }
+    });
+    entries.sort(function (a, b) { return b.date.localeCompare(a.date); });
+    el.log.innerHTML = entries.slice(0, 12).map(function (e) {
+      return "<li><time>" + shortDate(e.date) + "</time><span>" + e.text + "</span></li>";
+    }).join("");
+  }
+
+  var knobs = [
+    ["k-part", "o-part", "participation", function (v) { return Math.round(v * 100) + "%"; }],
+    ["k-eff", "o-eff", "efficiency", function (v) { return Math.round(v * 100) + "%"; }],
+    ["k-con", "o-con", "contribution", function (v) { return Math.round(v * 100) + "%"; }],
+    ["k-half", "o-half", "halfLife", function (v) { return v + " wars"; }],
+    ["k-promote", "o-promote", "promote", function (v) { return String(v); }],
+    ["k-warn", "o-warn", "warn", function (v) { return String(v); }]
+  ];
+
+  function syncKnobs() {
+    knobs.forEach(function (k) {
+      document.getElementById(k[0]).value = state.model[k[2]];
+      document.getElementById(k[1]).textContent = k[3](state.model[k[2]]);
+    });
+    document.getElementById("k-live").checked = state.model.live;
+  }
+
+  knobs.forEach(function (k) {
+    document.getElementById(k[0]).addEventListener("input", function (e) {
+      state.model[k[2]] = Number(e.target.value);
+      if (k[2] === "warn" && state.model.hold < state.model.warn) state.model.hold = state.model.warn;
+      if (k[2] === "promote" && state.model.hold > state.model.promote) state.model.hold = state.model.promote;
+      syncKnobs();
+      persist();
+      render();
+    });
+  });
+
+  document.getElementById("k-live").addEventListener("change", function (e) {
+    state.model.live = e.target.checked;
+    persist();
+    render();
+  });
+
+  document.getElementById("reset").addEventListener("click", function () {
+    state.model = Object.assign({}, DEFAULTS);
+    syncKnobs();
+    persist();
+    render();
+  });
+
+  ["q", "f-role", "f-verdict", "f-gone"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", render);
+  });
+
+  document.getElementById("colhead").addEventListener("click", function (e) {
+    var btn = e.target.closest("button[data-key]");
+    if (!btn) return;
+    var key = btn.dataset.key;
+    state.sort = state.sort.key === key
+      ? { key: key, dir: -state.sort.dir }
+      : { key: key, dir: key === "name" || key === "action" ? 1 : -1 };
+    render();
+  });
+
+  el.roster.addEventListener("click", function (e) {
+    var week = e.target.closest(".week[data-war]");
+    if (week) {
+      var tag = week.closest(".detail").dataset.detail;
+      var key = tag + "|" + week.dataset.war;
+      state.excuses[key] = !state.excuses[key];
+      persist();
+      render();
+      return;
+    }
+    var main = e.target.closest(".m-main");
+    if (!main) return;
+    state.open[main.dataset.tag] = !state.open[main.dataset.tag];
+    render();
+  });
+
+  syncKnobs();
+  renderLog();
+  render();
+
+  return { render: render, state: state };
+};
+
+startBoard(JSON.parse(document.getElementById("seed").textContent));
+</script>

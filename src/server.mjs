@@ -7,11 +7,44 @@ import { existsSync } from 'node:fs';
 import { extname, join, normalize, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadState, saveState, addEvent } from './store.mjs';
+import { compactState } from './compact.mjs';
 import { buildScoreboard, DEFAULT_CONFIG } from './scoring.mjs';
 import { sync } from './sync.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const PUBLIC = resolve(HERE, '../public');
+const DESIGN = resolve(HERE, '../design');
+const FONTS =
+  'https://fonts.googleapis.com/css2?family=Lilita+One&family=Press+Start+2P' +
+  '&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap';
+
+/** The page shell is assembled from the same design files the hosted board is
+ *  built from, so the local app and the shared link can never drift apart. */
+async function shell() {
+  const body = await readFile(resolve(DESIGN, 'ledger.body.html'), 'utf8');
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Exiled War Board</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="${FONTS}">
+<link rel="stylesheet" href="/design/tokens.css">
+<link rel="stylesheet" href="/design/components.css">
+</head>
+<body>
+${body.replace('<section class="hud"', `<div class="controls" style="padding:0 0 var(--ex-s4)">
+      <button type="button" class="btn" id="sync">Sync from API</button>
+      <a class="btn" href="/api/export.csv" style="display:inline-flex;align-items:center;text-decoration:none">Export CSV</a>
+    </div>
+    <section class="hud"`)}
+<script src="/design/ledger.app.js"></script>
+<script src="/boot.js"></script>
+</body>
+</html>`;
+}
 const PORT = Number(process.env.PORT || 5180);
 
 const TYPES = {
@@ -47,6 +80,15 @@ const server = createServer(async (req, res) => {
   const path = url.pathname;
 
   try {
+    if (path === '/api/board') {
+      const state = await loadState();
+      return json(res, 200, Object.assign(compactState(state), {
+        demo: Boolean(state.demo),
+        syncedAt: state.syncedAt,
+        configured: Boolean(process.env.CR_API_TOKEN && process.env.CR_CLAN_TAG)
+      }));
+    }
+
     if (path === '/api/state') {
       const state = await loadState();
       return json(res, 200, {
@@ -107,7 +149,21 @@ const server = createServer(async (req, res) => {
       return res.end(body);
     }
 
-    const file = join(PUBLIC, normalize(path === '/' ? '/index.html' : path).replace(/^(\.\.[/\\])+/, ''));
+    if (path.startsWith('/design/')) {
+      const file = join(DESIGN, normalize(path.slice('/design/'.length)).replace(/^(\.\.[/\\])+/, ''));
+      if (file.startsWith(DESIGN) && existsSync(file)) {
+        const body = await readFile(file);
+        res.writeHead(200, { 'Content-Type': TYPES[extname(file)] || 'text/plain', 'Cache-Control': 'no-store' });
+        return res.end(body);
+      }
+    }
+
+    if (path === '/') {
+      res.writeHead(200, { 'Content-Type': TYPES['.html'], 'Cache-Control': 'no-store' });
+      return res.end(await shell());
+    }
+
+    const file = join(PUBLIC, normalize(path).replace(/^(\.\.[/\\])+/, ''));
     if (file.startsWith(PUBLIC) && existsSync(file)) {
       const body = await readFile(file);
       res.writeHead(200, { 'Content-Type': TYPES[extname(file)] || 'application/octet-stream', 'Cache-Control': 'no-store' });

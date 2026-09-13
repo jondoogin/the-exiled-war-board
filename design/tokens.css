@@ -1,0 +1,108 @@
+/* ============================================================================
+   THE EXILED — design tokens
+   One source of truth. Consumed by the web app (public/index.html) and inlined
+   into the hosted board by scripts/build-ledger.mjs. Never hard-code a hex,
+   a font stack, or a duration anywhere else.
+
+   The world: a coin-op cabinet in a basement. Clash Royale's arena palette —
+   royal blue, trophy gold, gem violet — burned into a 1983 CRT. Deliberately
+   single-theme: a CRT has no light mode. Every surface is painted explicitly
+   so the page never borrows its host's background.
+   ========================================================================= */
+
+:root {
+  color-scheme: dark;
+
+  /* --- Ground: the cabinet, darkest to lightest ------------------------- */
+  --ex-void:       #07060f;  /* page ground, behind everything */
+  --ex-cabinet:    #100c22;  /* section ground */
+  --ex-panel:      #171132;  /* cards, rows, the screen itself */
+  --ex-panel-hi:   #1f1745;  /* hover, raised, active filter */
+  --ex-line:       #2c2259;  /* structural borders */
+  --ex-line-soft:  #201844;  /* dividers inside a panel */
+
+  /* --- Ink --------------------------------------------------------------
+     Violet-biased whites. A neutral grey would read as unconsidered against
+     this much saturation. */
+  --ex-ink:        #f0ecff;
+  --ex-ink-2:      #b6adde;
+  --ex-ink-3:      #7d74ab;
+
+  /* --- Brand ------------------------------------------------------------
+     Blue is the accent and carries interaction. Gold is reserved for fame —
+     the currency of a river race — and never used as decoration. Violet is
+     the third voice: rank, identity, the cabinet's own glow. */
+  --ex-blue:       #3fd2ff;
+  --ex-blue-deep:  #1b8fd6;
+  --ex-blue-wash:  rgba(63, 210, 255, 0.13);
+  --ex-gold:       #ffc23d;
+  --ex-gold-wash:  rgba(255, 194, 61, 0.14);
+  --ex-violet:     #b85cff;
+  --ex-violet-wash:rgba(184, 92, 255, 0.15);
+
+  /* --- Semantic ---------------------------------------------------------
+     Status, kept strictly apart from the brand accent so "blue" never has to
+     mean "good". Each pairs a foreground with its own wash. */
+  --ex-win:        #4ce08c;
+  --ex-win-wash:   rgba(76, 224, 140, 0.14);
+  --ex-watch:      #ffb23d;
+  --ex-watch-wash: rgba(255, 178, 61, 0.14);
+  --ex-danger:     #ff6767;
+  --ex-danger-wash:rgba(255, 103, 103, 0.15);
+
+  /* --- Phosphor glow ----------------------------------------------------
+     A CRT blooms. Used on live numbers and focused controls only; never on
+     body text, which would smear it. */
+  --ex-bloom-blue:   0 0 12px rgba(63, 210, 255, 0.45);
+  --ex-bloom-gold:   0 0 12px rgba(255, 194, 61, 0.4);
+  --ex-bloom-danger: 0 0 12px rgba(255, 103, 103, 0.4);
+  --ex-lift:         0 2px 0 rgba(0, 0, 0, 0.5), 0 0 0 1px var(--ex-line);
+
+  /* --- Type -------------------------------------------------------------
+     Four roles, each with a job:
+       display — Lilita One. Chunky arcade poster. Headings and big numerals.
+       pixel   — Press Start 2P. True 8-bit, rationed to labels of 1-3 words
+                 at 9-11px. It is texture, not a reading face.
+       body    — Archivo. Does the actual reading. These are 40-year-old eyes.
+       data    — IBM Plex Mono. Tabular figures that must line up. */
+  --ex-display: "Lilita One", "Archivo Black", system-ui, sans-serif;
+  --ex-pixel:   "Press Start 2P", "Courier New", monospace;
+  --ex-body:    "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ex-data:    "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  /* Type scale, 1.25 minor third off a 15px base */
+  --ex-t-xs:  11px;
+  --ex-t-sm:  13px;
+  --ex-t-md:  15px;
+  --ex-t-lg:  19px;
+  --ex-t-xl:  24px;
+  --ex-t-2xl: 31px;
+  --ex-t-3xl: clamp(34px, 8vw, 56px);
+
+  /* --- Space: 4px base --------------------------------------------------- */
+  --ex-s1: 4px;
+  --ex-s2: 8px;
+  --ex-s3: 12px;
+  --ex-s4: 16px;
+  --ex-s5: 24px;
+  --ex-s6: 32px;
+  --ex-s7: 48px;
+
+  /* --- Form -------------------------------------------------------------
+     Corners are square. An 8-bit screen has no radii, and the one place a
+     curve appears (the pill) is a deliberate exception. */
+  --ex-edge: 0px;
+  --ex-pill: 999px;
+  --ex-hair: 1px;
+  --ex-rule: 2px;
+  --ex-tap:  44px;   /* minimum touch target */
+
+  /* --- Motion -----------------------------------------------------------
+     Arcade timing: fast in, no bounce. Every duration here is disabled
+     wholesale under prefers-reduced-motion. */
+  --ex-fast: 120ms;
+  --ex-mid:  260ms;
+  --ex-slow: 620ms;
+  --ex-ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --ex-step: steps(16, end);  /* for anything quantized to a deck count */
+}

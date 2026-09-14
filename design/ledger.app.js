@@ -314,7 +314,9 @@ window.startBoard = function (SEED, options) {
         '<button type="button" class="m-main" data-tag="' + r.tag + '" aria-expanded="' + (state.open[r.tag] ? "true" : "false") + '">' +
           '<span class="who"><span class="nm"><span class="rk">' + (r.rank === null ? "—" : r.rank) + "</span>" + esc(r.name) +
             '<span class="role r-' + r.role + '">' + (ROLE_NAME[r.role] || r.role) + "</span></span>" +
-            '<span class="sub">joined ' + shortDate(r.joined) + " · " + r.warsPlayed + "/" + r.warsTracked + " wars played</span></span>" +
+            // "tracked since", not "joined": the API reports no join date, so
+            // everyone present at the first sync carries that sync's date.
+            '<span class="sub">tracked since ' + shortDate(r.joined) + " · " + r.warsPlayed + "/" + r.warsTracked + " wars played</span></span>" +
           '<span class="metrics">' +
             '<span class="cell scorecell"><span class="scorenum" style="color:' + band(r.score) + '">' + (r.score === null ? "—" : r.score) + "</span>" +
               '<span class="track"><i style="width:' + (r.score || 0) + "%;background:" + bandFill(r.score) + '"></i></span></span>' +
@@ -351,6 +353,10 @@ window.startBoard = function (SEED, options) {
         SEED.demo ? "sample data" : null
       ].filter(Boolean).join(" · ");
     }
+    // The sample-roster warning is a claim about the data, so it lives or dies
+    // by the data. The static page has no server to hide it for us.
+    var banner = document.getElementById("banner");
+    if (banner) banner.hidden = !SEED.demo;
     if (lede) {
       lede.innerHTML = weeks + " river race" + (weeks === 1 ? "" : "s") + ", " + roster +
         " members, sixteen decks a week each. One weighted score decides who gets bumped up " +

@@ -6,6 +6,10 @@
 
 * { box-sizing: border-box; }
 
+/* Any display rule below would otherwise beat the browser's default for
+   [hidden]. A standalone page gets no host reset, so state the rule here. */
+[hidden] { display: none !important; }
+
 body {
   margin: 0;
   background-color: var(--ex-board);

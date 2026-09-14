@@ -49,6 +49,36 @@ at the first real problem with the fix attached. A 403 is nearly always the IP
 whitelist rather than a bad key — and if the refusal did not come from Supercell
 at all, the doctor says so instead of sending you to re-issue a working key.
 
+## Marking declared absences
+
+Two pages ship from the same build:
+
+| Page | Who | What it does |
+| --- | --- | --- |
+| `/` | the clan | Read-only board. Tapping a week changes only that person's own browser. |
+| `/leader.html` | leadership | The same board, plus publishing. |
+
+Excuses live in `data/excuses.json`, which the daily sync never writes — they
+are a human judgement, not something the API knows. The leadership page commits
+to that file directly through the GitHub API, and the push rebuilds the site, so
+a week excused from a phone reaches the shared board in about a minute.
+
+**Setting it up once.** Create a fine-grained personal access token at
+github.com/settings/personal-access-tokens:
+
+- Repository access: **only** `the-exiled-war-board`
+- Permissions: **Contents -> Read and write**, nothing else
+- Expiry: whatever you are willing to renew
+
+Open `/leader.html`, paste it, hit Remember. It is stored in that browser's
+local storage — never written into the page, never committed, and sent nowhere
+but api.github.com. Bookmark the page and you are done; it stays signed in.
+
+The page is a plain URL rather than anything gated, so treat the link as the
+credential it effectively is. The token is what actually grants write access,
+and it lives only in the browsers you have pasted it into. To revoke, delete the
+token on GitHub.
+
 ## Keeping it current without touching it
 
 `.github/workflows/sync.yml` runs the whole loop daily: pull from the API,

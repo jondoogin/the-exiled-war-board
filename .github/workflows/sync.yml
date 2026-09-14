@@ -18,6 +18,15 @@ on:
     # 10:30 UTC, shortly after Clash's daily reset (~10:00 UTC), so the day
     # that just closed is final before it is recorded.
     - cron: '30 10 * * *'
+  # An excuse published from the leadership page commits data/excuses.json;
+  # rebuild straight away so the shared board reflects it within a minute.
+  push:
+    branches: [main]
+    paths:
+      - 'data/excuses.json'
+      - 'design/**'
+      - 'scripts/**'
+      - 'src/**'
   workflow_dispatch:
 
 permissions:
@@ -44,6 +53,9 @@ jobs:
           node-version: '22'
 
       - name: Pull from the Clash API
+        # Skipped on push runs: those are code or excuse changes, and the
+        # synced record has not moved.
+        if: github.event_name != 'push'
         env:
           CR_API_TOKEN: ${{ secrets.CR_API_TOKEN }}
           CR_CLAN_TAG: ${{ vars.CR_CLAN_TAG || '#P2VPUYUU' }}
@@ -54,6 +66,7 @@ jobs:
         run: node scripts/build-ledger.mjs
 
       - name: Commit this week's history
+        if: github.event_name != 'push'
         run: |
           git config user.name 'war-board'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'

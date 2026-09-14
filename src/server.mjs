@@ -6,7 +6,7 @@ import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { extname, join, normalize, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { loadState, saveState, addEvent } from './store.mjs';
+import { loadState, saveState, saveExcuses, addEvent } from './store.mjs';
 import { compactState } from './compact.mjs';
 import { buildScoreboard, DEFAULT_CONFIG } from './scoring.mjs';
 import { sync } from './sync.mjs';
@@ -128,7 +128,8 @@ const server = createServer(async (req, res) => {
         state.exemptions.splice(existing, 1);
         addEvent(state, { type: 'exempt-removed', tag, name: state.members[tag]?.name, detail: `Excuse removed for ${warId}` });
       }
-      await saveState(state);
+      // Only the excuses file — the synced record is not ours to rewrite.
+      await saveExcuses(state.exemptions);
       return json(res, 200, { ok: true, exemptions: state.exemptions });
     }
 

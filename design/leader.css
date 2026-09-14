@@ -1,0 +1,50 @@
+/* Leadership bar. Present on the private page only; the public board never
+   loads this file or the script that goes with it. */
+.leadbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--ex-board);
+  border-bottom: var(--ex-stroke) solid var(--ex-ink);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.35);
+}
+.leadbar-in {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--ex-s2) var(--ex-s4);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ex-s2) var(--ex-s3);
+  align-items: center;
+}
+.leadbar-auth { border-top: var(--ex-rule) dashed rgba(246, 231, 194, 0.3); }
+.leadbar-tag {
+  font-family: var(--ex-pixel);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ex-gold);
+  background: var(--ex-board-dark);
+  border: var(--ex-rule) solid var(--ex-ink);
+  padding: 3px 6px;
+  white-space: nowrap;
+}
+.leadbar-msg { font-size: var(--ex-t-sm); color: var(--ex-paper); flex: 1 1 220px; min-width: 0; }
+.leadbar-msg.is-bad { color: #ffb1a8; }
+.leadbar-msg.is-good { color: #b6f0c4; }
+.leadbar input[type="password"] {
+  font-family: var(--ex-data);
+  font-size: var(--ex-t-sm);
+  flex: 1 1 200px;
+  min-width: 0;
+  color: var(--ex-ink);
+  background: var(--ex-well);
+  border: var(--ex-rule) solid var(--ex-ink);
+  border-radius: var(--ex-edge);
+  padding: 0 var(--ex-s3);
+  min-height: var(--ex-tap);
+}
+.leadbar .btn:disabled { opacity: 0.55; cursor: default; background: var(--ex-paper-2); }
+
+/* A week with an unpublished change, so it is obvious what is still in hand. */
+.week.is-pending { outline: var(--ex-stroke) solid var(--ex-gold); outline-offset: 2px; }

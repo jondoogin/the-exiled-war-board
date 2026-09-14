@@ -30,6 +30,12 @@ const has = (flag) => process.argv.includes(flag);
 // endpoint ever moves.
 const API = arg('--api', process.env.WAR_BOARD_API || 'https://the-exiled-war-board.vercel.app/api/excuse');
 
+// Where the board lives. Only needed so the share card can be an absolute URL:
+// Discord, Slack and iMessage all resolve og:image against nothing.
+const SITE = (arg('--site', process.env.WAR_BOARD_SITE || 'https://jondoogin.github.io/the-exiled-war-board/'))
+  .replace(/\/?$/, '/');
+const SHARE_TEXT = 'Every member of The Exiled scored on decks used, fame earned and weeks missed.';
+
 const FONTS =
   'https://fonts.googleapis.com/css2' +
   '?family=Lilita+One' +
@@ -60,14 +66,30 @@ const seed = JSON.stringify(compactState(state));
    mode, without the charset the encoding falls to whatever the server guesses,
    and without the viewport a phone lays the page out at ~980px and zooms out —
    so none of the phone CSS would ever apply on the device it was written for. */
-function page({ title, extraCss = '', preBody = '', boot, extraScript = '' }) {
+function page({ title, path = '', extraCss = '', preBody = '', boot, extraScript = '' }) {
   return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
+<meta name="description" content="${SHARE_TEXT}">
 <link rel="icon" href="assets/logo-shield.webp">
+
+<!-- The unfurl in clan chat. og:image must be absolute — a relative path
+     resolves against nothing in Discord, Slack or iMessage. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Exiled">
+<meta property="og:title" content="${title}">
+<meta property="og:description" content="${SHARE_TEXT}">
+<meta property="og:url" content="${SITE}${path}">
+<meta property="og:image" content="${SITE}assets/og-card.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Exiled crest beside the words War Board, over a road of goblins leaving a castle">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#123a63">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${FONTS}">
 <style>
@@ -94,6 +116,7 @@ const pages = [
     out: arg('--out', 'dist/index.html'),
     html: page({
       title: 'The Exiled War Board',
+      path: '',
       boot: 'startBoard(JSON.parse(document.getElementById("seed").textContent));'
     })
   }
@@ -104,6 +127,7 @@ if (!has('--public-only')) {
     out: 'dist/leader.html',
     html: page({
       title: 'The Exiled War Board — Leadership',
+      path: 'leader.html',
       extraCss: leaderCss,
       preBody: leaderBody + '\n',
       extraScript: `<script>window.__WAR_BOARD_API__ = ${JSON.stringify(API)};</script>\n`,
@@ -120,7 +144,7 @@ if (existsSync(assetsDir)) {
   // otherwise keep being served, and the build would look like it worked.
   await rm(resolve(ROOT, 'dist/assets'), { recursive: true, force: true });
   await cp(assetsDir, resolve(ROOT, 'dist/assets'), { recursive: true });
-  const missing = ['logo-shield.webp', 'footer-march.webp', 'goblin-rock.png']
+  const missing = ['logo-shield.webp', 'footer-march.webp', 'goblin-rock.png', 'og-card.png']
     .filter((f) => !existsSync(resolve(assetsDir, f)));
   if (missing.length) {
     console.warn(`  note: artwork not yet added — ${missing.join(', ')} (see assets/README.md)`);

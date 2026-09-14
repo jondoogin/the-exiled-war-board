@@ -5,7 +5,22 @@
 async function load() {
   const res = await fetch('/api/board');
   const seed = await res.json();
-  window.startBoard(seed);
+  window.startBoard(seed, {
+    // Excuses belong in the store, not in one person's browser — that is what
+    // survives a rebuild and reaches everyone the board is shared with.
+    async onExcuse(tag, warId, excused) {
+      const saved = await fetch('/api/exemptions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tag, warId, note: 'Declared ahead of time' })
+      });
+      if (!saved.ok) {
+        const body = await saved.json().catch(() => ({}));
+        throw new Error(body.error || `server said ${saved.status}`);
+      }
+      return excused;
+    }
+  });
   document.getElementById('banner').hidden = !seed.demo;
 }
 

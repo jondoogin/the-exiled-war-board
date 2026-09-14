@@ -1,7 +1,12 @@
-/* The war board. Same code drives the hosted page and the local app; only the
-   seed differs, so callers hand it in. */
-window.startBoard = function (SEED) {
+/* The war board. Same code drives the hosted page and the local app.
+   The seed differs, and so does where an excuse belongs: the hosted page has
+   no server, so excuses stay in the viewer's browser; the local app hands in
+   an onExcuse hook that writes them to the store, which is what carries them
+   into the next published build. */
+window.startBoard = function (SEED, options) {
   "use strict";
+
+  var opts = options || {};
 
   var DECKS_PER_WAR = 16;
   var FAME_PER_DECK = 180;
@@ -432,10 +437,22 @@ window.startBoard = function (SEED) {
     var week = e.target.closest(".week[data-war]");
     if (week) {
       var tag = week.closest(".detail").dataset.detail;
-      var key = tag + "|" + week.dataset.war;
-      state.excuses[key] = !state.excuses[key];
+      var warId = week.dataset.war;
+      var key = tag + "|" + warId;
+      var next = !state.excuses[key];
+      state.excuses[key] = next;
       persist();
       render();
+      if (opts.onExcuse) {
+        Promise.resolve(opts.onExcuse(tag, warId, next)).catch(function (err) {
+          // The store is the record; if it did not take, do not let the screen
+          // claim otherwise.
+          state.excuses[key] = !next;
+          persist();
+          render();
+          window.alert("Could not save that excuse: " + err.message);
+        });
+      }
       return;
     }
     var main = e.target.closest(".m-main");

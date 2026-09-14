@@ -7,7 +7,7 @@
     "clanWarTrophies": 3820,
     "description": "We are a War Clan, dont miss. Discord: CR The Exiled"
   },
-  "syncedAt": "2026-09-14T03:56:15.089Z",
+  "syncedAt": "2026-09-14T04:56:19.538Z",
   "members": {
     "#8U0V2Y08P": {
       "tag": "#8U0V2Y08P",
@@ -17,7 +17,7 @@
       "firstSeen": "2026-09-14T03:56:15.089Z",
       "lastSeen": "2026-09-14T03:55:03.000Z",
       "trophies": 14000,
-      "donations": 0,
+      "donations": 8,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -195,9 +195,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-09-13T19:11:04.000Z",
+      "lastSeen": "2026-09-14T04:03:54.000Z",
       "trophies": 14000,
-      "donations": 0,
+      "donations": 8,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -357,9 +357,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-09-13T21:12:35.000Z",
+      "lastSeen": "2026-09-14T04:29:46.000Z",
       "trophies": 13281,
-      "donations": 0,
+      "donations": 18,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -375,9 +375,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-09-13T15:32:22.000Z",
+      "lastSeen": "2026-09-14T04:22:19.000Z",
       "trophies": 13273,
-      "donations": 0,
+      "donations": 8,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -681,9 +681,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-09-14T03:54:33.000Z",
+      "lastSeen": "2026-09-14T04:02:20.000Z",
       "trophies": 11500,
-      "donations": 0,
+      "donations": 8,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -735,9 +735,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-09-14T00:07:24.000Z",
-      "trophies": 11098,
-      "donations": 18,
+      "lastSeen": "2026-09-14T04:14:18.000Z",
+      "trophies": 11037,
+      "donations": 26,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -5331,13 +5331,6 @@
           "boatAttacks": 0,
           "decksUsed": 10
         },
-        "#9RVGUU9": {
-          "name": "zzKEEFERzz",
-          "fame": 1450,
-          "repairPoints": 0,
-          "boatAttacks": 2,
-          "decksUsed": 10
-        },
         "#QG8UYCY0Q": {
           "name": "DripZooming",
           "fame": 1500,
@@ -5400,6 +5393,13 @@
           "repairPoints": 0,
           "boatAttacks": 0,
           "decksUsed": 12
+        },
+        "#9RVGUU9": {
+          "name": "zzKEEFERzz",
+          "fame": 1950,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 13
         },
         "#2228RJJ88": {
           "name": "Old Gregg",
@@ -5541,13 +5541,6 @@
           "boatAttacks": 0,
           "decksUsed": 16
         },
-        "#C9JCU9VJ8": {
-          "name": "hesabımı verin",
-          "fame": 2600,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 12
-        },
         "#VP9PLJVYY": {
           "name": "tear70",
           "fame": 2650,
@@ -5628,6 +5621,13 @@
         "#GJ8G2PCJ": {
           "name": "Dr Giggle Fight",
           "fame": 3100,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 16
+        },
+        "#C9JCU9VJ8": {
+          "name": "hesabımı verin",
+          "fame": 3400,
           "repairPoints": 0,
           "boatAttacks": 0,
           "decksUsed": 16

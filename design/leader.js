@@ -18,6 +18,13 @@
   var pending = {}; // "tag|warId" -> the excused state we mean to publish
   var seed = JSON.parse(document.getElementById("seed").textContent);
 
+  /* What the server holds, as best this page knows. Seeded from the build and
+     moved forward on every successful publish — comparing against the build
+     snapshot instead would mean un-excusing a week published in this same
+     session looked like a no-op, and the button would never re-enable. */
+  var published = {};
+  (seed.ex || []).forEach(function (e) { published[e[0] + "|" + e[1]] = true; });
+
   var msg = document.getElementById("leadmsg");
   var publishBtn = document.getElementById("publish");
   var passInput = document.getElementById("leadpass");
@@ -80,6 +87,11 @@
       if (!res.ok) throw new Error(body.error || "Publish failed (" + res.status + ").");
 
       writePass(password);
+      // The server now holds these, so they become the baseline.
+      Object.keys(pending).forEach(function (key) {
+        if (pending[key]) published[key] = true;
+        else delete published[key];
+      });
       pending = {};
       refresh();
       say("Published. The board catches up in about a minute.", "good");
@@ -100,7 +112,7 @@
   window.startBoard(seed, {
     onExcuse: function (tag, warId, excused) {
       var key = tag + "|" + warId;
-      var startedExcused = (seed.ex || []).some(function (e) { return e[0] === tag && e[1] === warId; });
+      var startedExcused = published[key] === true;
       // Toggling back to where it started is not a change worth publishing.
       if (excused === startedExcused) delete pending[key];
       else pending[key] = excused;

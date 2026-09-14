@@ -331,7 +331,7 @@ window.startBoard = function (SEED, options) {
         (state.open[r.tag] ? detailFor(r) : "") +
       "</div>";
     }).join("") : '<div class="empty">' +
-      '<img src="assets/goblin-signpost.png" alt="" width="512" height="512" loading="lazy" onerror="this.hidden=true">' +
+      '<img src="assets/goblin-rock.png" alt="" width="477" height="500" loading="lazy" onerror="this.hidden=true">' +
       "<p>Nobody matches that filter.</p></div>";
 
     Array.prototype.forEach.call(document.querySelectorAll("#colhead button"), function (b) {

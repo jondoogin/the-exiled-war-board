@@ -67,7 +67,7 @@ function page({ title, extraCss = '', preBody = '', boot, extraScript = '' }) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title}</title>
-<link rel="icon" href="assets/logo-shield.png">
+<link rel="icon" href="assets/logo-shield.webp">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="${FONTS}">
 <style>
@@ -120,7 +120,7 @@ if (existsSync(assetsDir)) {
   // otherwise keep being served, and the build would look like it worked.
   await rm(resolve(ROOT, 'dist/assets'), { recursive: true, force: true });
   await cp(assetsDir, resolve(ROOT, 'dist/assets'), { recursive: true });
-  const missing = ['logo-shield.png', 'footer-march.png', 'goblin-signpost.png']
+  const missing = ['logo-shield.webp', 'footer-march.webp', 'goblin-rock.png']
     .filter((f) => !existsSync(resolve(assetsDir, f)));
   if (missing.length) {
     console.warn(`  note: artwork not yet added — ${missing.join(', ')} (see assets/README.md)`);

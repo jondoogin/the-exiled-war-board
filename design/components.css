@@ -537,16 +537,23 @@ ul.log { list-style: none; margin: 0; padding: 0; }
   line-height: 0;
   margin-top: calc(var(--ex-s5) * -1);
   overflow: hidden;
+  /* The art carries a tall transparent sky. Left at its own proportions that
+     sky renders as a band of dead blue above the road, so the container sets
+     the crop and the image is anchored to its bottom edge. */
+  aspect-ratio: 2000 / 340;
 }
 .march img {
   display: block;
   width: 100%;
-  min-width: 680px;
+  height: 100%;
   max-width: none;
-  height: auto;
-  /* Narrow screens crop toward the castle end, where the story starts. */
   object-fit: cover;
-  object-position: left bottom;
+  object-position: center bottom;
+}
+@media (max-width: 760px) {
+  /* Taller slice of a narrower window, so the goblins stay legible on a phone
+     instead of becoming a smear along the bottom of the screen. */
+  .march { aspect-ratio: 860 / 340; }
 }
 
 /* --- Motion ----------------------------------------------------------------

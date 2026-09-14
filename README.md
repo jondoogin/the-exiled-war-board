@@ -49,6 +49,42 @@ at the first real problem with the fix attached. A 403 is nearly always the IP
 whitelist rather than a bad key — and if the refusal did not come from Supercell
 at all, the doctor says so instead of sending you to re-issue a working key.
 
+## Keeping it current without touching it
+
+`.github/workflows/sync.yml` runs the whole loop daily: pull from the API,
+commit the updated store, rebuild the board, deploy it. Nobody has to remember
+anything.
+
+**Git is the database.** There is no server to keep alive and no database to
+run — `data/state.json` is committed on every sync, which is why it is not
+gitignored. That also means the repo history is a record of the clan: every
+join, departure, promotion and war result arrives as its own commit.
+
+To turn it on, once:
+
+1. Push this repo to GitHub.
+2. **Settings -> Secrets and variables -> Actions -> New repository secret:**
+   `CR_API_TOKEN`, your developer.clashroyale.com key.
+3. Optionally add a repository **variable** `CR_CLAN_TAG` if it is not The
+   Exiled. The workflow defaults to `#P2VPUYUU`.
+4. **Settings -> Pages -> Source: GitHub Actions.**
+5. Actions tab -> Sync and publish -> **Run workflow** to prove it before
+   waiting a day.
+
+The key must whitelist `45.79.218.79` — the RoyaleAPI proxy — rather than any
+particular machine's IP. GitHub's runners get a different address on every run,
+so a home-IP-locked key works locally and fails here.
+
+**If the repo is private,** GitHub Pages needs a paid plan. Either make the repo
+public (the data is public game data, though member names would be indexable),
+or drop the last three steps of the workflow and point Vercel or Netlify at the
+repo instead — they deploy `dist/` on every push, and the commit the sync makes
+is the trigger.
+
+A failed sync fails the run and leaves the previous deploy up, which is the
+behaviour you want: a stale board beats a broken one. GitHub emails you when a
+scheduled workflow fails.
+
 **Start syncing sooner rather than later.** `/riverracelog` only returns about
 ten past races and there is no endpoint for older ones. Every week you do not
 sync is a week of history that cannot be recovered later.

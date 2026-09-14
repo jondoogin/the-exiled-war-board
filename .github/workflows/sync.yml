@@ -1,0 +1,76 @@
+name: Sync and publish
+
+# Pulls the clan from the Clash API, commits the updated store, rebuilds the
+# board and deploys it. Runs itself daily so nobody has to remember to.
+#
+# Setup, once:
+#   1. Settings -> Secrets and variables -> Actions -> New repository secret
+#        CR_API_TOKEN   your developer.clashroyale.com key
+#   2. Same screen, Variables tab (optional, defaults to The Exiled):
+#        CR_CLAN_TAG    #P2VPUYUU
+#   3. Settings -> Pages -> Source: GitHub Actions
+#
+# The key must whitelist 45.79.218.79 (the RoyaleAPI proxy), NOT a home IP —
+# GitHub runners get a different address every run.
+
+on:
+  schedule:
+    # 10:30 UTC, shortly after Clash's daily reset (~10:00 UTC), so the day
+    # that just closed is final before it is recorded.
+    - cron: '30 10 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Never let two syncs race for the same commit.
+concurrency:
+  group: war-board-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Pull from the Clash API
+        env:
+          CR_API_TOKEN: ${{ secrets.CR_API_TOKEN }}
+          CR_CLAN_TAG: ${{ vars.CR_CLAN_TAG || '#P2VPUYUU' }}
+          CR_API_BASE: https://proxy.royaleapi.dev/v1
+        run: npm run sync
+
+      - name: Build the board
+        run: node scripts/build-ledger.mjs --out dist/index.html
+
+      - name: Commit this week's history
+        run: |
+          git config user.name 'war-board'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/state.json
+          # Nothing changed on a quiet day; that is not a failure.
+          if git diff --staged --quiet; then
+            echo 'No roster or war changes since the last sync.'
+          else
+            git commit -m "Sync $(date -u '+%Y-%m-%d')"
+            git push
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

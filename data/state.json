@@ -1,0 +1,2722 @@
+{
+  "version": 1,
+  "clan": {
+    "tag": "#P2VPUYUU",
+    "name": "The Exiled",
+    "members": 28,
+    "clanWarTrophies": 4120,
+    "description": "Sample clan"
+  },
+  "syncedAt": "2026-09-13T12:00:00.000Z",
+  "members": {
+    "#DEMO0000": {
+      "tag": "#DEMO0000",
+      "name": "RoyalGiantJon",
+      "role": "leader",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6752,
+      "donations": 324,
+      "expLevel": 12,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "leader"
+        }
+      ]
+    },
+    "#DEMO0001": {
+      "tag": "#DEMO0001",
+      "name": "HogRiderHank",
+      "role": "coLeader",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5291,
+      "donations": 93,
+      "expLevel": 14,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "coLeader"
+        }
+      ]
+    },
+    "#DEMO0002": {
+      "tag": "#DEMO0002",
+      "name": "MegaKnightMia",
+      "role": "coLeader",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6631,
+      "donations": 170,
+      "expLevel": 11,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "coLeader"
+        }
+      ]
+    },
+    "#DEMO0003": {
+      "tag": "#DEMO0003",
+      "name": "LogBaitLuis",
+      "role": "coLeader",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6316,
+      "donations": 318,
+      "expLevel": 13,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "coLeader"
+        }
+      ]
+    },
+    "#DEMO0004": {
+      "tag": "#DEMO0004",
+      "name": "XbowXander",
+      "role": "elder",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5331,
+      "donations": 242,
+      "expLevel": 12,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "elder"
+        }
+      ]
+    },
+    "#DEMO0005": {
+      "tag": "#DEMO0005",
+      "name": "GoblinGail",
+      "role": "elder",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5848,
+      "donations": 250,
+      "expLevel": 13,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "elder"
+        }
+      ]
+    },
+    "#DEMO0006": {
+      "tag": "#DEMO0006",
+      "name": "MinerMarcus",
+      "role": "elder",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 7111,
+      "donations": 42,
+      "expLevel": 12,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "elder"
+        }
+      ]
+    },
+    "#DEMO0007": {
+      "tag": "#DEMO0007",
+      "name": "LavaLoonLena",
+      "role": "elder",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6974,
+      "donations": 60,
+      "expLevel": 14,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "elder"
+        }
+      ]
+    },
+    "#DEMO0008": {
+      "tag": "#DEMO0008",
+      "name": "SparkySam",
+      "role": "elder",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5902,
+      "donations": 241,
+      "expLevel": 11,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "elder"
+        }
+      ]
+    },
+    "#DEMO0009": {
+      "tag": "#DEMO0009",
+      "name": "BalloonBex",
+      "role": "elder",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5587,
+      "donations": 256,
+      "expLevel": 12,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "elder"
+        }
+      ]
+    },
+    "#DEMO0010": {
+      "tag": "#DEMO0010",
+      "name": "PekkaPete",
+      "role": "elder",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5922,
+      "donations": 252,
+      "expLevel": 10,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "elder"
+        }
+      ]
+    },
+    "#DEMO0011": {
+      "tag": "#DEMO0011",
+      "name": "ValkyrieVi",
+      "role": "elder",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6052,
+      "donations": 215,
+      "expLevel": 10,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        },
+        {
+          "at": "2026-08-23T12:00:00.000Z",
+          "from": "member",
+          "to": "elder"
+        }
+      ]
+    },
+    "#DEMO0012": {
+      "tag": "#DEMO0012",
+      "name": "WallBreakerWes",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5827,
+      "donations": 127,
+      "expLevel": 11,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0013": {
+      "tag": "#DEMO0013",
+      "name": "ArcherQueenAri",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6610,
+      "donations": 263,
+      "expLevel": 10,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0014": {
+      "tag": "#DEMO0014",
+      "name": "GraveyardGus",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5208,
+      "donations": 229,
+      "expLevel": 10,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0015": {
+      "tag": "#DEMO0015",
+      "name": "ElixirEddie",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 7038,
+      "donations": 325,
+      "expLevel": 11,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0016": {
+      "tag": "#DEMO0016",
+      "name": "RamRiderRae",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6097,
+      "donations": 31,
+      "expLevel": 14,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0017": {
+      "tag": "#DEMO0017",
+      "name": "IceWizardIvy",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5460,
+      "donations": 304,
+      "expLevel": 11,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0018": {
+      "tag": "#DEMO0018",
+      "name": "FireballFinn",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6453,
+      "donations": 217,
+      "expLevel": 14,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0019": {
+      "tag": "#DEMO0019",
+      "name": "SkeletonSkye",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6231,
+      "donations": 126,
+      "expLevel": 11,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0020": {
+      "tag": "#DEMO0020",
+      "name": "ZapZoe",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6742,
+      "donations": 187,
+      "expLevel": 13,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0021": {
+      "tag": "#DEMO0021",
+      "name": "GolemGreta",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6098,
+      "donations": 229,
+      "expLevel": 11,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0022": {
+      "tag": "#DEMO0022",
+      "name": "BanditBruno",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5813,
+      "donations": 31,
+      "expLevel": 13,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0023": {
+      "tag": "#DEMO0023",
+      "name": "TeslaTova",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6678,
+      "donations": 120,
+      "expLevel": 10,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0024": {
+      "tag": "#DEMO0024",
+      "name": "CannonCarl",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 7188,
+      "donations": 73,
+      "expLevel": 13,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0025": {
+      "tag": "#DEMO0025",
+      "name": "MortarMo",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 7237,
+      "donations": 221,
+      "expLevel": 10,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0026": {
+      "tag": "#DEMO0026",
+      "name": "PrincessPia",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 6659,
+      "donations": 123,
+      "expLevel": 12,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#DEMO0090": {
+      "tag": "#DEMO0090",
+      "name": "DriftedDave",
+      "role": "member",
+      "joinedAt": "2026-07-19T12:00:00.000Z",
+      "firstSeen": "2026-07-19T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 5989,
+      "donations": 221,
+      "expLevel": 11,
+      "status": "departed",
+      "roleHistory": [
+        {
+          "at": "2026-07-19T12:00:00.000Z",
+          "to": "member"
+        }
+      ],
+      "departedAt": "2026-08-23T12:00:00.000Z"
+    },
+    "#DEMO0091": {
+      "tag": "#DEMO0091",
+      "name": "FreshFinley",
+      "role": "member",
+      "joinedAt": "2026-08-23T12:00:00.000Z",
+      "firstSeen": "2026-08-23T12:00:00.000Z",
+      "lastSeen": "2026-09-13T12:00:00.000Z",
+      "trophies": 7099,
+      "donations": 37,
+      "expLevel": 11,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-08-23T12:00:00.000Z",
+          "to": "member"
+        }
+      ]
+    }
+  },
+  "wars": [
+    {
+      "id": "104-0",
+      "seasonId": 104,
+      "sectionIndex": 0,
+      "createdDate": "2026-07-19T12:00:00.000Z",
+      "rank": 1,
+      "trophyChange": -30,
+      "clanFame": 52899,
+      "clanRepair": 2562,
+      "complete": true,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 3276,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 3296,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 2610,
+          "repairPoints": 508,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 2960,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 3088,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 2400,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 1430,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 3296,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 1107,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 2700,
+          "repairPoints": 213,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 2208,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 0,
+          "repairPoints": 91,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 2944,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 2024,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 804,
+          "repairPoints": 555,
+          "boatAttacks": 1,
+          "decksUsed": 6
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 2422,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 1242,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 2400,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 67,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 1
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 900,
+          "repairPoints": 0,
+          "boatAttacks": 1,
+          "decksUsed": 6
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 2432,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 1800,
+          "repairPoints": 25,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 3408,
+          "repairPoints": 610,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 0,
+          "repairPoints": 560,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 2380,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 1705,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0090": {
+          "name": "DriftedDave",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        }
+      }
+    },
+    {
+      "id": "104-1",
+      "seasonId": 104,
+      "sectionIndex": 1,
+      "createdDate": "2026-07-26T12:00:00.000Z",
+      "rank": 2,
+      "trophyChange": 60,
+      "clanFame": 52654,
+      "clanRepair": 4648,
+      "complete": true,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 2816,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 2784,
+          "repairPoints": 457,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 2416,
+          "repairPoints": 467,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 2355,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 2655,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 2392,
+          "repairPoints": 602,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 2244,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 2744,
+          "repairPoints": 691,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 948,
+          "repairPoints": 425,
+          "boatAttacks": 1,
+          "decksUsed": 6
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 2768,
+          "repairPoints": 74,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 1539,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 380,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 2072,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 2268,
+          "repairPoints": 568,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 924,
+          "repairPoints": 0,
+          "boatAttacks": 1,
+          "decksUsed": 7
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 2405,
+          "repairPoints": 552,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 2132,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 2535,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 309,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 3
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 954,
+          "repairPoints": 0,
+          "boatAttacks": 1,
+          "decksUsed": 6
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 2072,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 2379,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 2086,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 386,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 294,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 3
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 3200,
+          "repairPoints": 694,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 2509,
+          "repairPoints": 118,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0090": {
+          "name": "DriftedDave",
+          "fame": 88,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 1
+        }
+      }
+    },
+    {
+      "id": "104-2",
+      "seasonId": 104,
+      "sectionIndex": 2,
+      "createdDate": "2026-08-02T12:00:00.000Z",
+      "rank": 4,
+      "trophyChange": 60,
+      "clanFame": 55836,
+      "clanRepair": 5779,
+      "complete": true,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 3072,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 3360,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 3075,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 2800,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 2816,
+          "repairPoints": 730,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 2608,
+          "repairPoints": 575,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 2314,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 2448,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 688,
+          "repairPoints": 614,
+          "boatAttacks": 1,
+          "decksUsed": 4
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 2896,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 1692,
+          "repairPoints": 368,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 388,
+          "repairPoints": 448,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 2898,
+          "repairPoints": 466,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 2418,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 864,
+          "repairPoints": 565,
+          "boatAttacks": 1,
+          "decksUsed": 6
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 2639,
+          "repairPoints": 405,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 1551,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 2632,
+          "repairPoints": 232,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 354,
+          "repairPoints": 487,
+          "boatAttacks": 0,
+          "decksUsed": 3
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 372,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 3
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 3104,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 1476,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 2928,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 852,
+          "repairPoints": 506,
+          "boatAttacks": 1,
+          "decksUsed": 4
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 375,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 3
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 3168,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 1840,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0090": {
+          "name": "DriftedDave",
+          "fame": 208,
+          "repairPoints": 383,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        }
+      }
+    },
+    {
+      "id": "104-3",
+      "seasonId": 104,
+      "sectionIndex": 3,
+      "createdDate": "2026-08-09T12:00:00.000Z",
+      "rank": 3,
+      "trophyChange": 120,
+      "clanFame": 54912,
+      "clanRepair": 2570,
+      "complete": true,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 3600,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 3424,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 2672,
+          "repairPoints": 488,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 3075,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 3584,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 2656,
+          "repairPoints": 680,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 1768,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 2640,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 504,
+          "repairPoints": 16,
+          "boatAttacks": 1,
+          "decksUsed": 4
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 3040,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 2364,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 1170,
+          "repairPoints": 116,
+          "boatAttacks": 1,
+          "decksUsed": 6
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 2422,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 1992,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 276,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 2235,
+          "repairPoints": 498,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 1600,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 2544,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 198,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 428,
+          "repairPoints": 0,
+          "boatAttacks": 1,
+          "decksUsed": 4
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 2560,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 1529,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 2769,
+          "repairPoints": 302,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 1120,
+          "repairPoints": 0,
+          "boatAttacks": 1,
+          "decksUsed": 5
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 172,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 2672,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 1898,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0090": {
+          "name": "DriftedDave",
+          "fame": 0,
+          "repairPoints": 470,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        }
+      }
+    },
+    {
+      "id": "104-4",
+      "seasonId": 104,
+      "sectionIndex": 4,
+      "createdDate": "2026-08-16T12:00:00.000Z",
+      "rank": 3,
+      "trophyChange": 120,
+      "clanFame": 52401,
+      "clanRepair": 2497,
+      "complete": true,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 3312,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 3552,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 2985,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 3216,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 3234,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 2184,
+          "repairPoints": 102,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 1980,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 2223,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 252,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 2385,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 1628,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 1421,
+          "repairPoints": 0,
+          "boatAttacks": 1,
+          "decksUsed": 7
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 2672,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 1320,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 322,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 2236,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 2535,
+          "repairPoints": 33,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 2044,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 0,
+          "repairPoints": 506,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 110,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 1
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 2561,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 1584,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 2816,
+          "repairPoints": 741,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 1648,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 8
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 128,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 2520,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 1323,
+          "repairPoints": 417,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0090": {
+          "name": "DriftedDave",
+          "fame": 210,
+          "repairPoints": 698,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        }
+      }
+    },
+    {
+      "id": "104-5",
+      "seasonId": 104,
+      "sectionIndex": 5,
+      "createdDate": "2026-08-23T12:00:00.000Z",
+      "rank": 2,
+      "trophyChange": -30,
+      "clanFame": 53613,
+      "clanRepair": 2310,
+      "complete": true,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 3008,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 3840,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 2100,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 3072,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 2736,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 2720,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 1269,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 2015,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 133,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 1
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 2436,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 1770,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 1584,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 2656,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 1540,
+          "repairPoints": 353,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 280,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 2340,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 1390,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 2520,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 0,
+          "repairPoints": 277,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 107,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 1
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 2665,
+          "repairPoints": 787,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 1596,
+          "repairPoints": 135,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 3200,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 2140,
+          "repairPoints": 281,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 0,
+          "repairPoints": 477,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 2336,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 2249,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0090": {
+          "name": "DriftedDave",
+          "fame": 255,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 3
+        },
+        "#DEMO0091": {
+          "name": "FreshFinley",
+          "fame": 1656,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        }
+      }
+    },
+    {
+      "id": "104-6",
+      "seasonId": 104,
+      "sectionIndex": 6,
+      "createdDate": "2026-08-30T12:00:00.000Z",
+      "rank": 2,
+      "trophyChange": 120,
+      "clanFame": 57528,
+      "clanRepair": 4673,
+      "complete": true,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 3030,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 3696,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 2672,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 2405,
+          "repairPoints": 681,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 3008,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 2142,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 1890,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 3180,
+          "repairPoints": 776,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 1950,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 1727,
+          "repairPoints": 233,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 2664,
+          "repairPoints": 676,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 3184,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 1937,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 302,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 2509,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 1602,
+          "repairPoints": 617,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 3344,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 238,
+          "repairPoints": 245,
+          "boatAttacks": 0,
+          "decksUsed": 2
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 2416,
+          "repairPoints": 601,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 2444,
+          "repairPoints": 351,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 2562,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 2068,
+          "repairPoints": 493,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 2496,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 1566,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 9
+        },
+        "#DEMO0091": {
+          "name": "FreshFinley",
+          "fame": 2496,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        }
+      }
+    },
+    {
+      "id": "104-7",
+      "seasonId": 104,
+      "sectionIndex": 7,
+      "createdDate": "2026-09-06T12:00:00.000Z",
+      "rank": 5,
+      "trophyChange": 60,
+      "clanFame": 58662,
+      "clanRepair": 4673,
+      "complete": true,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 3344,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 3728,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 2314,
+          "repairPoints": 300,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 3045,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 3232,
+          "repairPoints": 692,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 2100,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 1730,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 2475,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 0,
+          "repairPoints": 69,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 2670,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 15
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 1639,
+          "repairPoints": 0,
+          "boatAttacks": 2,
+          "decksUsed": 11
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 2769,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 3248,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 1908,
+          "repairPoints": 54,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 0,
+          "repairPoints": 136,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 2769,
+          "repairPoints": 738,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 2418,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 2640,
+          "repairPoints": 379,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 0,
+          "repairPoints": 481,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 135,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 1
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 2560,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 1788,
+          "repairPoints": 679,
+          "boatAttacks": 3,
+          "decksUsed": 12
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 2752,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 16
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 2968,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 0,
+          "repairPoints": 778,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 2236,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 13
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 1660,
+          "repairPoints": 367,
+          "boatAttacks": 2,
+          "decksUsed": 10
+        },
+        "#DEMO0091": {
+          "name": "FreshFinley",
+          "fame": 2534,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 14
+        }
+      }
+    },
+    {
+      "id": "#P2VPUYUU-current-8",
+      "createdDate": "2026-09-13T12:00:00.000Z",
+      "rank": null,
+      "clanFame": 0,
+      "clanRepair": 0,
+      "complete": false,
+      "periodType": "warDay",
+      "periodIndex": 5,
+      "participants": {
+        "#DEMO0000": {
+          "name": "RoyalGiantJon",
+          "fame": 1204,
+          "repairPoints": 609,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0001": {
+          "name": "HogRiderHank",
+          "fame": 1616,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 8
+        },
+        "#DEMO0002": {
+          "name": "MegaKnightMia",
+          "fame": 1178,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0003": {
+          "name": "LogBaitLuis",
+          "fame": 1449,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0004": {
+          "name": "XbowXander",
+          "fame": 1505,
+          "repairPoints": 387,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0005": {
+          "name": "GoblinGail",
+          "fame": 1496,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 8
+        },
+        "#DEMO0006": {
+          "name": "MinerMarcus",
+          "fame": 1056,
+          "repairPoints": 9,
+          "boatAttacks": 2,
+          "decksUsed": 8
+        },
+        "#DEMO0007": {
+          "name": "LavaLoonLena",
+          "fame": 1192,
+          "repairPoints": 695,
+          "boatAttacks": 4,
+          "decksUsed": 8
+        },
+        "#DEMO0008": {
+          "name": "SparkySam",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0009": {
+          "name": "BalloonBex",
+          "fame": 1229,
+          "repairPoints": 743,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0010": {
+          "name": "PekkaPete",
+          "fame": 1209,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0011": {
+          "name": "ValkyrieVi",
+          "fame": 1099,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0012": {
+          "name": "WallBreakerWes",
+          "fame": 1598,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0013": {
+          "name": "ArcherQueenAri",
+          "fame": 1152,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0014": {
+          "name": "GraveyardGus",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0015": {
+          "name": "ElixirEddie",
+          "fame": 1066,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0016": {
+          "name": "RamRiderRae",
+          "fame": 955,
+          "repairPoints": 375,
+          "boatAttacks": 2,
+          "decksUsed": 8
+        },
+        "#DEMO0017": {
+          "name": "IceWizardIvy",
+          "fame": 1440,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 8
+        },
+        "#DEMO0018": {
+          "name": "FireballFinn",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0019": {
+          "name": "SkeletonSkye",
+          "fame": 0,
+          "repairPoints": 286,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0020": {
+          "name": "ZapZoe",
+          "fame": 1040,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0021": {
+          "name": "GolemGreta",
+          "fame": 1092,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0022": {
+          "name": "BanditBruno",
+          "fame": 1372,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0023": {
+          "name": "TeslaTova",
+          "fame": 1295,
+          "repairPoints": 503,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0024": {
+          "name": "CannonCarl",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#DEMO0025": {
+          "name": "MortarMo",
+          "fame": 1576,
+          "repairPoints": 0,
+          "boatAttacks": 4,
+          "decksUsed": 8
+        },
+        "#DEMO0026": {
+          "name": "PrincessPia",
+          "fame": 1086,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        },
+        "#DEMO0091": {
+          "name": "FreshFinley",
+          "fame": 1086,
+          "repairPoints": 0,
+          "boatAttacks": 3,
+          "decksUsed": 8
+        }
+      }
+    }
+  ],
+  "exemptions": [
+    {
+      "tag": "#DEMO0008",
+      "warId": "104-7",
+      "note": "Declared ahead of time — work travel",
+      "createdAt": "2026-09-13T12:00:00.000Z"
+    },
+    {
+      "tag": "#DEMO0014",
+      "warId": "104-6",
+      "note": "Declared ahead of time — hospital",
+      "createdAt": "2026-09-13T12:00:00.000Z"
+    },
+    {
+      "tag": "#DEMO0022",
+      "warId": "104-0",
+      "note": "Declared ahead of time",
+      "createdAt": "2026-09-14T04:08:19.143Z"
+    }
+  ],
+  "events": [
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0000",
+      "name": "RoyalGiantJon",
+      "detail": "Joined as leader"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0001",
+      "name": "HogRiderHank",
+      "detail": "Joined as coLeader"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0002",
+      "name": "MegaKnightMia",
+      "detail": "Joined as coLeader"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0003",
+      "name": "LogBaitLuis",
+      "detail": "Joined as coLeader"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0004",
+      "name": "XbowXander",
+      "detail": "Joined as elder"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0005",
+      "name": "GoblinGail",
+      "detail": "Joined as elder"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0006",
+      "name": "MinerMarcus",
+      "detail": "Joined as elder"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0007",
+      "name": "LavaLoonLena",
+      "detail": "Joined as elder"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0008",
+      "name": "SparkySam",
+      "detail": "Joined as elder"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0009",
+      "name": "BalloonBex",
+      "detail": "Joined as elder"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0010",
+      "name": "PekkaPete",
+      "detail": "Joined as elder"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0011",
+      "name": "ValkyrieVi",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.426Z",
+      "type": "join",
+      "tag": "#DEMO0012",
+      "name": "WallBreakerWes",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0013",
+      "name": "ArcherQueenAri",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0014",
+      "name": "GraveyardGus",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0015",
+      "name": "ElixirEddie",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0016",
+      "name": "RamRiderRae",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0017",
+      "name": "IceWizardIvy",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0018",
+      "name": "FireballFinn",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0019",
+      "name": "SkeletonSkye",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0020",
+      "name": "ZapZoe",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0021",
+      "name": "GolemGreta",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0022",
+      "name": "BanditBruno",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0023",
+      "name": "TeslaTova",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0024",
+      "name": "CannonCarl",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0025",
+      "name": "MortarMo",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0026",
+      "name": "PrincessPia",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.427Z",
+      "type": "join",
+      "tag": "#DEMO0090",
+      "name": "DriftedDave",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.429Z",
+      "type": "war-recorded",
+      "detail": "War 104-0 finished rank 1"
+    },
+    {
+      "at": "2026-09-14T04:08:00.429Z",
+      "type": "war-recorded",
+      "detail": "War 104-1 finished rank 2"
+    },
+    {
+      "at": "2026-09-14T04:08:00.429Z",
+      "type": "war-recorded",
+      "detail": "War 104-2 finished rank 4"
+    },
+    {
+      "at": "2026-09-14T04:08:00.429Z",
+      "type": "war-recorded",
+      "detail": "War 104-3 finished rank 3"
+    },
+    {
+      "at": "2026-09-14T04:08:00.429Z",
+      "type": "war-recorded",
+      "detail": "War 104-4 finished rank 3"
+    },
+    {
+      "at": "2026-09-14T04:08:00.429Z",
+      "type": "war-recorded",
+      "detail": "War 104-5 finished rank 2"
+    },
+    {
+      "at": "2026-09-14T04:08:00.429Z",
+      "type": "war-recorded",
+      "detail": "War 104-6 finished rank 2"
+    },
+    {
+      "at": "2026-09-14T04:08:00.429Z",
+      "type": "war-recorded",
+      "detail": "War 104-7 finished rank 5"
+    },
+    {
+      "at": "2026-09-14T04:08:00.455Z",
+      "type": "promote",
+      "tag": "#DEMO0011",
+      "name": "ValkyrieVi",
+      "detail": "member -> elder"
+    },
+    {
+      "at": "2026-09-14T04:08:00.455Z",
+      "type": "join",
+      "tag": "#DEMO0091",
+      "name": "FreshFinley",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-09-14T04:08:00.455Z",
+      "type": "leave",
+      "tag": "#DEMO0090",
+      "name": "DriftedDave",
+      "detail": "Left or was removed (was member)"
+    },
+    {
+      "at": "2026-09-14T04:08:00.455Z",
+      "type": "note",
+      "detail": "Demo data generated — not real clan results"
+    },
+    {
+      "at": "2026-09-14T04:08:19.143Z",
+      "type": "exempt",
+      "tag": "#DEMO0022",
+      "name": "BanditBruno",
+      "detail": "Excused for 104-0: Declared ahead of time"
+    }
+  ],
+  "demo": true
+}

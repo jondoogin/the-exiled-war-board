@@ -1,4 +1,8 @@
-data/*.json
 data/*.tmp
 .env
 node_modules
+
+# data/state.json is deliberately NOT ignored. It is the database: the Clash
+# API only serves about ten past river races, so the committed store is the
+# only place older history exists. Each scheduled sync commits it, which also
+# makes every week's change reviewable in the repo history.

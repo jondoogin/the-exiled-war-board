@@ -2,11 +2,38 @@
 
 const DEFAULT_BASE = 'https://proxy.royaleapi.dev/v1';
 
+/* Supercell's failure modes are few and each has exactly one cause worth
+   checking first, so the error says what to do rather than what went wrong. */
+const HINTS = {
+  400: 'Malformed request — usually a clan tag with characters the API rejects.',
+  403: 'The key is not valid FROM THIS MACHINE. Supercell locks each key to the\n' +
+       '  IP addresses you listed when you created it. Either add this machine\'s\n' +
+       '  public IP to the key at developer.clashroyale.com, or set\n' +
+       '  CR_API_BASE=https://proxy.royaleapi.dev/v1 and whitelist 45.79.218.79\n' +
+       '  on the key instead. (A revoked or mistyped key gives this too.)',
+  404: 'No clan with that tag. Check CR_CLAN_TAG — capital letters only, and the\n' +
+       '  digit 0 never the letter O.',
+  429: 'Rate limited. Back off; a per-day sync does not need to retry hard.',
+  500: 'Supercell server error. Not your setup — try again shortly.',
+  503: 'The API is in maintenance (it goes down during game updates). Try later.'
+};
+
 export class ClashApiError extends Error {
   constructor(status, body, url) {
     super(`Clash API ${status} for ${url}: ${body?.reason || body?.message || 'unknown error'}`);
     this.status = status;
     this.body = body;
+    // Supercell always answers with {reason, message}. A refusal without that
+    // shape came from something in between — a corporate proxy, a VPN, a
+    // sandbox egress policy — and blaming the API key would send you hunting
+    // in the wrong place.
+    this.fromSupercell = Boolean(body && typeof body.reason === 'string');
+    this.hint = !this.fromSupercell && (status === 403 || status === 407)
+      ? 'This refusal did not come from Supercell — the response has no "reason"\n' +
+        '  field, so something between you and the API blocked it: a proxy, a VPN,\n' +
+        '  a firewall, or a sandbox network policy. Check outbound access to\n' +
+        '  api.clashroyale.com (or proxy.royaleapi.dev) before touching the key.'
+      : HINTS[status] || null;
   }
 }
 

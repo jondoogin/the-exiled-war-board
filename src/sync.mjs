@@ -179,5 +179,10 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   }
   sync({ token, clanTag, base })
     .then((s) => console.log(`Synced ${s.clan?.name} — ${Object.keys(s.members).length} tracked members, ${s.wars.length} wars`))
-    .catch((err) => { console.error(err.message); process.exit(1); });
+    .catch((err) => {
+      console.error(err.message);
+      if (err.hint) console.error(err.hint);
+      console.error('Run `npm run doctor` for a full check.');
+      process.exit(1);
+    });
 }

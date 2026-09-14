@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Clash Royale clan war participation tracker (prototype)",
   "scripts": {
+    "doctor": "node src/doctor.mjs",
     "demo": "node src/demo.mjs",
     "sync": "node src/sync.mjs",
     "start": "node src/server.mjs",

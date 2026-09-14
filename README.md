@@ -12,14 +12,46 @@ npm run demo     # generates a fake 28-person clan with 8 weeks of war history
 npm start        # http://localhost:5180
 ```
 
-Against your real clan:
+## Connecting your clan
+
+The API key is the only fiddly part, and it is fiddly for one reason: **Supercell
+locks every key to the IP addresses you name when you create it.**
+
+1. **Get the clan tag.** In game, under the clan name. Capital letters, and the
+   character that looks like O is always a zero.
+2. **Make a key** at [developer.clashroyale.com](https://developer.clashroyale.com)
+   (free, needs a Supercell account) under Account -> Create New Key. It asks
+   for allowed IPs. Two ways to answer:
+   - **Running it on one machine with a stable IP** — put that machine's public
+     IP in (`curl https://api.ipify.org` tells you). Set
+     `CR_API_BASE=https://api.clashroyale.com/v1`.
+   - **Running it anywhere with a changing IP** (a laptop, most hosts, anything
+     serverless) — whitelist `45.79.218.79` instead and leave
+     `CR_API_BASE=https://proxy.royaleapi.dev/v1`. That is RoyaleAPI's public
+     proxy; your key rides through their fixed IP. This is the easier path.
+3. **Fill in the environment and check it:**
 
 ```bash
-cp env.example .env     # fill in CR_API_TOKEN and CR_CLAN_TAG
+cp env.example .env     # add CR_API_TOKEN and CR_CLAN_TAG
 set -a && . ./.env && set +a
-npm run sync             # or hit "Sync from API" in the UI
+npm run doctor          # says exactly what is wrong, if anything
+```
+
+4. **Pull the data:**
+
+```bash
+npm run sync            # or hit "Sync from API" in the UI
 npm start
 ```
+
+`npm run doctor` walks credentials, egress IP, and all four endpoints, and stops
+at the first real problem with the fix attached. A 403 is nearly always the IP
+whitelist rather than a bad key — and if the refusal did not come from Supercell
+at all, the doctor says so instead of sending you to re-issue a working key.
+
+**Start syncing sooner rather than later.** `/riverracelog` only returns about
+ten past races and there is no endpoint for older ones. Every week you do not
+sync is a week of history that cannot be recovered later.
 
 ## What it tracks
 

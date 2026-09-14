@@ -8,7 +8,7 @@
 // only <title>, the font link, one <style>, the markup, and one <script>.
 //
 //   node scripts/build-ledger.mjs [--data data/state.json] [--out dist/index.html]
-//                                 [--repo owner/name] [--public-only]
+//                                 [--api https://host/api/excuse] [--public-only]
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { compactState } from '../src/compact.mjs';
@@ -23,7 +23,9 @@ const arg = (flag, fallback) => {
 };
 const has = (flag) => process.argv.includes(flag);
 
-const REPO = arg('--repo', 'jondoogin/the-exiled-war-board');
+// Where the leadership page sends its excuses. Empty until the endpoint is
+// deployed; the page then says so rather than failing silently.
+const API = arg('--api', process.env.WAR_BOARD_API || '');
 
 const FONTS =
   'https://fonts.googleapis.com/css2' +
@@ -87,7 +89,7 @@ if (!has('--public-only')) {
       title: 'The Exiled War Board — Leadership',
       extraCss: leaderCss,
       preBody: leaderBody + '\n',
-      extraScript: `<script>window.__WAR_BOARD_REPO__ = ${JSON.stringify(REPO)};</script>\n`,
+      extraScript: `<script>window.__WAR_BOARD_API__ = ${JSON.stringify(API)};</script>\n`,
       boot: leaderJs
     })
   });

@@ -1,5 +1,8 @@
 /* Leadership bar. Present on the private page only; the public board never
-   loads this file or the script that goes with it. */
+   loads this file or the script that goes with it.
+
+   One row: label, status, password, publish. The password is narrow on
+   purpose — it is a short shared word, not a credential anyone types often. */
 .leadbar {
   position: sticky;
   top: 0;
@@ -14,10 +17,9 @@
   padding: var(--ex-s2) var(--ex-s4);
   display: flex;
   flex-wrap: wrap;
-  gap: var(--ex-s2) var(--ex-s3);
+  gap: var(--ex-s2);
   align-items: center;
 }
-.leadbar-auth { border-top: var(--ex-rule) dashed rgba(246, 231, 194, 0.3); }
 .leadbar-tag {
   font-family: var(--ex-pixel);
   font-size: 9px;
@@ -29,22 +31,50 @@
   padding: 3px 6px;
   white-space: nowrap;
 }
-.leadbar-msg { font-size: var(--ex-t-sm); color: var(--ex-paper); flex: 1 1 220px; min-width: 0; }
+.leadbar-msg {
+  font-size: var(--ex-t-sm);
+  color: var(--ex-paper);
+  flex: 1 1 60px;
+  min-width: 0;
+  margin-inline: var(--ex-s1);
+  /* Status text yields before the controls do — it can be read by truncating,
+     the password and Publish cannot be used at all if they wrap away. */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .leadbar-msg.is-bad { color: #ffb1a8; }
 .leadbar-msg.is-good { color: #b6f0c4; }
 .leadbar input[type="password"] {
   font-family: var(--ex-data);
   font-size: var(--ex-t-sm);
-  flex: 1 1 200px;
+  flex: 0 0 118px;
+  width: 118px;
   min-width: 0;
   color: var(--ex-ink);
   background: var(--ex-well);
   border: var(--ex-rule) solid var(--ex-ink);
   border-radius: var(--ex-edge);
-  padding: 0 var(--ex-s3);
+  padding: 0 var(--ex-s2);
   min-height: var(--ex-tap);
 }
+.leadbar input[type="password"].is-set {
+  /* Remembered: shrink to a stub so the row reads as status, not a form. */
+  flex-basis: 54px;
+  width: 54px;
+}
+.leadbar .btn { flex: 0 0 auto; }
 .leadbar .btn:disabled { opacity: 0.55; cursor: default; background: var(--ex-paper-2); }
+
+/* Phone: the row survives by dropping the label and tightening the field.
+   Four controls will not fit across 390px otherwise, and a wrapped bar costs
+   more vertical space than the label is worth. */
+@media (max-width: 560px) {
+  .leadbar-in { padding-inline: var(--ex-s3); gap: var(--ex-s1); }
+  .leadbar-tag { display: none; }
+  .leadbar input[type="password"] { flex-basis: 96px; width: 96px; }
+  .leadbar input[type="password"].is-set { flex-basis: 46px; width: 46px; }
+}
 
 /* A week with an unpublished change, so it is obvious what is still in hand. */
 .week.is-pending { outline: var(--ex-stroke) solid var(--ex-gold); outline-offset: 2px; }

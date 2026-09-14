@@ -63,21 +63,36 @@ are a human judgement, not something the API knows. The leadership page commits
 to that file directly through the GitHub API, and the push rebuilds the site, so
 a week excused from a phone reaches the shared board in about a minute.
 
-**Setting it up once.** Create a fine-grained personal access token at
-github.com/settings/personal-access-tokens:
+**Why an endpoint and not just a password in the page.** The board is a static
+site. Anything shipped to the browser is readable by anyone who opens devtools,
+so a page cannot hold a GitHub token no matter what gates it — and GitHub's
+secret scanning would revoke a leaked one within minutes. `api/excuse.js` is the
+only thing that holds the token. Leaders send a shared password; the token stays
+in the host's environment.
 
-- Repository access: **only** `the-exiled-war-board`
-- Permissions: **Contents -> Read and write**, nothing else
-- Expiry: whatever you are willing to renew
+**Setting it up once:**
 
-Open `/leader.html`, paste it, hit Remember. It is stored in that browser's
-local storage — never written into the page, never committed, and sent nowhere
-but api.github.com. Bookmark the page and you are done; it stays signed in.
+1. Create a fine-grained token at github.com/settings/personal-access-tokens —
+   repository access **only** `the-exiled-war-board`, permissions
+   **Contents: Read and write**, nothing else.
+2. Deploy this repo to Vercel (`vercel` in the project root, or import it at
+   vercel.com/new). It serves `api/excuse.js` automatically.
+3. In the Vercel project's **Settings -> Environment Variables**, add:
+   - `LEADER_PASSWORD` — the word you share with your co-leaders
+   - `GH_TOKEN` — the token from step 1
+   - `GH_REPO` — `jondoogin/the-exiled-war-board` (optional; this is the default)
+4. Back on GitHub: **Settings -> Secrets and variables -> Actions -> Variables**,
+   add `WAR_BOARD_API` set to `https://<your-vercel-project>.vercel.app/api/excuse`.
+5. Re-run the workflow so the leadership page is rebuilt knowing the endpoint.
 
-The page is a plain URL rather than anything gated, so treat the link as the
-credential it effectively is. The token is what actually grants write access,
-and it lives only in the browsers you have pasted it into. To revoke, delete the
-token on GitHub.
+Then share the password. Anyone who has it can excuse a week from
+`/leader.html`; nobody needs a GitHub account. Changing the password is an
+environment-variable edit and a redeploy — it does not touch the token, and
+revoking the token does not require telling anyone.
+
+A shared password is a shared password: it decides who can edit, not who did.
+The commit history records every change, so you can always see what was excused
+and when, but not which leader did it.
 
 ## Keeping it current without touching it
 

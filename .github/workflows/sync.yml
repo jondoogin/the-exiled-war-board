@@ -63,6 +63,11 @@ jobs:
         run: npm run sync
 
       - name: Build the board
+        env:
+          # Repository variable (Settings -> Variables), not a secret — it is a
+          # public URL. Empty until the write endpoint is deployed, in which
+          # case the leadership page says so instead of failing silently.
+          WAR_BOARD_API: ${{ vars.WAR_BOARD_API }}
         run: node scripts/build-ledger.mjs
 
       - name: Commit this week's history

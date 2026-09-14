@@ -1,8 +1,15 @@
-/* Leadership bar. Present on the private page only; the public board never
-   loads this file or the script that goes with it.
+/* Leadership page overrides. The public board never loads this file.
+
+   The bar stays hidden until there is something to publish, so the page opens
+   looking exactly like the board everyone else sees. That is what makes the
+   link safe to put in the public footer: a clanmate who follows it finds the
+   ordinary board, not a login.
 
    One row: label, status, password, publish. The password is narrow on
    purpose — it is a short shared word, not a credential anyone types often. */
+.if-public { display: none; }
+.if-leader { display: inline; }
+
 .leadbar {
   position: sticky;
   top: 0;
@@ -74,6 +81,15 @@
   .leadbar-tag { display: none; }
   .leadbar input[type="password"] { flex-basis: 96px; width: 96px; }
   .leadbar input[type="password"].is-set { flex-basis: 46px; width: 46px; }
+}
+
+@keyframes leadbar-in {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+.leadbar { animation: leadbar-in var(--ex-mid) var(--ex-ease-soft) both; }
+@media (prefers-reduced-motion: reduce) {
+  .leadbar { animation: none; }
 }
 
 /* A week with an unpublished change, so it is obvious what is still in hand. */

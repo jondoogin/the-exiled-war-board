@@ -25,6 +25,7 @@
   var published = {};
   (seed.ex || []).forEach(function (e) { published[e[0] + "|" + e[1]] = true; });
 
+  var bar = document.getElementById("leadbar");
   var msg = document.getElementById("leadmsg");
   var publishBtn = document.getElementById("publish");
   var passInput = document.getElementById("leadpass");
@@ -43,8 +44,19 @@
 
   function pendingCount() { return Object.keys(pending).length; }
 
+  /* The bar is hidden until there is something to publish, so the page opens
+     as the ordinary board. After a successful publish there is nothing pending
+     but there is something to say, so it is held open long enough to read. */
+  var holdUntil = 0;
+  function showBar(ms) {
+    holdUntil = Date.now() + (ms || 0);
+    bar.hidden = false;
+    if (ms) window.setTimeout(refresh, ms + 100);
+  }
+
   function refresh() {
     var n = pendingCount();
+    bar.hidden = n === 0 && Date.now() >= holdUntil;
     publishBtn.disabled = n === 0;
     publishBtn.textContent = n === 0 ? "Publish" : "Publish " + n;
     passInput.classList.toggle("is-set", Boolean(passInput.value));
@@ -87,6 +99,7 @@
       if (!res.ok) throw new Error(body.error || "Publish failed (" + res.status + ").");
 
       writePass(password);
+      showBar(6000);
       // The server now holds these, so they become the baseline.
       Object.keys(pending).forEach(function (key) {
         if (pending[key]) published[key] = true;
@@ -96,6 +109,7 @@
       refresh();
       say("Published. The board catches up in about a minute.", "good");
     } catch (err) {
+      showBar(12000);
       say(err.message, "bad");
       refresh();
     }
@@ -116,6 +130,7 @@
       // Toggling back to where it started is not a change worth publishing.
       if (excused === startedExcused) delete pending[key];
       else pending[key] = excused;
+      if (pendingCount()) showBar(0);
       refresh();
       var n = pendingCount();
       say(n ? n + " unpublished change" + (n === 1 ? "" : "s") + "." : "Tap any week to excuse it.");

@@ -471,6 +471,11 @@ ul.log { list-style: none; margin: 0; padding: 0; }
 .log b { color: var(--ex-ink); font-weight: 700; }
 .foot { font-size: var(--ex-t-sm); color: var(--ex-ink-2); max-width: 62ch; }
 .foot b { color: var(--ex-ink); font-weight: 700; }
+.foot a { color: var(--ex-blue-ink); text-decoration-thickness: 2px; text-underline-offset: 2px; }
+.foot a:hover { color: var(--ex-ink); }
+/* Page-specific copy. The leader build overrides these in leader.css; the
+   public build never loads that file, so this is the public wording. */
+.if-leader { display: none; }
 
 /* --- Motion ----------------------------------------------------------------
    Stepped, like a mechanical counter. The page is legible the instant it

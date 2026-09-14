@@ -81,7 +81,19 @@ jobs:
             echo 'No roster or war changes since the last sync.'
           else
             git commit -m "Sync $(date -u '+%Y-%m-%d')"
-            git push
+            # A leader publishing an excuse commits to main from the Vercel
+            # function, and can land between this run's checkout and its push.
+            # Rebase onto whatever arrived rather than failing the sync — the
+            # two touch different files, so there is nothing to resolve.
+            for attempt in 1 2 3; do
+              if git push; then
+                exit 0
+              fi
+              echo "Push rejected (attempt $attempt) — rebasing onto main and retrying."
+              git pull --rebase origin main
+            done
+            echo 'Could not push after three attempts.' >&2
+            exit 1
           fi
 
       - uses: actions/configure-pages@v5

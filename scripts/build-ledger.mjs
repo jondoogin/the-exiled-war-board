@@ -48,7 +48,7 @@ startBoard(JSON.parse(document.getElementById("seed").textContent));
 </script>
 `;
 
-const out = resolve(ROOT, arg('--out', 'dist/ledger.html'));
+const out = resolve(ROOT, arg('--out', 'dist/index.html'));
 await mkdir(dirname(out), { recursive: true });
 await writeFile(out, html);
 console.log(`${out} — ${(html.length / 1024).toFixed(1)} kB`);

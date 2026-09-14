@@ -75,11 +75,25 @@ The key must whitelist `45.79.218.79` — the RoyaleAPI proxy — rather than an
 particular machine's IP. GitHub's runners get a different address on every run,
 so a home-IP-locked key works locally and fails here.
 
-**If the repo is private,** GitHub Pages needs a paid plan. Either make the repo
-public (the data is public game data, though member names would be indexable),
-or drop the last three steps of the workflow and point Vercel or Netlify at the
-repo instead — they deploy `dist/` on every push, and the commit the sync makes
-is the trigger.
+### What is public, and what is not
+
+This repo is public so GitHub Pages is free. That means two things are readable
+by anyone:
+
+- **`data/state.json`** — clan member names, player tags, and every war result
+  the tracker has recorded. All of it is already public through the Clash API;
+  the difference is that here it is aggregated and search-indexable.
+- **The board itself**, at the Pages URL.
+
+What is *not* in the repo, and must never be: the API key. It lives in `.env`
+locally (gitignored) and in GitHub Actions secrets for CI. Secrets are not
+exposed to workflow runs from forked pull requests, so a public repo does not
+put the key at risk.
+
+If any of that changes your mind, make the repo private and drop the last three
+steps of the workflow, then point Vercel or Netlify at it instead — they deploy
+`dist/` on every push, and the sync commit is the trigger. Pages on a private
+repo needs a paid plan; those hosts do not.
 
 A failed sync fails the run and leaves the previous deploy up, which is the
 behaviour you want: a stale board beats a broken one. GitHub emails you when a
@@ -172,7 +186,7 @@ The local app and the hosted board are assembled from the same four design
 files, so they cannot drift. To rebuild the hosted page:
 
 ```bash
-node scripts/build-ledger.mjs      # -> dist/ledger.html
+node scripts/build-ledger.mjs      # -> dist/index.html
 ```
 
 ## Next steps if this graduates past prototype

@@ -6,3 +6,6 @@ node_modules
 # API only serves about ten past river races, so the committed store is the
 # only place older history exists. Each scheduled sync commits it, which also
 # makes every week's change reviewable in the repo history.
+
+# Build output. CI rebuilds it on every sync; a committed copy only goes stale.
+dist/

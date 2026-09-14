@@ -2439,283 +2439,270 @@
       "warId": "104-6",
       "note": "Declared ahead of time — hospital",
       "createdAt": "2026-09-13T12:00:00.000Z"
-    },
-    {
-      "tag": "#DEMO0022",
-      "warId": "104-0",
-      "note": "Declared ahead of time",
-      "createdAt": "2026-09-14T04:08:19.143Z"
     }
   ],
   "events": [
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.292Z",
       "type": "join",
       "tag": "#DEMO0000",
       "name": "RoyalGiantJon",
       "detail": "Joined as leader"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0001",
       "name": "HogRiderHank",
       "detail": "Joined as coLeader"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0002",
       "name": "MegaKnightMia",
       "detail": "Joined as coLeader"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0003",
       "name": "LogBaitLuis",
       "detail": "Joined as coLeader"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0004",
       "name": "XbowXander",
       "detail": "Joined as elder"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0005",
       "name": "GoblinGail",
       "detail": "Joined as elder"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0006",
       "name": "MinerMarcus",
       "detail": "Joined as elder"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0007",
       "name": "LavaLoonLena",
       "detail": "Joined as elder"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0008",
       "name": "SparkySam",
       "detail": "Joined as elder"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0009",
       "name": "BalloonBex",
       "detail": "Joined as elder"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0010",
       "name": "PekkaPete",
       "detail": "Joined as elder"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0011",
       "name": "ValkyrieVi",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.426Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0012",
       "name": "WallBreakerWes",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0013",
       "name": "ArcherQueenAri",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0014",
       "name": "GraveyardGus",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0015",
       "name": "ElixirEddie",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0016",
       "name": "RamRiderRae",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0017",
       "name": "IceWizardIvy",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0018",
       "name": "FireballFinn",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0019",
       "name": "SkeletonSkye",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0020",
       "name": "ZapZoe",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0021",
       "name": "GolemGreta",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0022",
       "name": "BanditBruno",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0023",
       "name": "TeslaTova",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0024",
       "name": "CannonCarl",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0025",
       "name": "MortarMo",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0026",
       "name": "PrincessPia",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.427Z",
+      "at": "2026-09-14T04:32:51.293Z",
       "type": "join",
       "tag": "#DEMO0090",
       "name": "DriftedDave",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.429Z",
+      "at": "2026-09-14T04:32:51.295Z",
       "type": "war-recorded",
       "detail": "War 104-0 finished rank 1"
     },
     {
-      "at": "2026-09-14T04:08:00.429Z",
+      "at": "2026-09-14T04:32:51.295Z",
       "type": "war-recorded",
       "detail": "War 104-1 finished rank 2"
     },
     {
-      "at": "2026-09-14T04:08:00.429Z",
+      "at": "2026-09-14T04:32:51.295Z",
       "type": "war-recorded",
       "detail": "War 104-2 finished rank 4"
     },
     {
-      "at": "2026-09-14T04:08:00.429Z",
+      "at": "2026-09-14T04:32:51.295Z",
       "type": "war-recorded",
       "detail": "War 104-3 finished rank 3"
     },
     {
-      "at": "2026-09-14T04:08:00.429Z",
+      "at": "2026-09-14T04:32:51.295Z",
       "type": "war-recorded",
       "detail": "War 104-4 finished rank 3"
     },
     {
-      "at": "2026-09-14T04:08:00.429Z",
+      "at": "2026-09-14T04:32:51.295Z",
       "type": "war-recorded",
       "detail": "War 104-5 finished rank 2"
     },
     {
-      "at": "2026-09-14T04:08:00.429Z",
+      "at": "2026-09-14T04:32:51.295Z",
       "type": "war-recorded",
       "detail": "War 104-6 finished rank 2"
     },
     {
-      "at": "2026-09-14T04:08:00.429Z",
+      "at": "2026-09-14T04:32:51.295Z",
       "type": "war-recorded",
       "detail": "War 104-7 finished rank 5"
     },
     {
-      "at": "2026-09-14T04:08:00.455Z",
+      "at": "2026-09-14T04:32:51.322Z",
       "type": "promote",
       "tag": "#DEMO0011",
       "name": "ValkyrieVi",
       "detail": "member -> elder"
     },
     {
-      "at": "2026-09-14T04:08:00.455Z",
+      "at": "2026-09-14T04:32:51.322Z",
       "type": "join",
       "tag": "#DEMO0091",
       "name": "FreshFinley",
       "detail": "Joined as member"
     },
     {
-      "at": "2026-09-14T04:08:00.455Z",
+      "at": "2026-09-14T04:32:51.322Z",
       "type": "leave",
       "tag": "#DEMO0090",
       "name": "DriftedDave",
       "detail": "Left or was removed (was member)"
     },
     {
-      "at": "2026-09-14T04:08:00.455Z",
+      "at": "2026-09-14T04:32:51.323Z",
       "type": "note",
       "detail": "Demo data generated — not real clan results"
-    },
-    {
-      "at": "2026-09-14T04:08:19.143Z",
-      "type": "exempt",
-      "tag": "#DEMO0022",
-      "name": "BanditBruno",
-      "detail": "Excused for 104-0: Declared ahead of time"
     }
   ],
   "demo": true

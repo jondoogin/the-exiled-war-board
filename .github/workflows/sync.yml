@@ -51,7 +51,7 @@ jobs:
         run: npm run sync
 
       - name: Build the board
-        run: node scripts/build-ledger.mjs --out dist/index.html
+        run: node scripts/build-ledger.mjs
 
       - name: Commit this week's history
         run: |

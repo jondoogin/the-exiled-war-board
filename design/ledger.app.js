@@ -330,7 +330,9 @@ window.startBoard = function (SEED, options) {
         "</button>" +
         (state.open[r.tag] ? detailFor(r) : "") +
       "</div>";
-    }).join("") : '<p class="empty">Nobody matches that filter.</p>';
+    }).join("") : '<div class="empty">' +
+      '<img src="assets/goblin-signpost.png" alt="" width="512" height="512" loading="lazy" onerror="this.hidden=true">' +
+      "<p>Nobody matches that filter.</p></div>";
 
     Array.prototype.forEach.call(document.querySelectorAll("#colhead button"), function (b) {
       b.setAttribute("data-active", b.dataset.key === state.sort.key ? "1" : "0");

@@ -5,6 +5,7 @@
    ========================================================================= */
 
 * { box-sizing: border-box; }
+img { max-width: 100%; }
 
 /* Any display rule below would otherwise beat the browser's default for
    [hidden]. A standalone page gets no host reset, so state the rule here. */
@@ -48,6 +49,39 @@ body {
   body { background-color: var(--ex-paper); background-image: var(--ex-grain); }
 }
 
+/* Present to a screen reader, absent from the page. The crest carries the clan
+   name visually, so the heading keeps it in text for the document outline. */
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Brand ----------------------------------------------------------------
+   Crest and title read as one lockup. The wordmark inside the crest already
+   says the clan name, so the heading beside it does not repeat it. */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--ex-s4);
+  flex-wrap: wrap;
+}
+.crest {
+  width: clamp(78px, 14vw, 132px);
+  height: auto;
+  flex: 0 0 auto;
+  /* The art carries its own heavy outline; a hard shadow seats it on the page
+     the way every other object here is seated. */
+  filter: drop-shadow(4px 4px 0 rgba(12, 40, 71, 0.45));
+}
+.brand-text { min-width: 0; flex: 1 1 220px; }
+
 /* --- Type ----------------------------------------------------------------- */
 .pixel {
   font-family: var(--ex-pixel);
@@ -62,7 +96,7 @@ h1 {
   font-size: var(--ex-t-3xl);
   line-height: 0.92;
   letter-spacing: 0.01em;
-  margin: var(--ex-s2) 0 0;
+  margin: var(--ex-s1) 0 0;
   color: var(--ex-gold);
   text-transform: uppercase;
   /* A painted arena banner: ink outline, hard drop, and a whisper of print
@@ -453,7 +487,17 @@ details.model[open] > summary::before { content: "[-] "; }
 }
 .legend span { display: inline-flex; align-items: center; gap: var(--ex-s1); }
 .key { width: 11px; height: 11px; display: inline-block; border: 2px solid var(--ex-ink); }
-.empty { padding: var(--ex-s6) var(--ex-s4); color: var(--ex-ink-2); }
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ex-s3);
+  padding: var(--ex-s6) var(--ex-s4);
+  color: var(--ex-ink-2);
+  text-align: center;
+}
+.empty img { width: 132px; max-width: 45%; height: auto; }
+.empty p { margin: 0; }
 
 /* --- Log ------------------------------------------------------------------ */
 ul.log { list-style: none; margin: 0; padding: 0; }
@@ -471,11 +515,39 @@ ul.log { list-style: none; margin: 0; padding: 0; }
 .log b { color: var(--ex-ink); font-weight: 700; }
 .foot { font-size: var(--ex-t-sm); color: var(--ex-ink-2); max-width: 62ch; }
 .foot b { color: var(--ex-ink); font-weight: 700; }
-.foot a { color: var(--ex-blue-ink); text-decoration-thickness: 2px; text-underline-offset: 2px; }
+.foot a {
+  color: var(--ex-blue-ink);
+  font-weight: 700;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  /* The only route to the leadership page, and it is reached by thumb. */
+  display: inline-block;
+  padding-block: 6px;
+}
 .foot a:hover { color: var(--ex-ink); }
 /* Page-specific copy. The leader build overrides these in leader.css; the
    public build never loads that file, so this is the public wording. */
 .if-leader { display: none; }
+
+/* --- The road out ----------------------------------------------------------
+   Full-bleed under the sheet, on the cabinet rather than on the paper. The art
+   has its own sky and ground, so it ends the page without needing a frame. */
+.march {
+  width: 100%;
+  line-height: 0;
+  margin-top: calc(var(--ex-s5) * -1);
+  overflow: hidden;
+}
+.march img {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  max-width: none;
+  height: auto;
+  /* Narrow screens crop toward the castle end, where the story starts. */
+  object-fit: cover;
+  object-position: left bottom;
+}
 
 /* --- Motion ----------------------------------------------------------------
    Stepped, like a mechanical counter. The page is legible the instant it

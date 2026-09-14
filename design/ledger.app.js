@@ -330,6 +330,30 @@ window.startBoard = function (SEED) {
     });
   }
 
+  /* The header states facts about this clan, so it is written from the data
+     rather than baked into the markup — a hardcoded roster size becomes a lie
+     the first time a real sync lands. */
+  function renderHeader() {
+    var weeks = wars.filter(function (w) { return w.complete; }).length;
+    var roster = members.filter(function (m) { return m.status !== "departed"; }).length;
+    var eyebrow = document.getElementById("eyebrow");
+    var lede = document.getElementById("lede");
+    if (eyebrow) {
+      eyebrow.textContent = [
+        SEED.clan && SEED.clan.name,
+        SEED.clan && SEED.clan.tag,
+        weeks + " war week" + (weeks === 1 ? "" : "s") + " scored",
+        SEED.demo ? "sample data" : null
+      ].filter(Boolean).join(" · ");
+    }
+    if (lede) {
+      lede.innerHTML = weeks + " river race" + (weeks === 1 ? "" : "s") + ", " + roster +
+        " members, sixteen decks a week each. One weighted score decides who gets bumped up " +
+        "and who gets shown the door. <b>Drag the weights</b> and the whole roster re-sorts — " +
+        "that argument is easier to have with names on the screen.";
+    }
+  }
+
   function renderLog() {
     var firstWar = wars[0].date;
     var entries = [];
@@ -420,6 +444,7 @@ window.startBoard = function (SEED) {
     render();
   });
 
+  renderHeader();
   syncKnobs();
   renderLog();
   render();

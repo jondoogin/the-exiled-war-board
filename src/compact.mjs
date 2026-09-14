@@ -16,6 +16,7 @@ export function compactState(state) {
         Object.entries(w.participants || {}).map(([tag, p]) => [tag, [p.decksUsed, p.fame, p.repairPoints]])
       )
     })),
-    ex: (state.exemptions || []).map((e) => [e.tag, e.warId, e.note])
+    ex: (state.exemptions || []).map((e) => [e.tag, e.warId, e.note]),
+    demo: Boolean(state.demo)
   };
 }

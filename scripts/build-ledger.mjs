@@ -23,9 +23,11 @@ const arg = (flag, fallback) => {
 };
 const has = (flag) => process.argv.includes(flag);
 
-// Where the leadership page sends its excuses. Empty until the endpoint is
-// deployed; the page then says so rather than failing silently.
-const API = arg('--api', process.env.WAR_BOARD_API || '');
+// Where the leadership page sends its excuses. A public URL, so it lives here
+// rather than in a repository variable — one less thing to configure, and
+// nothing about it is secret. Override with --api or WAR_BOARD_API if the
+// endpoint ever moves.
+const API = arg('--api', process.env.WAR_BOARD_API || 'https://the-exiled-war-board.vercel.app/api/excuse');
 
 const FONTS =
   'https://fonts.googleapis.com/css2' +

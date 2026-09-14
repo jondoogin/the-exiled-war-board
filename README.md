@@ -81,9 +81,12 @@ in the host's environment.
    - `LEADER_PASSWORD` — the word you share with your co-leaders
    - `GH_TOKEN` — the token from step 1
    - `GH_REPO` — `jondoogin/the-exiled-war-board` (optional; this is the default)
-4. Back on GitHub: **Settings -> Secrets and variables -> Actions -> Variables**,
-   add `WAR_BOARD_API` set to `https://<your-vercel-project>.vercel.app/api/excuse`.
-5. Re-run the workflow so the leadership page is rebuilt knowing the endpoint.
+4. Nothing to configure on GitHub: the endpoint URL is the build's default,
+   since it is public. Use the project's **production** domain
+   (`the-exiled-war-board.vercel.app`) rather than a deployment-specific one —
+   the hashed URLs pin to a single build and go stale on the next deploy. If the
+   endpoint ever moves, set a `WAR_BOARD_API` repository variable or pass
+   `--api` to the build; either overrides the default.
 
 Then share the password. Anyone who has it can excuse a week from
 `/leader.html`; nobody needs a GitHub account. Changing the password is an

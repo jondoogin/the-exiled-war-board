@@ -44,7 +44,7 @@ async function main() {
 
   if (!tag) {
     bad('CR_CLAN_TAG is not set.');
-    note('Find it in-game under the clan name, e.g. #2PP0YQRV.');
+    note('Find it in-game under the clan name, e.g. #P2VPUYUU.');
     failed = true;
   } else {
     let normalized;

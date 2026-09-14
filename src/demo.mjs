@@ -10,7 +10,7 @@ const rnd = () => ((seed = (seed * 1103515245 + 12345) & 0x7fffffff) / 0x7ffffff
 const pick = (arr) => arr[Math.floor(rnd() * arr.length)];
 const jitter = (n, spread) => Math.max(0, Math.round(n + (rnd() - 0.5) * spread));
 
-const CLAN_TAG = '#2PP0YQRV';
+const CLAN_TAG = '#P2VPUYUU';
 const WEEKS = 8;
 
 // archetype: [decks-used mean out of 16, fame-per-deck mean]

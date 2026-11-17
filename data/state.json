@@ -7,7 +7,7 @@
     "clanWarTrophies": 3565,
     "description": "We are a War Clan, dont miss. Discord: CR The Exiled."
   },
-  "syncedAt": "2026-11-16T20:37:48.816Z",
+  "syncedAt": "2026-11-17T19:16:39.236Z",
   "members": {
     "#8U0V2Y08P": {
       "tag": "#8U0V2Y08P",
@@ -15,7 +15,7 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:31:13.000Z",
+      "lastSeen": "2026-11-17T18:12:17.000Z",
       "trophies": 14000,
       "donations": 0,
       "expLevel": 0,
@@ -38,9 +38,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:23:40.000Z",
+      "lastSeen": "2026-11-17T18:31:09.000Z",
       "trophies": 14000,
-      "donations": 50,
+      "donations": 82,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -56,9 +56,9 @@
       "role": "leader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:25:23.000Z",
+      "lastSeen": "2026-11-17T16:19:19.000Z",
       "trophies": 14000,
-      "donations": 26,
+      "donations": 62,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -79,7 +79,7 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-15T12:12:41.000Z",
+      "lastSeen": "2026-11-17T01:42:26.000Z",
       "trophies": 14000,
       "donations": 0,
       "expLevel": 0,
@@ -116,9 +116,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:30:44.000Z",
+      "lastSeen": "2026-11-17T12:09:53.000Z",
       "trophies": 14000,
-      "donations": 8,
+      "donations": 34,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -153,9 +153,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-15T20:18:45.000Z",
+      "lastSeen": "2026-11-16T22:26:24.000Z",
       "trophies": 14000,
-      "donations": 0,
+      "donations": 16,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -195,9 +195,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T14:02:56.000Z",
+      "lastSeen": "2026-11-17T04:37:28.000Z",
       "trophies": 14000,
-      "donations": 32,
+      "donations": 42,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -324,9 +324,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T16:15:07.000Z",
+      "lastSeen": "2026-11-17T04:12:13.000Z",
       "trophies": 14000,
-      "donations": 60,
+      "donations": 70,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -347,9 +347,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:29:08.000Z",
+      "lastSeen": "2026-11-17T03:10:49.000Z",
       "trophies": 14000,
-      "donations": 100,
+      "donations": 116,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -393,7 +393,7 @@
       "trophies": 13267,
       "donations": 0,
       "expLevel": 0,
-      "status": "active",
+      "status": "departed",
       "roleHistory": [
         {
           "at": "2026-09-14T03:56:15.089Z",
@@ -409,7 +409,8 @@
           "from": "elder",
           "to": "member"
         }
-      ]
+      ],
+      "departedAt": "2026-11-17T19:16:39.236Z"
     },
     "#QG8UYCY0Q": {
       "tag": "#QG8UYCY0Q",
@@ -460,9 +461,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:04:54.000Z",
+      "lastSeen": "2026-11-17T18:21:47.000Z",
       "trophies": 14000,
-      "donations": 0,
+      "donations": 26,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -516,9 +517,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:22:09.000Z",
+      "lastSeen": "2026-11-17T15:23:26.000Z",
       "trophies": 13670,
-      "donations": 30,
+      "donations": 72,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -582,7 +583,7 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-15T23:44:16.000Z",
+      "lastSeen": "2026-11-17T07:31:41.000Z",
       "trophies": 12913,
       "donations": 0,
       "expLevel": 0,
@@ -600,9 +601,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T18:47:26.000Z",
-      "trophies": 13400,
-      "donations": 0,
+      "lastSeen": "2026-11-17T15:45:50.000Z",
+      "trophies": 13374,
+      "donations": 8,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -661,9 +662,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:12:18.000Z",
+      "lastSeen": "2026-11-17T19:11:28.000Z",
       "trophies": 13004,
-      "donations": 8,
+      "donations": 16,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -679,9 +680,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T15:59:21.000Z",
-      "trophies": 13087,
-      "donations": 58,
+      "lastSeen": "2026-11-17T15:24:01.000Z",
+      "trophies": 13030,
+      "donations": 100,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -697,9 +698,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:25:22.000Z",
-      "trophies": 13223,
-      "donations": 90,
+      "lastSeen": "2026-11-17T16:26:02.000Z",
+      "trophies": 13282,
+      "donations": 144,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -715,9 +716,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T12:07:19.000Z",
-      "trophies": 13155,
-      "donations": 38,
+      "lastSeen": "2026-11-17T14:01:40.000Z",
+      "trophies": 13121,
+      "donations": 118,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -834,9 +835,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T04:40:53.000Z",
-      "trophies": 12349,
-      "donations": 26,
+      "lastSeen": "2026-11-17T02:32:17.000Z",
+      "trophies": 12321,
+      "donations": 52,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -885,7 +886,7 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T05:04:18.000Z",
+      "lastSeen": "2026-11-17T18:10:02.000Z",
       "trophies": 11563,
       "donations": 10,
       "expLevel": 0,
@@ -908,9 +909,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T00:32:40.000Z",
+      "lastSeen": "2026-11-17T12:21:12.000Z",
       "trophies": 10935,
-      "donations": 16,
+      "donations": 42,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -931,9 +932,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-15T17:20:05.000Z",
+      "lastSeen": "2026-11-17T16:16:32.000Z",
       "trophies": 10521,
-      "donations": 0,
+      "donations": 36,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -949,8 +950,8 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T01:49:58.000Z",
-      "trophies": 12348,
+      "lastSeen": "2026-11-17T02:30:20.000Z",
+      "trophies": 12407,
       "donations": 8,
       "expLevel": 0,
       "status": "active",
@@ -990,8 +991,8 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T20:30:29.000Z",
-      "trophies": 13024,
+      "lastSeen": "2026-11-17T19:14:01.000Z",
+      "trophies": 13084,
       "donations": 0,
       "expLevel": 0,
       "status": "active",
@@ -1008,9 +1009,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T17:25:09.000Z",
-      "trophies": 10599,
-      "donations": 36,
+      "lastSeen": "2026-11-17T18:57:20.000Z",
+      "trophies": 10623,
+      "donations": 130,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1045,9 +1046,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-16T04:46:04.000Z",
+      "lastSeen": "2026-11-17T05:47:22.000Z",
       "trophies": 3460,
-      "donations": 28,
+      "donations": 46,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1187,9 +1188,9 @@
       "role": "elder",
       "joinedAt": "2026-09-22T15:07:07.491Z",
       "firstSeen": "2026-09-22T15:07:07.491Z",
-      "lastSeen": "2026-11-16T00:07:49.000Z",
+      "lastSeen": "2026-11-17T00:50:36.000Z",
       "trophies": 11256,
-      "donations": 26,
+      "donations": 34,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1454,9 +1455,9 @@
       "role": "coLeader",
       "joinedAt": "2026-10-12T19:57:11.078Z",
       "firstSeen": "2026-10-12T19:57:11.078Z",
-      "lastSeen": "2026-11-16T12:40:37.000Z",
+      "lastSeen": "2026-11-17T10:24:23.000Z",
       "trophies": 14000,
-      "donations": 8,
+      "donations": 16,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1482,9 +1483,9 @@
       "role": "member",
       "joinedAt": "2026-10-21T15:29:43.175Z",
       "firstSeen": "2026-10-12T19:57:11.078Z",
-      "lastSeen": "2026-11-15T13:32:27.000Z",
-      "trophies": 4359,
-      "donations": 0,
+      "lastSeen": "2026-11-17T16:23:12.000Z",
+      "trophies": 4389,
+      "donations": 11,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1696,8 +1697,8 @@
       "role": "member",
       "joinedAt": "2026-11-06T17:38:09.981Z",
       "firstSeen": "2026-11-06T17:38:09.981Z",
-      "lastSeen": "2026-11-16T13:19:10.000Z",
-      "trophies": 13741,
+      "lastSeen": "2026-11-17T18:25:12.000Z",
+      "trophies": 13878,
       "donations": 0,
       "expLevel": 0,
       "status": "active",
@@ -1770,7 +1771,7 @@
       "role": "member",
       "joinedAt": "2026-11-15T17:20:50.245Z",
       "firstSeen": "2026-11-15T17:20:50.245Z",
-      "lastSeen": "2026-11-16T20:02:47.000Z",
+      "lastSeen": "2026-11-17T05:00:28.000Z",
       "trophies": 13059,
       "donations": 0,
       "expLevel": 0,
@@ -1778,6 +1779,24 @@
       "roleHistory": [
         {
           "at": "2026-11-15T17:20:50.245Z",
+          "to": "member"
+        }
+      ]
+    },
+    "#PJ80RJJYY": {
+      "tag": "#PJ80RJJYY",
+      "name": "Jose Manuel",
+      "role": "member",
+      "joinedAt": "2026-11-17T19:16:39.236Z",
+      "firstSeen": "2026-11-17T19:16:39.236Z",
+      "lastSeen": "2026-11-17T16:20:58.000Z",
+      "trophies": 13253,
+      "donations": 18,
+      "expLevel": 0,
+      "status": "active",
+      "roleHistory": [
+        {
+          "at": "2026-11-17T19:16:39.236Z",
           "to": "member"
         }
       ]
@@ -6136,7 +6155,7 @@
       "clanRepair": 0,
       "complete": false,
       "periodType": "training",
-      "periodIndex": 14,
+      "periodIndex": 15,
       "participants": {
         "#8Y0J8GJP": {
           "name": "stinkFoot",
@@ -6518,6 +6537,13 @@
         },
         "#VPGUYJU08": {
           "name": "Isayuhh12",
+          "fame": 0,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 0
+        },
+        "#PJ80RJJYY": {
+          "name": "Jose Manuel",
           "fame": 0,
           "repairPoints": 0,
           "boatAttacks": 0,
@@ -12503,6 +12529,20 @@
       "at": "2026-11-16T20:37:50.269Z",
       "type": "war-recorded",
       "detail": "War 138-1 finished rank 5"
+    },
+    {
+      "at": "2026-11-17T19:16:40.402Z",
+      "type": "join",
+      "tag": "#PJ80RJJYY",
+      "name": "Jose Manuel",
+      "detail": "Joined as member"
+    },
+    {
+      "at": "2026-11-17T19:16:40.402Z",
+      "type": "leave",
+      "tag": "#92UJGYCC",
+      "name": "Madkiller-",
+      "detail": "Left or was removed (was member)"
     }
   ]
 }

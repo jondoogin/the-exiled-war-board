@@ -3,11 +3,11 @@
   "clan": {
     "tag": "#P2VPUYUU",
     "name": "The Exiled",
-    "members": 35,
+    "members": 34,
     "clanWarTrophies": 3545,
     "description": "We war. We expect 4 attacks every war day. Total 16 per week. Come join and war with us. code: RoyaleAPI"
   },
-  "syncedAt": "2026-11-26T19:45:05.477Z",
+  "syncedAt": "2026-11-27T19:35:12.157Z",
   "members": {
     "#8U0V2Y08P": {
       "tag": "#8U0V2Y08P",
@@ -15,7 +15,7 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T15:00:45.000Z",
+      "lastSeen": "2026-11-27T19:01:00.000Z",
       "trophies": 14000,
       "donations": 8,
       "expLevel": 0,
@@ -38,9 +38,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T19:30:41.000Z",
+      "lastSeen": "2026-11-27T19:34:44.000Z",
       "trophies": 14000,
-      "donations": 380,
+      "donations": 468,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -56,9 +56,9 @@
       "role": "leader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T14:40:42.000Z",
+      "lastSeen": "2026-11-27T18:37:56.000Z",
       "trophies": 14000,
-      "donations": 108,
+      "donations": 142,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -117,7 +117,7 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T19:11:28.000Z",
+      "lastSeen": "2026-11-27T15:18:13.000Z",
       "trophies": 14000,
       "donations": 66,
       "expLevel": 0,
@@ -154,9 +154,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T15:43:31.000Z",
+      "lastSeen": "2026-11-27T15:51:38.000Z",
       "trophies": 14000,
-      "donations": 18,
+      "donations": 26,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -196,9 +196,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T15:05:47.000Z",
+      "lastSeen": "2026-11-27T07:19:23.000Z",
       "trophies": 14000,
-      "donations": 42,
+      "donations": 58,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -330,9 +330,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T18:20:13.000Z",
+      "lastSeen": "2026-11-27T18:44:15.000Z",
       "trophies": 14000,
-      "donations": 296,
+      "donations": 350,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -353,9 +353,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T18:33:38.000Z",
+      "lastSeen": "2026-11-27T13:57:36.000Z",
       "trophies": 14000,
-      "donations": 230,
+      "donations": 266,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -467,9 +467,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T15:19:19.000Z",
+      "lastSeen": "2026-11-27T18:10:04.000Z",
       "trophies": 14000,
-      "donations": 174,
+      "donations": 270,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -523,9 +523,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T16:09:33.000Z",
+      "lastSeen": "2026-11-27T14:08:51.000Z",
       "trophies": 13750,
-      "donations": 204,
+      "donations": 247,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -589,7 +589,7 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-23T01:41:49.000Z",
+      "lastSeen": "2026-11-26T23:24:41.000Z",
       "trophies": 12977,
       "donations": 26,
       "expLevel": 0,
@@ -607,9 +607,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T19:41:44.000Z",
-      "trophies": 13530,
-      "donations": 112,
+      "lastSeen": "2026-11-27T16:57:11.000Z",
+      "trophies": 13563,
+      "donations": 144,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -668,9 +668,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T15:09:21.000Z",
+      "lastSeen": "2026-11-27T13:16:21.000Z",
       "trophies": 13004,
-      "donations": 37,
+      "donations": 63,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -686,9 +686,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T16:32:11.000Z",
-      "trophies": 13108,
-      "donations": 181,
+      "lastSeen": "2026-11-27T18:34:34.000Z",
+      "trophies": 13000,
+      "donations": 243,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -704,9 +704,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T17:31:23.000Z",
+      "lastSeen": "2026-11-27T19:16:08.000Z",
       "trophies": 13136,
-      "donations": 201,
+      "donations": 227,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -722,9 +722,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T13:14:10.000Z",
+      "lastSeen": "2026-11-27T17:49:52.000Z",
       "trophies": 13206,
-      "donations": 320,
+      "donations": 434,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -841,9 +841,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T16:06:41.000Z",
+      "lastSeen": "2026-11-27T07:49:47.000Z",
       "trophies": 12261,
-      "donations": 13,
+      "donations": 24,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -869,9 +869,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-23T06:20:51.000Z",
+      "lastSeen": "2026-11-27T06:01:05.000Z",
       "trophies": 11204,
-      "donations": 24,
+      "donations": 40,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -892,9 +892,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T18:48:57.000Z",
-      "trophies": 11887,
-      "donations": 81,
+      "lastSeen": "2026-11-27T17:49:36.000Z",
+      "trophies": 12000,
+      "donations": 107,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -915,9 +915,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-25T17:46:59.000Z",
+      "lastSeen": "2026-11-27T18:19:57.000Z",
       "trophies": 10883,
-      "donations": 18,
+      "donations": 19,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -938,9 +938,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T18:23:49.000Z",
+      "lastSeen": "2026-11-27T17:13:34.000Z",
       "trophies": 10521,
-      "donations": 18,
+      "donations": 44,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -956,9 +956,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T16:51:00.000Z",
-      "trophies": 12384,
-      "donations": 74,
+      "lastSeen": "2026-11-26T23:37:26.000Z",
+      "trophies": 12356,
+      "donations": 108,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -974,9 +974,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T07:49:05.000Z",
+      "lastSeen": "2026-11-27T16:23:31.000Z",
       "trophies": 10213,
-      "donations": 16,
+      "donations": 24,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -997,8 +997,8 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T14:09:11.000Z",
-      "trophies": 13318,
+      "lastSeen": "2026-11-27T19:16:25.000Z",
+      "trophies": 13381,
       "donations": 10,
       "expLevel": 0,
       "status": "active",
@@ -1015,9 +1015,9 @@
       "role": "coLeader",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-26T17:56:27.000Z",
+      "lastSeen": "2026-11-27T15:56:03.000Z",
       "trophies": 11059,
-      "donations": 158,
+      "donations": 182,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1052,9 +1052,9 @@
       "role": "elder",
       "joinedAt": "2026-09-14T03:56:15.089Z",
       "firstSeen": "2026-09-14T03:56:15.089Z",
-      "lastSeen": "2026-11-25T04:09:22.000Z",
+      "lastSeen": "2026-11-27T07:19:22.000Z",
       "trophies": 3460,
-      "donations": 24,
+      "donations": 32,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1223,7 +1223,7 @@
       "role": "elder",
       "joinedAt": "2026-09-22T15:07:07.491Z",
       "firstSeen": "2026-09-22T15:07:07.491Z",
-      "lastSeen": "2026-11-26T17:11:51.000Z",
+      "lastSeen": "2026-11-27T19:18:59.000Z",
       "trophies": 11828,
       "donations": 0,
       "expLevel": 0,
@@ -1398,13 +1398,14 @@
       "trophies": 10214,
       "donations": 0,
       "expLevel": 0,
-      "status": "active",
+      "status": "departed",
       "roleHistory": [
         {
           "at": "2026-10-05T19:21:46.591Z",
           "to": "member"
         }
-      ]
+      ],
+      "departedAt": "2026-11-27T19:35:12.157Z"
     },
     "#RGY9R82RL": {
       "tag": "#RGY9R82RL",
@@ -1412,9 +1413,9 @@
       "role": "coLeader",
       "joinedAt": "2026-10-30T16:47:10.113Z",
       "firstSeen": "2026-10-09T17:07:56.150Z",
-      "lastSeen": "2026-11-24T13:22:59.000Z",
-      "trophies": 8304,
-      "donations": 18,
+      "lastSeen": "2026-11-27T18:38:45.000Z",
+      "trophies": 8278,
+      "donations": 26,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1469,9 +1470,9 @@
       "role": "coLeader",
       "joinedAt": "2026-10-12T19:57:11.078Z",
       "firstSeen": "2026-10-12T19:57:11.078Z",
-      "lastSeen": "2026-11-26T12:08:25.000Z",
+      "lastSeen": "2026-11-27T12:23:51.000Z",
       "trophies": 14000,
-      "donations": 47,
+      "donations": 79,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1806,9 +1807,9 @@
       "role": "member",
       "joinedAt": "2026-11-17T19:16:39.236Z",
       "firstSeen": "2026-11-17T19:16:39.236Z",
-      "lastSeen": "2026-11-26T05:35:59.000Z",
+      "lastSeen": "2026-11-27T02:56:07.000Z",
       "trophies": 13990,
-      "donations": 108,
+      "donations": 144,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1843,9 +1844,9 @@
       "role": "member",
       "joinedAt": "2026-11-23T22:10:27.158Z",
       "firstSeen": "2026-11-23T22:10:27.158Z",
-      "lastSeen": "2026-11-26T19:21:07.000Z",
-      "trophies": 13400,
-      "donations": 82,
+      "lastSeen": "2026-11-27T03:29:03.000Z",
+      "trophies": 13401,
+      "donations": 92,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1861,9 +1862,9 @@
       "role": "member",
       "joinedAt": "2026-11-25T20:03:18.894Z",
       "firstSeen": "2026-11-25T20:03:18.894Z",
-      "lastSeen": "2026-11-26T19:43:48.000Z",
-      "trophies": 13223,
-      "donations": 90,
+      "lastSeen": "2026-11-27T18:56:05.000Z",
+      "trophies": 13030,
+      "donations": 168,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -1879,7 +1880,7 @@
       "role": "member",
       "joinedAt": "2026-11-26T19:45:05.477Z",
       "firstSeen": "2026-11-26T19:45:05.477Z",
-      "lastSeen": "2026-11-26T18:02:48.000Z",
+      "lastSeen": "2026-11-27T14:07:38.000Z",
       "trophies": 14000,
       "donations": 8,
       "expLevel": 0,
@@ -1897,9 +1898,9 @@
       "role": "member",
       "joinedAt": "2026-11-26T19:45:05.477Z",
       "firstSeen": "2026-11-26T19:45:05.477Z",
-      "lastSeen": "2026-11-26T17:23:00.000Z",
-      "trophies": 9279,
-      "donations": 8,
+      "lastSeen": "2026-11-27T19:18:15.000Z",
+      "trophies": 9519,
+      "donations": 80,
       "expLevel": 0,
       "status": "active",
       "roleHistory": [
@@ -6259,21 +6260,14 @@
       "id": "#P2VPUYUU-current-3",
       "createdDate": "2026-09-14T03:56:15.089Z",
       "rank": null,
-      "clanFame": 0,
+      "clanFame": 723,
       "clanRepair": 0,
       "complete": false,
       "periodType": "warDay",
-      "periodIndex": 24,
+      "periodIndex": 25,
       "participants": {
         "#QVC2YCU": {
           "name": "Drew1969",
-          "fame": 0,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 0
-        },
-        "#P0P80YJ8": {
-          "name": "brandon",
           "fame": 0,
           "repairPoints": 0,
           "boatAttacks": 0,
@@ -6328,13 +6322,6 @@
           "boatAttacks": 0,
           "decksUsed": 0
         },
-        "#9C20U8V9Y": {
-          "name": "WillySquilly",
-          "fame": 0,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 0
-        },
         "#L2VJ0R02V": {
           "name": "Chicken Wing",
           "fame": 0,
@@ -6379,13 +6366,6 @@
         },
         "#VVR8VJL9": {
           "name": "Horizon",
-          "fame": 0,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 0
-        },
-        "#R0LQ2YLG": {
-          "name": "AlonsoGamerYT",
           "fame": 0,
           "repairPoints": 0,
           "boatAttacks": 0,
@@ -6461,29 +6441,8 @@
           "boatAttacks": 0,
           "decksUsed": 0
         },
-        "#8QRYGGQQG": {
-          "name": "nicbracor",
-          "fame": 0,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 0
-        },
-        "#RGY9R82RL": {
-          "name": "OMGUGuysTacos!",
-          "fame": 0,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 0
-        },
         "#U0RC8P2RL": {
           "name": "Calier",
-          "fame": 0,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 0
-        },
-        "#RV9GUGRC": {
-          "name": "poe",
           "fame": 0,
           "repairPoints": 0,
           "boatAttacks": 0,
@@ -6503,22 +6462,8 @@
           "boatAttacks": 0,
           "decksUsed": 0
         },
-        "#VQQ8U0Q22": {
-          "name": "baba900001",
-          "fame": 0,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 0
-        },
         "#8U82RUUV": {
           "name": "Maik",
-          "fame": 0,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 0
-        },
-        "#LRR08L2P8": {
-          "name": "The Slickster",
           "fame": 0,
           "repairPoints": 0,
           "boatAttacks": 0,
@@ -6559,8 +6504,8 @@
           "boatAttacks": 0,
           "decksUsed": 0
         },
-        "#VVQGRVCCL": {
-          "name": "Kenji CR",
+        "#20GYCCJGL0": {
+          "name": "67",
           "fame": 0,
           "repairPoints": 0,
           "boatAttacks": 0,
@@ -6580,51 +6525,23 @@
           "boatAttacks": 0,
           "decksUsed": 0
         },
-        "#2002GU2GPR": {
-          "name": "chsrlesx7",
+        "#VVQGRVCCL": {
+          "name": "Kenji CR",
           "fame": 200,
           "repairPoints": 0,
           "boatAttacks": 0,
           "decksUsed": 2
         },
-        "#2URG2PLL8": {
-          "name": "Gonzo32",
-          "fame": 200,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 2
-        },
-        "#8Y0J8GJP": {
-          "name": "stinkFoot",
-          "fame": 400,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 4
-        },
-        "#9V8GVCY2": {
-          "name": "Ozymandias",
-          "fame": 400,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 4
-        },
-        "#8U0V2Y08P": {
-          "name": "red reaper",
-          "fame": 400,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 4
-        },
-        "#P9YPJ80P": {
-          "name": "Snowwman",
+        "#P0P80YJ8": {
+          "name": "brandon",
           "fame": 500,
           "repairPoints": 0,
           "boatAttacks": 0,
           "decksUsed": 4
         },
-        "#P082PRG0": {
-          "name": "Rip$$$",
-          "fame": 550,
+        "#2URG2PLL8": {
+          "name": "Gonzo32",
+          "fame": 500,
           "repairPoints": 0,
           "boatAttacks": 0,
           "decksUsed": 4
@@ -6643,51 +6560,16 @@
           "boatAttacks": 0,
           "decksUsed": 3
         },
-        "#2228RJJ88": {
-          "name": "Old Gregg",
+        "#8U0V2Y08P": {
+          "name": "red reaper",
           "fame": 600,
           "repairPoints": 0,
           "boatAttacks": 0,
-          "decksUsed": 4
+          "decksUsed": 6
         },
-        "#V8LQRGYPJ": {
-          "name": "chencho20",
+        "#LRR08L2P8": {
+          "name": "The Slickster",
           "fame": 600,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 3
-        },
-        "#2R8Y8RLR2": {
-          "name": "Biggs",
-          "fame": 600,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 4
-        },
-        "#VP9PLJVYY": {
-          "name": "tear70",
-          "fame": 600,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 4
-        },
-        "#28C8U890": {
-          "name": "RevoltinBlob",
-          "fame": 600,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 4
-        },
-        "#Q8JRPQC": {
-          "name": "Beerman",
-          "fame": 600,
-          "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 4
-        },
-        "#YURV9890": {
-          "name": "Ronin13",
-          "fame": 650,
           "repairPoints": 0,
           "boatAttacks": 0,
           "decksUsed": 4
@@ -6699,12 +6581,12 @@
           "boatAttacks": 0,
           "decksUsed": 4
         },
-        "#GJ8G2PCJ": {
-          "name": "Dr Giggle Fight",
-          "fame": 700,
+        "#RV9GUGRC": {
+          "name": "poe",
+          "fame": 750,
           "repairPoints": 0,
-          "boatAttacks": 0,
-          "decksUsed": 4
+          "boatAttacks": 8,
+          "decksUsed": 8
         },
         "#9GRVGYPY": {
           "name": "vinsonius",
@@ -6713,19 +6595,145 @@
           "boatAttacks": 0,
           "decksUsed": 4
         },
-        "#LL8QU8L2": {
-          "name": "Fred",
+        "#V8LQRGYPJ": {
+          "name": "chencho20",
           "fame": 800,
           "repairPoints": 0,
           "boatAttacks": 0,
           "decksUsed": 4
         },
-        "#Y0Q2CUYU": {
-          "name": "Panda",
+        "#9V8GVCY2": {
+          "name": "Ozymandias",
+          "fame": 800,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#9C20U8V9Y": {
+          "name": "WillySquilly",
+          "fame": 800,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 4
+        },
+        "#2002GU2GPR": {
+          "name": "chsrlesx7",
+          "fame": 900,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 6
+        },
+        "#VQQ8U0Q22": {
+          "name": "baba900001",
           "fame": 900,
           "repairPoints": 0,
           "boatAttacks": 0,
           "decksUsed": 4
+        },
+        "#8Y0J8GJP": {
+          "name": "stinkFoot",
+          "fame": 950,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#2R8Y8RLR2": {
+          "name": "Biggs",
+          "fame": 1100,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#RGY9R82RL": {
+          "name": "OMGUGuysTacos!",
+          "fame": 1100,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#P9YPJ80P": {
+          "name": "Snowwman",
+          "fame": 1150,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#YURV9890": {
+          "name": "Ronin13",
+          "fame": 1200,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#Q8JRPQC": {
+          "name": "Beerman",
+          "fame": 1200,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#P082PRG0": {
+          "name": "Rip$$$",
+          "fame": 1250,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#28C8U890": {
+          "name": "RevoltinBlob",
+          "fame": 1250,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#2228RJJ88": {
+          "name": "Old Gregg",
+          "fame": 1300,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#VP9PLJVYY": {
+          "name": "tear70",
+          "fame": 1300,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#R0LQ2YLG": {
+          "name": "AlonsoGamerYT",
+          "fame": 1300,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#8QRYGGQQG": {
+          "name": "nicbracor",
+          "fame": 1350,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#GJ8G2PCJ": {
+          "name": "Dr Giggle Fight",
+          "fame": 1400,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#LL8QU8L2": {
+          "name": "Fred",
+          "fame": 1500,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
+        },
+        "#Y0Q2CUYU": {
+          "name": "Panda",
+          "fame": 1700,
+          "repairPoints": 0,
+          "boatAttacks": 0,
+          "decksUsed": 8
         }
       }
     },
@@ -13271,6 +13279,13 @@
       "tag": "#2URG2PLL8",
       "name": "Gonzo32",
       "detail": "Joined as member"
+    },
+    {
+      "at": "2026-11-27T19:35:12.916Z",
+      "type": "leave",
+      "tag": "#VVQGRVCCL",
+      "name": "Kenji CR",
+      "detail": "Left or was removed (was member)"
     }
   ]
 }
